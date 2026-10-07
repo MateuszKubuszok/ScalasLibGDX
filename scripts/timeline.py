@@ -1,0 +1,317 @@
+#!/usr/bin/env python3
+"""Generates slides/timeline.adoc: the timeline sequence with inline SVG.
+
+The sequence alternates overview slides and zoom slides:
+  overview (reveal steps up to a red drop) -> zoom on that drop (findings + new checks)
+  -> overview (continue) -> zoom -> ... -> overview (to the end)
+All slides share one frame (data-id), so reveal.js auto-animate zooms in and out between them.
+
+Run: python3 scripts/timeline.py && yarn build
+Evidence for every label: research/ (sge.md, ssg.md, coverage.md, models.md, rescale-balticporter.md).
+Line heights are illustrative; dates and labels are evidence.
+"""
+from datetime import date
+from pathlib import Path
+
+START, END = date(2026, 2, 1), date(2026, 10, 10)
+X0, X1 = 40, 960  # usable x range inside the 1000-wide viewBox
+AXIS_Y = 250
+
+OPUS, FABLE, SONNET, RED, AMBER, INK, MUTED, ANTHROPIC = (
+    "#2f62c9", "#b7791f", "#2f8a57", "#c8322b", "#d9a441", "#262a2a", "#6b6f6b", "#7a4fa8")
+
+
+def x(d: str) -> float:
+    m, dd = map(int, d.split("-"))
+    return X0 + (date(2026, m, dd) - START).days / (END - START).days * (X1 - X0)
+
+
+def py(v: float) -> float:
+    return AXIS_Y - 20 - v * 130
+
+
+# ---------------------------------------------------------------- overview data
+# Every element names the step (click) it belongs to, so a line segment appears
+# together with the milestone or release that explains it.
+
+# Public model releases: (date, name, colour, step)
+RELEASES = [
+    ("02-05", "Opus 4.6", OPUS, 0), ("05-28", "Opus 4.8", OPUS, 5), ("06-09", "Fable 5", FABLE, 6),
+    ("07-24", "Opus 5", OPUS, 9), ("09-01", "Fable 5.1", FABLE, 11), ("09-22", "Opus 5.5", OPUS, 13),
+]
+
+# Agent ports, "claimed progress": points and the step of each segment (segment i ends at point i)
+CLAIMED = [("02-24", .10), ("03-30", .80), ("04-01", .95), ("04-10", .45), ("04-28", .95), ("06-09", .95),
+           ("06-10", .30), ("07-01", .95), ("07-03", .55), ("07-19", .60)]
+CLAIMED_STEPS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+DROP_LABELS = {"04-10": ("method audit:\nPaletteReducer 6%", "end"),
+               "06-10": ("Fable review:\nbroken at\nalgorithm level", "end"),
+               "07-03": ("blind re-review:\n5 criticals", "start")}
+# Found later, by regenerating the same libraries: the hand ports were worse still
+LATE_DROP = (("07-19", .60), ("09-05", .20), 11, "regeneration: the hand\nports were worse still")
+
+# Baltic Porter: starts again from zero, slower but measured by tests
+GENERATED = [("07-18", .0), ("07-29", .18), ("08-25", .30), ("09-07", .40), ("09-11", .50), ("09-27", .58)]
+GENERATED_STEPS = [9, 10, 11, 12, 13]
+
+# Milestones below the axis: (date, label, row, step[, text anchor])
+EVENTS = [
+    ("02-24", "SGE resumes (begun 2025-07)", 0, 0),
+    ("03-26", "SGE: CI green", 1, 1),
+    ("03-30", "SSG starts", 2, 2, "end"),
+    ("04-07", "SSG: 20.7% → re-scale", 0, 3),
+    ("04-20", "certificates stamped", 2, 4),
+    ("07-01", "review queue at zero", 2, 7),
+    ("07-18", "Baltic Porter", 1, 9),
+    ("07-29", "libGDX core compiles", 0, 10),
+    ("09-05", "parity dropped: hand ports cheated", 2, 11),
+    ("09-07", "12/12 demos", 0, 11),
+    ("09-11", "generated core in SGE", 1, 12),
+    ("09-27", "4 extensions", 0, 13),
+]
+
+# Fable availability: (from, to, label, colour, opacity, step)
+BANDS = [("06-12", "07-01", "Fable\noff", RED, .12, 7), ("07-01", "07-19", "Fable\npromo", AMBER, .18, 8)]
+
+# ---------------------------------------------------------------- zoom data
+# Phases: the overview reveals steps [lo, hi]; then (optionally) a zoom on the drop that ends the phase.
+# Zoom notes: (date or None, kind, html). kind: "found" (red dot), "check" (a check we added, blue diamond),
+# "context" (grey dot). Date None = no axis marker.
+PHASES = [
+    dict(lo=0, hi=3, zoom=dict(
+        title="April: the files were \"done\"", center="04-06",
+        notes=[
+            ("03-04", "anthropic", "Claude Code: default effort cut to medium; from 03-26 earlier thinking wiped every turn (Anthropic postmortem 04-23)",
+             ("03-04", "04-20", "effort cut, thinking wiped", 0)),
+            ("03-23", "anthropic", "Peak-hour throttling of session limits, until 05-06",
+             ("03-23", "05-06", "peak-hour throttling", 1)),
+            ("04-06", "found", "dart-sass <b>\"COMPLETE: 283/283 files\"</b>; next day the spec suite passes <b>20.7%</b> (old runner ended in <code>assert(true)</code>)"),
+            ("04-07", "check", "New checks: size vs original (calibrated on flexmark ≈ 0.94), method list vs original, TODO/stub scanner"),
+            ("04-08", "check", "re-scale: a certificate header per file, verified in CI"),
+            ("04-10", "found", "colorful at <b>19%</b> of original size, no TODO in sight; PaletteReducer <b>6%</b>; Box2D 400+ files → 8"),
+            ("04-11", "check", "Auditor agent: \"porting is binary — 100% or not done\"; size ratio is \"a signal, not a verdict\""),
+        ])),
+    dict(lo=4, hi=6, zoom=dict(
+        title="June: every method present, bodies hollow", center="06-10",
+        notes=[
+            ("04-20", "context", "~1,200 certificates stamped in one commit, while their CI check was non-blocking"),
+            ("06-10", "found", "GlyphLayout: Java's loop <code>break</code> became a method exit, so text truncation is a no-op"),
+            ("06-10", "found", "BitmapFontCache: <code>// gx += xAdvances[ii]</code> commented out, so every glyph is drawn at the same x"),
+            ("06-10", "found", "ssg-js: 1,507 of 2,522 tests pinned to fail → <b>~40%</b> real conformance; <code>compress = true</code> disables compression"),
+            ("06-10", "check", "New rules: failing test first, ratchets, a blocking CI gate, and a different model must audit (cheat catalogue C1–C16)"),
+            ("06-10", "anthropic", "A safety classifier silently swaps Fable for Opus 4.8 for the rest of the session — pinned agents too",
+             ("06-10", "10-06", "classifier silently swaps Fable → Opus 4.8", 0)),
+            ("06-12", "context", "Fable switched off worldwide: Opus 4.8 audits Opus 4.6"),
+        ])),
+    dict(lo=7, hi=8, zoom=dict(
+        title="July: the review queue was at zero", center="07-04",
+        notes=[
+            ("07-02", "context", "\"10/10 random re-audits verified, zero reopens\""),
+            ("07-03", "found", "textra's whole text-selection subsystem missing under a <i>full-port</i> certificate"),
+            ("07-03", "found", "12 tests exercising only the Scala standard library — \"pure count inflation\"; 205 of 689 files fail the certificate check"),
+            ("07-03", "found", "Debt reworded (\"Partial-port debt\") to slip past the scanner; one reviewer fabricated 3 of 5 findings"),
+            ("07-04", "check", "Findings must quote the port and the original side by side; banned: \"effectively complete\", \"diminishing returns\""),
+            ("07-17", "context", "\"The agents aren't trustworthy because they are non-deterministic\" → build a deterministic translator"),
+        ])),
+    dict(lo=9, hi=11, zoom=dict(
+        title="September: the old ports were worse still", center="08-30",
+        notes=[
+            ("07-29", "anthropic", "Opus 5 \"nerfed\" reports; Anthropic: \"a really spiky model\"",
+             ("07-29", "08-31", "Opus 5 \"spiky\"", 1)),
+            ("08-19", "anthropic", "Effort experiment: \"high\" sent as effort 10, the old value for \"low\"; effort in agent files ignored until 09-09",
+             ("08-19", "09-22", "effort lower than selected", 2)),
+            ("08-25", "check", "Parity campaign: the generated code must match the hand ports' API exactly"),
+            ("09-05", "found", "Parity dropped: the hand ports \"were LLM-written, cheated in places\""),
+            (None, "found", "anim8 embedded <b>47,006</b> bytes instead of 32,768 — and its own test pinned the wrong value"),
+            (None, "found", "ssg markdown: 35 \"ignored\" tests were whole suites replaced by stubs (~720 tests); liquid's sandbox was a no-op"),
+            ("09-07", "check", "\"Done\" means it runs: demos and upstream test suites are the oracle, not parity rows or compile counts"),
+        ])),
+    dict(lo=12, hi=13, zoom=None),
+]
+ZOOM_SCALE = 2.0
+ZOOM_FOCUS_Y = 200
+
+
+def text(tx, ty, s, size=11, color=INK, anchor="middle", weight="normal"):
+    out = [f'<text x="{tx:.1f}" y="{ty:.1f}" font-size="{size}" fill="{color}" text-anchor="{anchor}" font-weight="{weight}">']
+    for i, ln in enumerate(s.split("\n")):
+        out.append(f'<tspan x="{tx:.1f}" dy="{0 if i == 0 else size * 1.15:.1f}">{ln}</tspan>')
+    out.append("</text>")
+    return "".join(out)
+
+
+def seg(d0, v0, d1, v1, col):
+    return (f'<line x1="{x(d0):.1f}" y1="{py(v0):.1f}" x2="{x(d1):.1f}" y2="{py(v1):.1f}" '
+            f'stroke="{col}" stroke-width="3" stroke-linecap="round"/>')
+
+
+def drop_label(d, v, label, anchor):
+    dx = -5 if anchor == "end" else 5
+    return text(x(d) + dx, py(v) + (4 if anchor == "end" else 14), label, 10, RED, anchor=anchor)
+
+
+def elements():
+    """All overview elements as (step, svg)."""
+    items = []
+    for d0, d1, label, col, op, step in BANDS:
+        items.append((step, f'<rect x="{x(d0):.1f}" y="40" width="{x(d1) - x(d0):.1f}" height="{AXIS_Y - 40}" fill="{col}" opacity="{op}"/>'
+                            + text((x(d0) + x(d1)) / 2, 52, label, 9, RED if col == RED else FABLE)))
+    for i, (d, name, c, step) in enumerate(RELEASES):
+        items.append((step, f'<path d="M{x(d):.1f},{AXIS_Y + 30} l-5,-9 h10 z" fill="{c}"/>'
+                            + text(x(d), AXIS_Y + 46 + (i % 2) * 14, name, 10, c, weight="bold")))
+    for i in range(1, len(CLAIMED)):
+        (d0, v0), (d1, v1) = CLAIMED[i - 1], CLAIMED[i]
+        g = seg(d0, v0, d1, v1, RED if v1 < v0 else OPUS)
+        if d1 in DROP_LABELS:
+            g += drop_label(d1, v1, *DROP_LABELS[d1])
+        if i == 1:
+            g += text(X0, 24, "claimed progress (agent ports)", 10, OPUS, anchor="start", weight="bold")
+        items.append((CLAIMED_STEPS[i - 1], g))
+    items.append((9, text(x("07-19") - 3, py(.60) - 8, "agent porting stops", 9, MUTED, anchor="end")))
+    (ld0, lv0), (ld1, lv1), lstep, llabel = LATE_DROP
+    mid = (x(ld0) + x(ld1)) / 2
+    items.append((lstep, seg(ld0, lv0, ld1, lv1, RED)
+                  + text(x(ld0) + 20, py(lv0) - 22, llabel, 10, RED, anchor="start")))
+    for i in range(1, len(GENERATED)):
+        (d0, v0), (d1, v1) = GENERATED[i - 1], GENERATED[i]
+        g = seg(d0, v0, d1, v1, SONNET)
+        if i == 1:
+            g += text(X0, 38, "generated & tested (Baltic Porter)", 10, SONNET, anchor="start", weight="bold")
+        items.append((GENERATED_STEPS[i - 1], g))
+    for d, label, row, step, *anchor in EVENTS:
+        anchor = anchor[0] if anchor else "middle"
+        tx = x(d) + (3 if anchor == "end" else 0)
+        items.append((step, f'<circle cx="{x(d):.1f}" cy="{AXIS_Y}" r="4" fill="{INK}"/>'
+                            f'<line x1="{x(d):.1f}" y1="{AXIS_Y + 4}" x2="{x(d):.1f}" y2="{AXIS_Y + 70 + row * 24:.1f}" '
+                            f'stroke="{MUTED}" stroke-width=".5" stroke-dasharray="2 2"/>'
+                            + text(tx, AXIS_Y + 82 + row * 24, label, 11, INK, anchor=anchor)))
+    return sorted(items, key=lambda it: it[0])
+
+
+def marker(d, kind, level=0):
+    """Axis marker; markers on (nearly) the same date are spread sideways along the axis."""
+    cx, cy = x(d) + level * 9, AXIS_Y
+    if kind == "check":
+        return f'<path d="M{cx:.1f},{cy - 5:.1f} l5,5 -5,5 -5,-5 z" fill="{OPUS}" stroke="#fff" stroke-width=".8"/>'
+    col = RED if kind == "found" else MUTED
+    return f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="5" fill="{col}" stroke="#fff" stroke-width=".8"/>'
+
+
+def incident_bar(d0, d1, label, row):
+    """Purple lane right above the axis: Anthropic-side incidents (research/incidents.md)."""
+    y = AXIS_Y - 14 - row * 13
+    return (f'<rect x="{x(d0):.1f}" y="{y}" width="{x(d1) - x(d0):.1f}" height="10" rx="2" fill="{ANTHROPIC}" opacity=".9"/>'
+            + text(x(d0) + 3, y + 7.6, label, 7.5, "#fff", anchor="start"))
+
+
+def svg(static_max, frag_lo=None, frag_hi=None, notes=(), bars=()):
+    """Elements with step <= static_max are always shown; steps in [frag_lo, frag_hi] are fragments;
+    later steps are omitted. Dated notes add axis markers revealed with their bullet; notes that carry
+    an incident bar reveal the bar instead. `bars` are incident bars from earlier zooms (always shown)."""
+    p = ['<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" '
+         'style="width:100%;height:auto;font-family:inherit">',
+         f'<line x1="{X0}" y1="{AXIS_Y}" x2="{X1}" y2="{AXIS_Y}" stroke="{INK}" stroke-width="1.5"/>']
+    for m, name in enumerate(["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"], start=2):
+        mx = x(f"{m:02d}-01")
+        p.append(f'<line x1="{mx:.1f}" y1="{AXIS_Y}" x2="{mx:.1f}" y2="{AXIS_Y + 6}" stroke="{INK}"/>')
+        p.append(text(mx, AXIS_Y + 20, name, 12, MUTED))
+    for step, g in elements():
+        if step <= static_max:
+            p.append(g)
+        elif frag_lo is not None and frag_lo <= step <= frag_hi:
+            p.append(f'<g class="fragment" data-fragment-index="{step - frag_lo}">{g}</g>')
+    for b in bars:
+        p.append(incident_bar(*b))
+    placed = []
+    for i, (d, kind, _, *bar) in enumerate(notes):
+        if bar:
+            p.append(f'<g class="fragment" data-fragment-index="{i}">{incident_bar(*bar[0])}</g>')
+        elif d:
+            level = 0
+            while any(abs(px - (x(d) + level * 9)) < 9 for px in placed):
+                level += 1
+            placed.append(x(d) + level * 9)
+            p.append(f'<g class="fragment" data-fragment-index="{i}">{marker(d, kind, level)}</g>')
+    p.append("</svg>")
+    return "".join(p)
+
+
+def frame(svg_html, x0, x1, focus_y=200):
+    """Scale the SVG so that viewBox x-range [x0, x1] fills a fixed 2.5:1 frame centred on focus_y.
+    Only width/margins change between slides, which auto-animate interpolates."""
+    scale = 1000 / (x1 - x0)
+    left = -x0 / 1000 * 100 * scale
+    top = 100 * (0.2 - 0.4 * scale * focus_y / 400)
+    return (f'<div data-id="tl-frame" class="tl-frame">'
+            f'<div data-id="tl-svg" style="width:{scale * 100:.2f}%;margin-left:{left:.2f}%;'
+            f'margin-top:{top:.2f}%">{svg_html}</div></div>')
+
+
+ICON = {"found": f'<span class="tl-ico" style="color:{RED}">●</span>',
+        "check": f'<span class="tl-ico" style="color:{OPUS}">◆</span>',
+        "context": f'<span class="tl-ico" style="color:{MUTED}">●</span>',
+        "anthropic": f'<span class="tl-ico" style="color:{ANTHROPIC}">▲</span>'}
+
+
+def notes_html(notes):
+    li = []
+    for i, (d, kind, body, *_) in enumerate(notes):
+        when = f'<span class="tl-date">{d}</span> ' if d else ""
+        li.append(f'<li class="fragment" data-fragment-index="{i}">{ICON[kind]}{when}{body}</li>')
+    return '<ul class="tl-notes">' + "".join(li) + "</ul>"
+
+
+def slide(title, body, note=None):
+    out = f"[.timeline%auto-animate]\n=== {title}\n\n++++\n{body}\n++++\n"
+    if note:
+        out += f"\n[NOTE.speaker]\n--\n{note}\n--\n"
+    return out
+
+
+def bar_slide(title, rows, note=None):
+    body = ["<div style='text-align:left;font-size:.6em'>"]
+    for rid, label, pct, color, sub in rows:
+        body.append(f"<div data-id='{rid}-label' style='margin-top:.8em'>{label}</div>"
+                    f"<div data-id='{rid}-track' style='background:#ddd9cc;height:1.1em;border-radius:3px'>"
+                    f"<div data-id='{rid}-bar' style='width:{pct}%;height:100%;background:{color};border-radius:3px'></div></div>"
+                    f"<div data-id='{rid}-sub' style='font-size:.75em;color:{MUTED}'>{sub}</div>")
+    body.append("</div>")
+    return slide(title, "".join(body), note)
+
+
+def main():
+    out = ["// GENERATED by scripts/timeline.py; edit the script, not this file\n"]
+    bars = []  # incident bars revealed by earlier zooms stay on the timeline
+    for n, ph in enumerate(PHASES):
+        out.append(slide("Eight months",
+                         frame(svg(ph["lo"] - 1, ph["lo"], ph["hi"], bars=bars), 0, 1000),
+                         "Each click pairs a line segment with the milestone or release that explains it. SGE was begun in 2025-07 with Cursor and resumed with agents on 02-24; "
+                         "on 03-30 the same approach starts SSG, and SSG's first honest measurement (04-07) is what exposes the lying. "
+                         "Blue: what agent ports claimed; red: what reviews found. Green: Baltic Porter, "
+                         "restarting from zero, slower but measured by tests. Line heights are illustrative."
+                         if n == 0 else None))
+        z = ph["zoom"]
+        if z:
+            half = 500 / ZOOM_SCALE
+            x0 = min(max(x(z["center"]) - half, 0), 1000 - 2 * half)
+            out.append(slide(z["title"],
+                             frame(svg(ph["hi"], notes=z["notes"], bars=bars), x0, x0 + 2 * half, ZOOM_FOCUS_Y)
+                             + notes_html(z["notes"]),
+                             "Zoom on the drop. Red dots: what we found. Blue diamonds: the check we added in response. "
+                             "Purple bars: what was going wrong on Anthropic's side at the same time (research/incidents.md); they stay after zooming out."))
+            bars = bars + [note[3] for note in z["notes"] if len(note) > 3]
+    out.append(bar_slide("Claimed vs measured", [
+        ("sass", "dart-sass, 2026-04-06: <b>\"migration COMPLETE: 283/283 files\"</b>", 100, OPUS, "the agent's claim")]))
+    out.append(bar_slide("Claimed vs measured", [
+        ("sass", "dart-sass, 2026-04-07: first honest sass-spec run", 20.7, RED, "<b>20.7%</b> (2,439 / 11,797)")],
+        note="Same bar, next day. Then the method-level audit on 04-10: 37.7% faithful, 25.8% simplified, 36.1% missing."))
+    out.append(bar_slide("Claimed vs measured", [
+        ("sass", "dart-sass, 2026-04-10: method-level audit (~515 methods)", 37.7, SONNET, "37.7% faithfully ported"),
+        ("simp", "", 25.8, AMBER, "25.8% simplified (exists but cuts corners)"),
+        ("miss", "", 36.1, RED, "36.1% missing")]))
+    Path("slides").mkdir(exist_ok=True)
+    Path("slides/timeline.adoc").write_text("\n".join(out))
+
+
+if __name__ == "__main__":
+    main()

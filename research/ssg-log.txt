@@ -1,0 +1,987 @@
+9e4d7afd 2026-03-30 Initial commit
+a9ee5367 2026-03-30 Port flexmark-java 0.64.8 to Scala 3 — 1617/1617 tests passing
+5d775054 2026-04-01 Code quality cleanup, documentation, and license compliance
+9f2ac905 2026-04-01 Make ssg-md cross-platform (JS/Native) — 1645/1645 tests passing on all 3 platforms
+3a659c10 2026-04-04 Port liqp 0.9.2 to Scala 3 — Liquid template engine for ssg-liquid
+efd172eb 2026-04-04 Add ssg-liquid test suite — 280/280 tests passing on all 3 platforms
+32e53fb4 2026-04-04 Scalafmt on ssg-md sources
+0600be93 2026-04-04 Add LICENSE, README, CI, audit, and test suite — 280/280 on all platforms
+53a0bc12 2026-04-05 Port jekyll-minifier to ssg-minify — 113/113 tests on all 3 platforms
+b32f44cd 2026-04-05 Port Terser to ssg-js — JavaScript compiler/minifier, 116/116 tests on all platforms
+91162d46 2026-04-05 Wire ssg-js into ssg-minify via TerserJsCompressorAdapter
+2e63d942 2026-04-08 ssg-sass: skeleton port, MVP pipeline, language features, environment, anti-cheat tooling, T001-T007 module ports (->5053)
+0874d855 2026-04-10 ssg-sass: re-scale migration, CI, sass-spec runner, B002/B003/B004/B008/B009/B010, T008 ExtensionStore (5053->5551)
+ba0192f4 2026-04-10 ssg-sass: B001/B011/B014/B015/B017/B019/B022/B023 -- escape handling, placeholders, selectors, @import parsing (5551->5772)
+67e167dd 2026-04-11 ssg-sass: recursive-descent expression parser -- atoms, arguments, interpolation, stall detectors, special functions (5772->6014)
+30ff880a 2026-04-11 chore: scalac -no-indent brace enforcement + track .rescale configs
+e9fc5cab 2026-04-11 ssg-sass: color serialization overhaul -- visitColor, change/adjust/scale, color module registration, HRX improvements (6014->8940)
+accb3f16 2026-04-12 ssg-sass: extend algorithm, CSS if(), modern color syntax, calc-size, deprecation framework, MetaFunctions (8940->9136)
+8567315e 2026-04-14 ssg-sass: slash-div deprecation with _operandAllowsSlash + remove erroneously committed file (9136->9140)
+f09a98bc 2026-07-01 Absorb master into sass-port: re-scale db merge for issues/audit/skip-policy (linearized from merge commit aeff0800; identical tree; full pre-rewrite history at archive/more-improvements-2-pre-linearize)
+597b2ce2 2026-04-14 ssg-sass: ssg-commons Nullable/FileOps/FilePath, removeExponent fix, CSS identifier passthrough, calc validation (9140->9544)
+0e4a224c 2026-04-17 ssg-sass: slash-number serialization, namespace selectors, isGroupEnd, loud comments, keyframe keywords, @while (9544->10715)
+f1c4f54f 2026-04-17 ssg-sass: color function passthrough, none channels, modern format, channelNumber scaling, legacyMissing, unicode range (10715->11409)
+dcd7fbda 2026-04-17 ssg-sass: hueOf angle units, CssAtRule, CSS filter overloads, @for direction, An+B normalization, @font-face bubbling (11409->11501)
+833714fd 2026-04-18 ssg-sass: audit Waves 1-9 -- value/AST, stub visitors, functions, parser, expression rewrite, evaluator infra, SerializeVisitor (11501->11661)
+1e43e152 2026-04-18 ssg-sass: SassParser state-machine rewrite, input.sass tests, module infrastructure, eliminate 96 shortcuts (11661->11764)
+0e1773f9 2026-04-19 ssg-sass: HRX .sass syntax, module CSS dedup, validation/interpolation, baseline 12398 (11764->12398)
+f0849635 2026-04-19 ssg-sass: evaluator fixes, @supports parser, import resolution, @at-root ampersand, ie-hex-str (12398->12635)
+d95ffdb6 2026-04-19 ssg-sass: error validation -- type checks, namespace, @import control, blank-line heuristic, baseline 12766 (12635->12766)
+e40bd58e 2026-04-20 ssg-sass: parse/output compliance -- comments, import modifiers, .sass import, @content scoping, identifier normalization (12766->12971)
+e1d0ba0a 2026-04-20 ssg-sass: parent selector interpolation, CssParser validation, CSS nesting, unifyUniversalAndElement, NestWithinSuite tests (12971->13075)
+b06f9036 2026-04-24 ssg-sass: _execute/_combineCss architecture, LinkedHashMap ordering, media range validation, shortcut markers (13075->13337)
+9e1d5641 2026-04-24 ssg-sass: coordinated phases 1-7 -- _visitDynamicImport, NaN/Infinity, pure AST selectors, audit batches, baseline 13587 (13337->13587)
+e6456c79 2026-04-25 ssg-sass: root-cause fixes, $channels overloads, NativeMath.pow/sin/cos FFI, PublicMemberMapView, IEEE 754 precision (13587->13865)
+358ef7d2 2026-04-26 ci: add ssg-sass tests, fix scalafmt, add covenant headers + skip-policy reasons
+7e1f35ba 2026-04-26 fix: update 7 pre-existing test expectations to match dart-sass behavior
+4a1179b6 2026-04-26 fix: replace JVM-only WeakHashMap and String.codePoints with cross-platform alternatives
+85f2f16b 2026-04-26 fix: scalafmt on SassException after codePoints replacement
+10887adc 2026-04-26 ci: add covenant headers to all 964 remaining source files across ssg-md, ssg-liquid, ssg-minify, ssg-js, ssg-commons
+ac21ea85 2026-04-26 ci: add skip-policy entries for legitimate shortcuts in ssg-md, ssg-js, ssg-liquid
+c70dafa1 2026-04-26 docs: update README with ssg-sass module status and re-scale CLI references
+91e64637 2026-04-29 ci: add upstream-commit tracking and fix production gaps
+f83a086f 2026-04-29 test(ssg-md): port 4,214 tests from flexmark-java — 5,889 total
+09c618cd 2026-04-29 test(ssg-liquid): port 484 tests from liqp — 863 total
+f366a159 2026-04-29 test(ssg-js): port 2,402 tests from Terser — 2,518 total
+28ef6e54 2026-04-29 docs: update audit findings, README, and issue database
+d1d0facd 2026-04-29 fix: CI failures — stack depth + unicode string literals
+415a7104 2026-04-30 fix: cross-platform CI — move JVM-only tests, fix production code
+33802b65 2026-05-01 ci: multi-platform testing, Zulu 25, align enforce naming with SGE
+2eafe574 2026-05-01 fix: force LF line endings for Windows CI compatibility
+1d6756e0 2026-05-01 fix: sass FilesystemImporter Windows path handling
+0e95802f 2026-05-01 ci: add scoverage coverage measurement and Codecov upload
+988dcfd3 2026-05-01 fix: increase SegmentSuite timeout for coverage instrumentation overhead
+a40ed056 2026-05-05 feat: add ssg-highlight module — tree-sitter syntax highlighting (73 grammars)
+4b1b5060 2026-05-06 fix: simplify nativeConfig per multiarch-scala guide, fix CI for JS/Native
+80537015 2026-05-07 docs: clean up stale documentation, add ssg-highlight/ssg-commons
+6534b7fd 2026-05-07 fix(ssg-sass): session 1-3 — point fixes, audit-driven fixes, port-auditor findings
+ed71f03c 2026-05-07 fix(ssg-sass): Phase A point fixes — resolve 12 issues across 10 files
+4dc62ec5 2026-05-07 fix(ssg-sass): Phase B — MetaFunctions, Callable overloads, SelectorFunctions
+cecbfa06 2026-05-08 fix(ssg-sass): delete text-based expression parser, dead code removal
+ae42a789 2026-05-08 fix(ssg-sass): source maps, NodePackageImporter exports, final resolutions
+acd23f47 2026-05-09 fix(ssg-sass): faithful port of final audit gaps (ISS-929–934)
+d265e578 2026-05-09 Bump sbt-multiarch-scala and multiarch-core to snapshot
+9d8b1be0 2026-05-09 Fix snapshot version: drop 1.0- prefix
+8aca4b31 2026-05-09 Bump multiarch-scala from snapshot to 0.2.0 release
+12137792 2026-05-09 feat(ssg-katex): port KaTeX v0.16.45 math typesetting engine to Scala 3
+dc088fa1 2026-05-10 feat(ssg-mermaid): port Mermaid v11.0.0 diagramming engine to Scala 3
+b96ecdc2 2026-05-11 feat(ssg-graphviz): add Graphviz DOT renderer with shared graph infrastructure
+1519b695 2026-05-11 fix(ssg-graphviz): rename section comment to avoid shortcut marker false positive
+a336b380 2026-05-11 style(ssg-graphviz, ssg-graphs-commons): apply scalafmt formatting
+e4c05f85 2026-05-14 feat(ssg-data-commons, ssg-liquid): add DataView type system with Hearth macro derivation
+c1175968 2026-05-14 refactor(ssg-liquid, ssg-data-commons): replace Any with DataView across entire Liquid pipeline
+d1b6cd37 2026-05-14 chore(ssg-liquid): remove reflection infrastructure and dead code
+45e5494b 2026-05-16 Migrate Nullable from ssg-commons/ssg-liquid to lls (lowlevel.Nullable)
+67b12c83 2026-05-17 Replace manual plugin setup with sbt-kubuszok
+e4156ab2 2026-05-19 Remove all compiler warnings and enable strict -Werror without deprecation demotion
+4bfe1d2f 2026-05-22 Refactor build to use sbt-kubuszok 0.2.0 conventions
+46fbfb47 2026-05-22 Update CI for sbt-kubuszok aliases, add release workflow
+a50f5f41 2026-05-22 Run scalafmtAll on files now checked via root project aggregation
+7f85a539 2026-06-02 Update scalafmt-core to 3.11.1
+2a92ac3c 2026-06-02 Reformat with scalafmt 3.11.1
+a276cdfc 2026-06-02 Add 'Reformat with scalafmt 3.11.1' to .git-blame-ignore-revs
+396b9ff4 2026-06-02 Update munit-scalacheck to 1.3.0
+eb4cea3a 2026-06-02 Update hearth, hearth-cross-quotes to 0.3.0-38-g7b2e98e-SNAPSHOT
+bb32173a 2026-06-04 Update developer website URL to kubuszok.com
+7281fd1d 2026-06-04 Update sbt-kubuszok to 0.2.1
+715db0e6 2026-06-04 Update hearth, hearth-cross-quotes to 0.3.0-49-g68e1781-SNAPSHOT
+d611abb2 2026-06-04 Update munit to 1.2.4
+8c919fa3 2026-06-06 Update scala3-library, ... to 3.8.4
+568db387 2026-06-06 Update munit to 1.3.2
+1cd2022d 2026-06-08 Add dependabot.yml for GitHub Actions updates
+a2d07cdb 2026-06-08 chore(deps): bump actions/setup-node from 4 to 6
+275ac871 2026-06-08 chore(deps): bump actions/setup-java from 4 to 5
+070c356e 2026-06-08 chore(deps): bump actions/checkout from 4 to 6
+5d8cd4b8 2026-06-08 chore(deps): bump codecov/codecov-action from 5 to 7
+73e5b285 2026-06-10 Update munit to 1.3.3
+fb90bd34 2026-06-14 Update scala-java-time, ... to 2.7.0
+806c31b9 2026-06-14 Update sbt-scalafix to 0.14.7
+5ecb7ff2 2026-06-22 chore(deps): bump actions/checkout from 6 to 7
+19ddde11 2026-06-10 campaign: R0610 remediation infrastructure — plan, skills, ratchet baseline, 139 issues (ISS-977..ISS-1115), review reports
+ee016b35 2026-06-10 ssg-commons: implement Native FileOps via java.nio.file (ISS-977)
+5a8ded3d 2026-06-10 campaign: iteration 1 bookkeeping — ISS-977 resolved, ratchet 173->172, ISS-1116/1117 filed, baseline glob-quoting + swallow-count correction (ISS-1117 pending user sign-off)
+15895075 2026-06-10 ssg-md: embed JS runtime resources at build time (ISS-979)
+63886faf 2026-06-10 campaign: iteration 2 bookkeeping — ISS-979 resolved, ISS-1118 filed
+92f9bb9e 2026-06-10 campaign: iteration 3 DB bookkeeping — ISS-1120/1121/1122 filed, ISS-1119 superseded (ISS-1054 design awaiting user sign-off on branch)
+9da69220 2026-06-10 campaign: iteration 3 progress log — ISS-1054 design audited PASS, parked awaiting user
+977572f7 2026-06-10 ssg-commons: implement JS FileOps via Node fs (ISS-978)
+7791c9f8 2026-06-10 campaign: iteration 4 bookkeeping — ISS-978 resolved, ISS-1123 filed, ratchet 172->171
+ce4e773e 2026-06-10 ssg-commons: add FileOps directory APIs — list, walkTree, createDirectories, copy, deleteRecursively (ISS-1121)
+9ac85a86 2026-06-10 campaign: iteration 5 bookkeeping — ISS-1121 resolved, ISS-1124 filed
+7e0cfd2f 2026-06-10 docs: refresh FileOps platform-support claims after ISS-977/978/1121 (ISS-1116)
+7d9ea57e 2026-06-10 campaign: iteration 6 bookkeeping — ISS-1116 resolved, ISS-1125 filed, ratchet 171->170
+88c71dcc 2026-06-10 ssg-commons: single-stat isDirectory/isRegularFile on JS, JVM-parity false on unreadable attrs (ISS-1123)
+305e2619 2026-06-10 campaign: iteration 7 bookkeeping — ISS-1123 resolved; P0 closed except user-parked items
+7e422c26 2026-06-10 ssg-commons: Native FilePath via java.nio delegation — absolute-path normalize, real cwd/toAbsolute, parent of root (ISS-980)
+43f68121 2026-06-10 campaign: iteration 8 bookkeeping — ISS-980 resolved, ISS-1126/1127 filed
+a59bbce5 2026-06-10 ssg-commons: JS FilePath JVM parity — absolute normalize, real cwd/toAbsolute, parent of root (ISS-1127)
+16680d2d 2026-06-10 campaign: iteration 9 bookkeeping — ISS-1127 resolved, ISS-1128 filed; FilePath parity on all 3 platforms
+880a4d1c 2026-06-10 campaign: file ISS-1129 (networkSimplex hang, critical, blocks ISS-1056) + ISS-1130 (fmt hook vs red tests)
+1529ffa6 2026-06-10 campaign: iteration 10 bookkeeping — ISS-1056 parked on branch behind ISS-1129; reproducer fmt-fixpoint rule added (ISS-1130)
+92b1307e 2026-06-10 campaign: ISS-1131 rescoped + ISS-1132 filed (orientation-normalization coverage gap) during ISS-1129 audits
+240dc605 2026-06-10 campaign: iteration 11 progress log — ISS-1129 escalated at bounce limit
+4346e93e 2026-06-11 campaign: file ISS-1133/1134 (liquid coverage + quoted-name divergence) - prior auditor filings had not persisted
+cc5a6877 2026-06-11 campaign: iteration 12 progress log — ISS-1010 escalated at bounce limit
+d18116b4 2026-06-11 campaign: file ISS-1135/1136/1137 (Native makeNum regex, mangle print path, live-code drop) from ISS-1033 cycle
+7a4472ea 2026-06-11 campaign: re-file ISS-1033/1135 audit discoveries as ISS-1138/1139/1140 (branch-side filings had colliding ids)
+7b646246 2026-06-11 ssg-js: compress/mangle Boolean-true maps to default options; Native-safe reSafeRegexp + regex-free makeNum (ISS-1033, ISS-1135)
+dfb52928 2026-06-11 campaign: iteration 13 bookkeeping — ISS-1033+1135 resolved
+76ae758c 2026-06-11 campaign: file ISS-1141 (IIFE-inline gap exposed by ISS-1137)
+6bbbaed2 2026-06-11 ssg-js: pureFuncs default true per upstream — constant-if tails survive; 118 pins retired, 2 pinned to ISS-1141 (ISS-1137)
+33974d28 2026-06-11 campaign: iteration 14 bookkeeping — ISS-1137 resolved, ratchet fail_js 1523->1407
+423eaffc 2026-06-11 campaign: file ISS-1142/1143 (Pass-1 latent bugs exposed by ISS-1035, block its merge)
+b66c2f0b 2026-06-11 campaign: iteration 15 progress log — ISS-1035 parked behind ISS-1142/1143
+56160977 2026-06-11 campaign: file ISS-1144/1145/1146 (1704 harness mis-option, toplevel cross-default, topRetain flags) from ISS-1035 final audit; branch-side duplicate add discarded
+a220ca02 2026-06-11 ssg-js: DropUnused Pass 3 as a real transform with threaded in_list; SafeIds prototype chain; catch-redef block-scope flag; 142-pin sweep (ISS-1035, ISS-1142, ISS-1143)
+6b6cd4b3 2026-06-11 campaign: iteration 18 bookkeeping — ISS-1035 chain closed (1035/1142/1143), ratchet 1407->1268, ISS-1147 filed
+cf7d726c 2026-06-11 ssg-liquid: renderUnguarded restores liqp child-context semantics — where_exp sees enclosing scope (ISS-1012)
+3af5dc46 2026-06-11 campaign: iteration 19 bookkeeping — ISS-1012 resolved, ISS-1148/1149 filed, ratchets fail_liq 44 + shortcuts 169
+b5738681 2026-06-11 campaign: file ISS-1150 (re-scale build fmt ignores unknown flags - global-format incident root cause)
+e96729ed 2026-06-11 ssg-minify: fnmatch-faithful excludes (CRuby oracle, 53-probe corpus) + .min.js/.min.css passthrough (ISS-1027; ISS-1026 residual: endpoint-equality short-circuit)
+c599915b 2026-06-11 campaign: iteration 20 bookkeeping — ISS-1027 resolved, ISS-1026 escalated-open, ISS-1150/1151/1152 filed
+3268a9c4 2026-06-11 campaign: file ISS-1153 (locale-dependent CSS number formatting in katex output)
+817dc5db 2026-06-11 campaign: pause marker — iteration 21 mid-flight (ISS-1082 awaiting audit)
+6bae5d8e 2026-06-12 ssg-katex: idempotence guard on Macros.registerAll per the Functions/Environments pattern (ISS-1082)
+7e191288 2026-06-12 campaign: iteration 21 bookkeeping — ISS-1082 resolved (resumed from pause)
+c456fa74 2026-06-12 ssg-sass: wire functions/importers/loadPaths/quietDeps/charset through compileString per dart-sass (ISS-990, ISS-991, ISS-992, ISS-993)
+81ce3947 2026-06-12 campaign: iteration 22 bookkeeping — sass wiring quartet resolved, skip-policy entries, ISS-1154 filed
+f3d86e0c 2026-06-12 ssg-katex: locale-independent makeEm formatting matching upstream toFixed semantics (ISS-1153)
+b4ad831f 2026-06-12 campaign: iteration 23 bookkeeping — ISS-1153 resolved, ISS-1155/1156 filed
+9435814f 2026-06-12 graphs-commons/mermaid: locale-independent SVG/CSS number formatting (ISS-1156)
+e06c1d5a 2026-06-12 campaign: iteration 24 bookkeeping — ISS-1156 resolved, ISS-1157-1160 filed
+1decc8d3 2026-06-12 ssg-highlight: span-stack renderer for nested/overlapping captures (ISS-1091)
+03015dc7 2026-06-12 campaign: iteration 25 bookkeeping — ISS-1091 resolved, ISS-1161 filed
+5f6f6991 2026-06-12 ssg-highlight: scalafmt-stabilize ISS-1091 suites to on-compile config (ISS-1152 class)
+4492a066 2026-06-12 campaign: iteration 26 bookkeeping — ISS-1092 audited PASS, parked on ratchet sign-off; ISS-1162 filed
+5606e442 2026-06-12 ssg-js: symbol printer + mangler honor mangled names incl. labels per terser output.js:2343, scope.js:987 (ISS-1136)
+efc777b7 2026-06-12 campaign: iteration 27 bookkeeping — ISS-1136 resolved (bounce 1, orphan-recovery), fail_js baseline 1268->1264; ISS-1163/1164/1165 filed
+85fce48e 2026-06-12 ssg-js: IIFE/identity inline path revived — numeric inline level truthiness, optimize re-runs, (0,expr) this-guard via live ancestry per inline.js:353,380-392 (ISS-1141)
+281b35a1 2026-06-12 campaign: iteration 28 bookkeeping — ISS-1141 resolved (bounce 1), fail_js baseline 1264->1234; ISS-1166-1169 filed
+da0fd044 2026-06-12 ssg-js: first-in-statement parens for statement-position function/object/class exprs; negate_iife live ancestry; AstNew excluded per first_in_statement.js (ISS-1163)
+6cd68b0e 2026-06-12 campaign: iteration 29 bookkeeping — ISS-1163 resolved (bounce 1), fail_js baseline 1234->1230; ISS-1170-1173 filed
+40b4e7f5 2026-06-12 ssg-js: AstAssign takes the Assign|Conditional parens rule, not Binary, per output.js:1229 most-derived dispatch (ISS-1170)
+79b382d3 2026-06-12 campaign: iteration 30 bookkeeping — ISS-1170 resolved (0 bounces); ISS-1174 filed
+8c181ad8 2026-06-12 ssg-js: identity-keyed templateRaws per parse.js:175 + live-ancestry template-unwrap guard per index.js:3910 (ISS-1171)
+848999ba 2026-06-12 campaign: iteration 31 bookkeeping — ISS-1171 resolved (0 bounces); ISS-1175 filed
+2e3de8f6 2026-06-13 campaign: re-wire models off blocked Fable — reproducer/auditor Opus 4.8, implementer Opus 4.6 via frontmatter (C13 preserved)
+29789d0e 2026-06-13 ssg-js: createAccessor parses param list + sets argnames (terser function_/create_accessor parse.js:1651,2571); printClassPrivateProperty prints key name per output.js:2241; class/object concise methods + private fields now parse/print; 81 .fail pins retired (ISS-1174)
+f889e503 2026-06-13 campaign: iteration 32 bookkeeping — ISS-1174 resolved (bounce 1: ratchet comment-pollution); fail_js 1230->1148 (81 class-method pins retired); models re-wired off blocked Fable; ISS-1176 filed
+90ff65bb 2026-06-13 ssg-js: green differential guard for IIFE-return inlining at default level — ISS-1036 adjudicated stale (root cause fixed by ISS-1141 JS-truthiness optionBool)
+9bc4d3f7 2026-06-13 campaign: iteration 33 bookkeeping — ISS-1036 adjudicated stale (fixed by ISS-1141); green guard merged f3650a05; ratchet unchanged
+881c6b7b 2026-06-13 ssg-js: green differential guard for pure_getters default-strict semantics — ISS-1037 adjudicated stale (root cause fixed by ISS-1141; == true / .contains(strict) sites faithful)
+fd1c83e6 2026-06-13 campaign: iteration 34 bookkeeping — ISS-1037 adjudicated stale (fixed by ISS-1141); green guard merged 8215333e; ISS-1177 filed (pureGetters String typing); ratchet unchanged
+7a6fd650 2026-06-13 campaign: iteration 35 — ISS-1129 (critical) resumed and surfaced; user chose manual review, held; review package + branch-hygiene notes recorded
+fafce1f6 2026-06-13 campaign: add step 9 resource cleanup — recycle sbt server + clean worktrees when agents retire (memory hygiene, prevents OOM)
+20eb9b52 2026-06-13 campaign: iteration 36 — ISS-1026 adjudicated stale (fnmatch already ported + already-covered, no merge); 3rd consecutive stale close, batch-triage recommended
+626ddfb0 2026-06-13 ssg-liquid: {% endraw -%} whitespace-control close now recognized — scanRawBody accepts -%} (emit endraw tokens + handlePostTagStripping) per liqp TagEnd; fixes silent template corruption (ISS-1011)
+6bddb84b 2026-06-13 campaign: verify-issue skill model check Fable 5 -> Opus 4.8 (Fable blocked; auditor=Opus 4.8 vs implementer Opus 4.6, C13)
+2d4ecb9e 2026-06-13 campaign: iteration 37 — ISS-1011 resolved (first real fix post-rewire, 0 bounces); verify-issue model->Opus 4.8; goal step3 requires on-compile fmt fixpoint (ISS-1152); ISS-1178 filed
+162753c0 2026-06-13 ssg-sass: CompileFile.compile infers syntax from file extension (Syntax.forPath) + threads the file url so spans/loadedUrls carry the entry path, per dart-sass compile.dart:72/82/83 (ISS-995)
+28b2698f 2026-06-13 campaign: iteration 38 bookkeeping — ISS-995 resolved (sass CompileFile syntax inference + url, 0 bounces); ratchet unchanged
+c8436578 2026-06-13 ssg-minify: HtmlMinifier surfaces minify failures via an injectable diagnostics channel (Logger) instead of silently swallowing, per jekyll-minifier.rb:1013-1015 warn-and-degrade (ISS-1028)
+7f15367d 2026-06-13 campaign: iteration 39 bookkeeping — ISS-1028 resolved (minify diagnostics channel, bounce 1); exception_swallows 11->10; ISS-1052 can reuse the channel
+cccc0d92 2026-06-13 ssg: shared ssg.commons.Logger diagnostics channel; TerserJsCompressor surfaces JS compression failures instead of silently swallowing; ssg.minify.Logger aliases the shared one (ISS-1052)
+961e131a 2026-06-13 campaign: covenant-stamp the SSG-native diagnostics Loggers (Covenant: original) — ssg.commons.Logger + ssg.minify.Logger have no original source; keeps covenant_fail_total at 99 (also covers ISS-1028 oversight)
+ec51e5bb 2026-06-13 campaign: iteration 40 bookkeeping — ISS-1052 resolved (shared ssg.commons.Logger; swallows 10->9); SSG-native Covenant:original convention established
+28cfd895 2026-06-13 ssg-md: port FileUriContentResolver (+ Factory) + empty-list default-factory fallback so Jekyll filesystem includes resolve; cross-platform PlatformFiles facade per flexmark FileUriContentResolver.java (ISS-983)
+0b487088 2026-06-13 campaign: covenant-stamp the SSG-native PlatformFiles facade (Covenant: original) — cross-platform file IO with no original source; keeps covenant_fail_total at 99 (ISS-983)
+2c993c1f 2026-06-13 campaign: iteration 41 bookkeeping — ISS-983 resolved (FileUriContentResolver port; Jekyll filesystem includes; bounce 1); covenant stays 99
+20cb774e 2026-06-13 ssg-sass: green guard for libsass-todo 221262/221292 — adjudicated stale, both produce proper SassFormatException not uncaught crashes (ISS-1000)
+bf8a0559 2026-06-13 campaign: iteration 42 bookkeeping — ISS-1000 adjudicated stale (sass crashes now proper SassFormatException; fixed by prior parser change); green guard merged 43981775
+b28b1a61 2026-06-13 ssg: implement JS-compressor options end-to-end — TerserJsCompressorOptions (terser_args equivalent) → Terser MinifyOptions, adapter 2-arg override, inline-script threading per jekyll-minifier.rb:433-439 (ISS-1029)
+31ca2f72 2026-06-13 campaign: covenant-stamp TerserJsCompressorOptions (Covenant: original) — SSG-native terser_args→MinifyOptions bridge, no original source; keeps covenant_fail_total at 99 (ISS-1029)
+b991b4a9 2026-06-13 campaign: iteration 43 bookkeeping — ISS-1029 resolved (jsCompressor options end-to-end via terser_args plumbing); covenant stays 99
+f23b0b3a 2026-06-13 ssg-js: rename dead test dir src/test/scala-jvm -> scalajvm so the Terser CompressFixtureSuite harness compiles & runs (ISS-1046)
+323d5c95 2026-06-13 campaign: iteration 44 bookkeeping — ISS-1046 resolved (dead scala-jvm test dir renamed; CompressFixtureSuite now runs 4/4); ssg-js 2621->2625
+070287f4 2026-06-13 ssg-sass: Compile.compile(path) — truthful docstring (no false JVM-override claim) + precise CompileFile.compile redirect message + test pinning the loud fail-fast (ISS-994)
+e6d65aa7 2026-06-13 campaign: iteration 45 bookkeeping — ISS-994 resolved (truthful Compile.compile docstring + loud-throw test, bounce 1); ratchet 169/99 unchanged
+0949cdbb 2026-06-13 ssg-js: un-skip 6 compression suites (remove stale assume(false)-ISS-031/032; multi-pass compressor resolved) + CompressorOptions.NoDefaults (terser defaults:false) + MinifySuite options aligned to terser; assumes 15->2 (ISS-1047)
+74956466 2026-06-13 campaign: iteration 46 bookkeeping — ISS-1047 resolved (un-skip 6 compression suites, 2 bounces); assumes_ssg-js 15->2; ISS-1179 filed (global_defs)
+f6739ccb 2026-06-13 ssg-js: reword 6 ISS-1047 gap-comments to clear the not-yet-comment scanner — shortcut_hits 175->169 (regression fix; ISS-1179 citations preserved)
+4efdef56 2026-06-13 campaign: iteration 47 — ratchet-check caught + fixed ISS-1047 shortcut regression (175->169); goal skill §4 hardened to recompute global shortcut_hits/assumes in PASS verification
+f5fbfc3f 2026-06-13 ssg-js: wire property mangling to the public API — ManglerOptions.properties + Terser.minify invokes PropMangler after mangle_names, per terser minify.js:170/175-178/278-280 (ISS-1044)
+13fa9303 2026-06-13 campaign: iteration 48 bookkeeping — ISS-1044 resolved (property mangling wired to public API, 0 bounces); ISS-1180 filed (mangle.properties sub-gaps)
+a78d3d04 2026-06-13 ssg-sass: thread-isolate Sass evaluation context via DynamicVariable — per-thread EvaluationContext/CurrentEnvironment/invokers, parallel compileString no longer corrupts shared _stack/_env (ISS-997)
+197d163c 2026-06-13 campaign: iteration 49 bookkeeping — ISS-997 resolved (sass eval-context thread-isolated via DynamicVariable, 0 bounces)
+7e11edbb 2026-06-13 ssg-mermaid: emit sanitized <a xlink:href> anchors for clickable flowchart nodes, wired end-to-end from click/href source through setLink to the renderer (ISS-1061)
+d817a5f5 2026-06-13 campaign: iteration 50 bookkeeping — ISS-1061 resolved (clickable flowchart nodes wired end-to-end, 1 bounce); ISS-1181 filed (no-target default)
+8894918f 2026-06-14 ssg-commons: shared FilePath cross-platform contract suite — 46 real-value assertions executing on JVM/JS/Native, closing the JVM FilePath coverage gap (ISS-982)
+654a9634 2026-06-14 campaign: iteration 51 bookkeeping — ISS-982 resolved (shared FilePath JVM/JS/Native suite, 0 bounces, 1st medium); ISS-1182 filed (Native dot-normalize divergence)
+2618570a 2026-06-14 ssg-sass: exclude silenced deprecations from CompileResult.warnings — gate EvaluateVisitor._warnings appends on the logger's authoritative silenceDeprecations set, matching dart-sass single-emission-path (ISS-996)
+1165a326 2026-06-14 campaign: iteration 52 bookkeeping — ISS-996 resolved (silenced sass deprecations excluded from CompileResult.warnings, 0 bounces); ISS-1183 filed (non-silence deprecation leaks)
+02b68630 2026-06-14 ssg-liquid: strip leading whitespace before tags under stripSpacesAroundTags — LiquidLexer trims text preceding {{/{% per liqp grammar (full vs single-line asymmetry), un-fails 4 bug-documenting tests (ISS-1013)
+f82b4756 2026-06-14 campaign: iteration 53 bookkeeping — ISS-1013 resolved (liquid leading-whitespace strip, 0 bounces, 3rd medium); ratchet fail_marks_ssg-liquid 44->40
+9023d349 2026-06-14 ssg-js: honor the numeric sequences limit — CompressorOptions.get('sequences') returns the Int (not Int>0 Boolean) so TightenBody applies the terser sequences==1?800:sequences|0 cap, un-fails limit_1/limit_2 (ISS-1038)
+b338b41e 2026-06-14 campaign: iteration 54 bookkeeping — ISS-1038 resolved (js numeric sequences limit honored, 0 bounces, 4th medium); ratchet fail_marks_ssg-js 1148->1146; ISS-1184 filed (default true->800)
+3ed92864 2026-06-14 ssg-js: derive OutputOptions.shorthand from ecma (Option[Boolean]=None resolves to ecma>5 per terser output.js:297-298) so ES5 output no longer emits ES6 property shorthand (ISS-1039)
+2db2cdda 2026-06-14 campaign: iteration 55 bookkeeping — ISS-1039 resolved (js shorthand derived from ecma, 1 bounce/MinifySuite expectation, 5th medium)
+df15170c 2026-06-14 ssg-mermaid: sanitize class-diagram link URLs via Utils.sanitizeUrl in ClassDb.setLink, matching classDb.ts:275 — completes URL sanitization at all upstream formatUrl sites (ISS-1059)
+b0ac889d 2026-06-14 campaign: iteration 56 bookkeeping — ISS-1059 resolved (class-diagram link URL sanitized, completes both upstream formatUrl sites, 0 bounces, 6th medium); ISS-1185 filed (sandbox linkTarget branch)
+963bddce 2026-06-14 ssg-mermaid: port links/link/properties/details sequence statements + raise ParseException on unrecognized input — sequence parser no longer silently drops typos/unsupported lines (ISS-1067)
+3853723b 2026-06-14 campaign: iteration 57 bookkeeping — ISS-1067 resolved (sequence: port links/link/properties/details + throw on unrecognized, full fix per user, 0 bounces, 7th medium); ISS-1186 filed; goal §4 hardened vs minimal-comment scanner trip
+b4c2b150 2026-06-14 ssg-js: correct CompressIssue1704Suite mangle_catch_(ie8_)toplevel expectations to issue-1704.js verbatim catch(c) — the port already produces it, un-pins 2 tests that masked correct behavior behind wrong expectations (ISS-1144)
+53e8bcbc 2026-06-14 campaign: iteration 58 bookkeeping — ISS-1144 resolved (issue-1704 toplevel expectations corrected to verbatim catch(c), un-pinned 2 masking tests, 0 bounces, 8th medium); ratchet fail_marks_ssg-js 1146->1144; ISS-1187 filed (redef stubs)
+60fc9b14 2026-06-14 ssg-js: revive the dormant collapse_vars pass — live-ancestry walker (activeWalker), hitStack descent, remove_candidate in_list TransformSkip, getLhs const guard; un-pins 74 now-correct collapse_vars/sequences/reduce_vars tests (ISS-1147)
+b8a5b041 2026-06-14 campaign: iteration 59 bookkeeping — ISS-1147 resolved via FULL collapse_vars revival (pass was entirely dormant; 5 fixes + 74 tests un-pinned, audited, 0 bounces); ratchet fail_marks_ssg-js 1144->1070 (-74); ISS-1188 root-cause filed+resolved
+edbfaa5d 2026-06-14 campaign: iteration 60 bookkeeping — ISS-984 stale-adjudicated (jekyll include filesystem-path test already exists as FileUriIncludeIss983Suite; orchestrator-verified proof-of-red); medium-bug sweep exhausted, shifted to non-bug tier
+2f867d85 2026-06-14 campaign: iteration 61 bookkeeping — ISS-1006 stale-adjudicated (differential per-option tests already exist via ISS-990/991/992/993; CompileWiringIss990Suite + CompileLoadPathsIss991JvmSuite)
+e04ce349 2026-06-14 ssg-sass: correct SelectorFunctions covenant baseline — runExtendPipeline removal justified (logic relocated to ExtensionStore._extendOrReplace per dart, no regression); covenant re-verified (ISS-1008)
+72b4b0d0 2026-06-14 campaign: iteration 62 bookkeeping — ISS-1008 resolved (SelectorFunctions covenant baseline corrected, runExtendPipeline relocation justified, audited); ratchet covenant_fail_total 99->98 (first covenant improvement)
+b35082fe 2026-06-14 ssg-liquid: port liqp invalid-tag/misplaced-end-block detection — unknown/invalid tags + stray/mismatched/missing/empty end-blocks raise LiquidException in all modes (liqp Template.java:91-98 unconditional listener, error_other_tag g4:98-110); un-pins 9 detection tests (ISS-1014)
+f769cba8 2026-06-14 ssg-liquid: re-stamp Covenant-verified 2026-06-14 on LiquidParser/LiquidLexer/Token after the ISS-1014 invalid-tag detection port (port-auditor verified faithful)
+8a816907 2026-06-14 campaign: iteration 63 bookkeeping — ISS-1014 resolved (liqp invalid-tag detection ported, throws in all modes, 1 bounce on a fabricated LAX gate); ratchet fail_marks_ssg-liquid 40->31; covenant re-stamped
+73c288d2 2026-06-14 ssg-liquid: support Jekyll variable-syntax includes {% include {{ tmpl }} %} — lexer emits OUT_START/OUT_END for nested {{ (liqp OutStart2 g4:117), parseIncludeTag resolves the output-expression filename (file_name_or_output g4:219-222); un-pins 3 + corrects 1 wrong assertion per liqp IncludeTest (ISS-1015)
+8534f1c7 2026-06-14 campaign: iteration 64 bookkeeping — ISS-1015 resolved (Jekyll variable-include {% include {{ }} %} ported, 0 bounces); ratchet shortcut_hits 169->167 + fail_marks_ssg-liquid 31->28
+3fe9c13e 2026-06-14 ssg-liquid: comprehensive ErrorMode STRICT-fidelity — STRICT throws 'unexpected output' on output-tag trailing junk (liqp g4:231), built-in block-ends (if/for/case/...) + EOF throw in all modes (liqp required-token grammar, expect() unconditional); + StrictErrorModeIss1018Suite, un-pins case-bad-syntax (ISS-1018)
+00fb4c9b 2026-06-14 campaign: iteration 65 bookkeeping — ISS-1018 resolved (comprehensive STRICT-fidelity: output-tag throw + block-ends all-mode throw, user-chosen, 0 bounces); ratchet fail_marks_ssg-liquid 28->27
+ea817f5e 2026-06-14 ssg-liquid: add RawWhitespaceMatrixIss1019Suite — 16-cell raw × whitespace-control matrix (12 liqp-faithful cells asserted + mutation spot-check; 4 divergent {% raw -%} cells excluded → ISS-1189) (ISS-1019)
+abc97fd6 2026-06-14 campaign: iteration 66 bookkeeping — ISS-1019 resolved (raw × whitespace-control matrix test, 0 bounces, caught a divergence); ISS-1189 filed (raw-open -%})
+9a30257f 2026-06-14 chore: vendor cssminify2 (digitalsparky/cssminify @2.1.0) submodule — enhanced-CSS port oracle (ISS-1030 prerequisite)
+39213c89 2026-06-15 ssg-minify: port cssminify2 enhanced-CSS compression (CSSminify2Enhanced) (ISS-1030)
+a70c7bf2 2026-06-15 campaign: iteration bookkeeping — ISS-1030 resolved (enhanced-CSS port; 1 bounce); ISS-1189/1190/1191 re-filed+resolved
+0c92fbf8 2026-06-15 ssg-graphs-commons: fix dagre networkSimplex non-termination — faithful calcCutValue/enterEdge/updateRanks per dagre-js (ISS-1129, ISS-1131)
+6f4693dd 2026-06-15 campaign: iteration bookkeeping — ISS-1129+ISS-1131 resolved (networkSimplex hang, parked WIP rebased; 0 bounces)
+7c736067 2026-06-16 ssg-graphs-commons: daemon-guarded regression test for enterEdge orientation normalization (ISS-1132)
+423c3dc3 2026-06-16 campaign: iteration bookkeeping — ISS-1132 resolved (orientation-norm regression test; 0 bounces)
+984fa397 2026-06-16 ssg-js: migrate four dead Inline ancestry guards to live activeWalker stack — un-pins 42 compress tests (ISS-1166)
+b75e908d 2026-06-16 campaign: iteration bookkeeping — ISS-1166 resolved (live-ancestry guard migration, -42 fail_marks; 0 bounces); ISS-1192 filed
+1d4839cc 2026-06-16 ssg-minify: minifyFile coverage tests — exclude globs, .min passthrough, per-extension dispatch (ISS-1031)
+52fb5486 2026-06-16 campaign: iteration bookkeeping — ISS-1031 resolved (minifyFile coverage tests; 0 bounces)
+6185c78b 2026-06-16 ssg-js: wire CompressorOptions defaults=false → NoDefaults at compression entry (ISS-1034)
+80961227 2026-06-16 campaign: iteration bookkeeping — ISS-1034 resolved (defaults=false wiring; 1 bounce, regression caught); ISS-1193 filed
+c59f5217 2026-06-16 ssg-js: widen keep_fnames/keep_classnames to regex-capable type, unblocking DropUnused regex arm (ISS-1040)
+34f32951 2026-06-16 campaign: iteration bookkeeping — ISS-1040 resolved (keep_fnames regex form wired; 0 bounces)
+95d7fe50 2026-06-16 ssg-js: consult ie8 in compress + add ie8/safari10 to OutputOptions wired per terser output.js (ISS-1041)
+9f6aa3b2 2026-06-16 campaign: iteration bookkeeping — ISS-1041 resolved (ie8/safari10 wiring, fail_marks 1028→1026; 0 bounces); ISS-1194 filed
+9720ec79 2026-06-16 ssg-js: differential test proving computeCharFrequency affects mangled output (ISS-1043)
+ee71775c 2026-06-16 campaign: iteration bookkeeping — ISS-1043 resolved (charfreq differential test; stale wiring; 0 bounces)
+ebcffb16 2026-06-16 ssg-mermaid: wire a11y title/desc/role into all diagram renderers + SvgBuilder :first-child fix (ISS-1060)
+d4bcb195 2026-06-16 campaign: iteration bookkeeping — ISS-1060 resolved (mermaid a11y full sweep, 32 files; 0 bounces)
+00eba898 2026-06-16 ssg-mermaid: read maxEdges from MermaidConfig in FlowchartDb instead of hardcoding 500 (ISS-1062)
+81166ab4 2026-06-16 campaign: iteration bookkeeping — ISS-1062 resolved (maxEdges from config; 0 bounces)
+862e8cfe 2026-06-16 ssg-mermaid: append config.themeCSS in all diagram renderers, not just flowchart (ISS-1063)
+5ed58a97 2026-06-16 campaign: iteration bookkeeping — ISS-1063 resolved (themeCSS full sweep; 0 bounces)
+4758088f 2026-06-16 campaign: file ISS-1195 (critical dagre feasibleTree hang on compound graphs, found during ISS-1064)
+02687913 2026-06-16 ssg-graphs-commons+mermaid: fix dagre compound-graph hangs (Nesting-before-Rank + faithful Nesting/DagreUtil port) and add state -- concurrency divider (ISS-1195, ISS-1064)
+68979410 2026-06-16 campaign: iteration bookkeeping — ISS-1064 + ISS-1195 resolved (state divider + dagre compound-hang fix, shortcut 167→142; 1 bounce)
+ba4328be 2026-06-16 campaign: iteration bookkeeping — ISS-1065 stale-adjudicated (superseded by ISS-1067; no code)
+9656945d 2026-06-16 ssg-mermaid: add gantt tickInterval + until task-end keyword, fix parseDateString break-swallow (ISS-1066)
+5174486c 2026-06-16 campaign: iteration bookkeeping — ISS-1066 resolved (gantt tickInterval/until + parseDateString fix); ISS-1196/1197 filed
+afb0c047 2026-06-16 campaign: file ISS-1196/1197/1198 (gantt dateFormat/compileTasks + dagre normalizeRanks rank>=0 bug, found during ISS-1066/1075)
+1d73d453 2026-06-16 ssg-graphs-commons: fix dagre normalizeRanks rank>=0 filter (structural hasRank predicate) so negative longestPath ranks normalize — fixes node-overlap on non-compound/bare graphs (ISS-1198)
+14391629 2026-06-16 campaign: iteration bookkeeping — ISS-1198 resolved (dagre normalizeRanks fix; ISS-1075 unblocked+parked)
+dc0515e5 2026-06-16 ssg-graphs-commons: cross-platform dagre invariant test suite — minlen/no-overlap/acyclic/crossings on the real layout (ISS-1075)
+43f9d9cb 2026-06-16 campaign: iteration bookkeeping — ISS-1075 resolved (dagre invariant suite on real layout; dagre arc capstone)
+8d506e0b 2026-06-16 ssg-highlight: structural renderer + non-ASCII + error-path test suite (ISS-1097)
+beb20cb1 2026-06-16 campaign: iteration bookkeeping — ISS-1097 resolved (highlight renderer/non-ASCII/error tests); ISS-1199 filed
+6d5a77fa 2026-06-16 ssg-js: widen CompressorOptions.pureGetters String->Any so option("pure_getters")==true paths are reachable (ISS-1177)
+1f2cf464 2026-06-16 campaign: iteration bookkeeping — ISS-1177 resolved (pureGetters String->Any; type-widening 3rd use; 0 bounces)
+e76c20da 2026-06-17 ssg-mermaid: strip+apply YAML frontmatter (title before parse, inline wins) before detect/parse via kindlings-yaml+DataView (ISS-1056)
+4ddbfc36 2026-06-17 campaign: iteration bookkeeping — ISS-1056 resolved (mermaid frontmatter, 1 bounce); ISS-1200 filed+resolved (title precedence)
+d871af2f 2026-06-17 ssg-mermaid: apply init-directive + frontmatter config to MermaidConfig via DataView round-trip with config.ts sanitize() (ISS-1057); ssg-data-commons: Nullable/Option/Map derivation + DataView.deepMerge
+4bdc69bc 2026-06-17 campaign: iteration bookkeeping — ISS-1057 resolved (mermaid init/frontmatter config application + config.ts sanitize; 1 bounce); ISS-1201 filed
+d5c23df8 2026-06-17 ssg-mermaid: wire dead MermaidConfig fields (maxTextSize/securityLevel/maxEdges/wrap) + document inert browser-only fields (ISS-1058)
+05c62319 2026-06-17 campaign: ISS-1058 resolved + follow-ups ISS-1202/1203 (wrap/markdownAutoWrap consumers), ISS-1204/1205 (look/htmlLabels subsystems) filed
+27c83706 2026-06-17 campaign: iteration bookkeeping — ISS-1058 resolved (MermaidConfig field wiring/inert-documentation, full-fidelity arc; 1 bounce)
+145c6f94 2026-06-17 ssg-mermaid: htmlLabels foreignObject HTML-label path for nodes/clusters/titles + edge labels + class members across flowchart/class/state/er, securityLevel-gated (ISS-1205)
+1729901a 2026-06-17 campaign: ISS-1205 resolved (htmlLabels foreignObject path, full label-bearing scope)
+46ad8400 2026-06-17 campaign: iteration bookkeeping — ISS-1205 resolved (htmlLabels foreignObject subsystem; 1 bounce)
+5f9e8de0 2026-06-17 ssg-highlight: convert JS UTF-16 code-unit offsets to UTF-8 byte offsets so spans match the JVM/Native FFI contract (ISS-1092)
+557c1986 2026-06-17 campaign: ISS-1092 resolved (JS UTF-8 byte offsets); baseline assumes_ssg-highlight 2->4 (user-approved, ISS-1161-cited guards)
+b92e63c6 2026-06-17 ssg-liquid: parse unquoted dotted/slashed Jekyll include names with liqp whitespace rejection (ISS-1010)
+9a25da41 2026-06-17 campaign: iteration bookkeeping — ISS-1010 resolved (unquoted Jekyll include names; 0 bounces); fail_marks_ssg-liquid 27->26
+fc30f674 2026-06-17 docs: ISS-1054 E2E site-pipeline design doc (config/bridge/layouts/permalinks/output + JVM/Native/JS fixture test plan)
+01d0d5bd 2026-06-17 campaign: ISS-1054 resolved (E2E site-pipeline design doc; 1 bounce on a stale citation); ISS-1120 superseded
+0c99f99a 2026-06-17 campaign: decompose ISS-1055 Site.build into 6 phase issues ISS-1206..1211 (per-phase per user decision)
+2479563f 2026-06-17 campaign: ISS-1206 Phase 0 held — un-masked cross-platform blockers; filed ISS-1212 (ssg-js JS codePoints) + ISS-1213 (Native test-link OOM) as prereqs
+6deb6121 2026-06-17 ssg-js: cross-platform code-point iteration in Token.isIdentifierString to link on Scala.js (ISS-1212)
+7c12251f 2026-06-17 campaign: ISS-1212 resolved (ssg-js JS codePoints→cross-platform loop; 0 bounces; native blocker was a stale-target ghost)
+0d487af7 2026-06-17 campaign: ISS-1213 superseded — aggregator native OOM verified real (8GB still OOMs); user reversed Q1 to a dedicated ssg-site module; Phase 0 re-scoped
+2b276d51 2026-06-17 ssg-site: create dedicated pipeline module (light deps + kindlings-yaml + smoke test, all-3-platform); reconcile design Q1 to dedicated module (ISS-1206)
+ca294827 2026-06-17 campaign: ISS-1206 resolved (dedicated ssg-site module, Phase 0; all-3-platform incl Native 6/6; ISS-1213 OOM resolved)
+19a7af7a 2026-06-19 Claude tooling: condense-branch + verified-merge git skills
+3c8892f9 2026-06-19 Claude tooling: enable + auto-start Metals MCP
+01f04536 2026-06-19 ssg-site: SiteConfig.load + FrontMatterBridge YAML→DataView bridge (ISS-1207)
+05910b41 2026-06-19 campaign: ISS-1207 resolved (Site.build Phase 1 — SiteConfig.load + FrontMatterBridge, ssg-site; audit PASS first try; 26/26 ×3 platforms; ratchet 142 unchanged)
+8e4a5b28 2026-06-19 campaign: plan §2/§3 model split — Fable 5 (blocked) → Opus 4.6 implementer (full model ID) + Opus 4.8 reproducer/auditor; reconcile plan to the skills' working arrangement (C13 preserved)
+9b60e1c8 2026-06-19 ssg-site: Site.build Phase 2 — SourceScan + Liquid→Markdown page pipeline + OutputWriter (ISS-1208)
+f36d5a32 2026-06-19 campaign: ISS-1208 resolved (Site.build Phase 2 — SourceScan + page pipeline + OutputWriter, ssg-site; audit PASS first try; 9/9 ×3 platforms; ratchet 142 unchanged)
+4d0d02c9 2026-06-19 ssg-site: Site.build Phase 3 — layout chain + includes + permalinks + static (ISS-1209)
+eac3a221 2026-06-19 campaign: ISS-1209 resolved (Site.build Phase 3 — layouts+includes+permalinks+static, ssg-site; audit PASS first try; 8/8 ×3 platforms); filed ISS-1214 (include_relative, P0)
+9ede874a 2026-06-19 ssg-site: Site.build Phase 4 — sass + minify + diagnostics, BuildResult (ISS-1210)
+8ca79b6e 2026-06-19 campaign: ISS-1210 resolved (Site.build Phase 4 — sass+minify+diagnostics+BuildResult, ssg-site; audit PASS first try; 8/8 ×3 platforms); filed ISS-1215 (minify-Warning test gap, P3)
+675c46c1 2026-06-19 ssg-site: Site.build Phase 5 — root-jail path-traversal hardening (ISS-1211, ISS-1020)
+9e2a1081 2026-06-19 campaign: ISS-1211 resolved (Site.build Phase 5 root-jail/ISS-1020 artifact, ssg-site; audit PASS, 2 bounces null+C8-boundary-test; 57/57 ×3). All 6 Site.build phases done; ISS-1055 capstone (fixture-site golden test + CI) remains
+0a031dde 2026-06-19 ssg-site: SitePipelineGoldenSuite — cohesive fixture-site golden integration test (ISS-1055)
+22f83ff2 2026-06-19 campaign: ISS-1055 resolved — Site.build E2E EPIC COMPLETE (fixture-site golden capstone, ssg-site; audit PASS, 1 bounce; JVM 64; runs in CI). All 6 phases ISS-1206..1211 + capstone done; P0 product-pipeline goal met
+c89754f6 2026-06-19 ssg-liquid+ssg-site: wire + root-jail include_relative in the pipeline (ISS-1214, ISS-1020)
+b7c1e8d8 2026-06-19 campaign: ISS-1214 resolved (include_relative wired + root-jailed in pipeline, ssg-liquid jail-hook; audit PASS, 2 bounces null+C8-separator; ssg-liquid 909/909 no regression). Filed ISS-1216 (ParseSuite stale-stub, P3)
+ce89fc4c 2026-06-19 ssg-commons: correct stale FilePath platform-support header (ISS-1125)
+76506db6 2026-06-19 campaign: ISS-1125 resolved (FilePath docs drift, audit PASS, 0 bounces). P0 actionable work COMPLETE — only user-parked ISS-1117 remains; campaign advances to P1
+4b460310 2026-06-19 ssg-liquid: optional root-jail for standalone LocalFSNameResolver (ISS-1020)
+0b7ac43f 2026-06-19 campaign: ISS-1020 resolved (standalone LocalFSNameResolver root-jail; audit PASS, 1 bounce ratchet-regression; ssg-liquid 914/914). Path-traversal class fully closed (1211+1214+1020)
+5d663709 2026-06-19 ssg-js: port Terser.minify orchestration — ecma/nameCache/format/wrap/enclose/multi-file/structured-error (ISS-1045)
+6cb41121 2026-06-19 campaign: ISS-1045 resolved (Terser.minify orchestration port; port-audit PASS, 2 bounces citation-only; ssg-js no regression). Ratchet IMPROVED: fail_marks_ssg-js 1026→1015, shortcut_hits 142→132 (baselines lowered). Decomposed→ISS-1217/1218/1219
+8f6141a3 2026-06-19 campaign: ISS-1204 HELD (wire-it chosen; blocked on rough.js vendoring → filed ISS-1220, needs user). Loop continues on P1 mediums
+9c636477 2026-06-19 campaign: ISS-1177 adjudicated stale-resolved (pureGetters String→Any fix was committed fed20a45 + test green, but issues.tsv resolution never recorded; orchestrator mutation-verified guard load-bearing). db-hygiene: sweep other 'resolved' bookkeeping for missed issues.tsv updates
+125e3d60 2026-06-19 ssg-js: migrate 3 Inline ancestry guards dead→live + fix latent AstClass CCE (ISS-1192)
+4dd09ab8 2026-06-19 campaign: ISS-1192 resolved (Inline ancestry guards dead→live + recursive-ref-flatten bug fix + CCE fix; port-audit PASS, 0 bounces). Ratchet IMPROVED fail_marks_ssg-js 1015→916 (baseline lowered). Filed ISS-1221 (guard-1/2 test sensitivity)
+4938c88e 2026-06-20 campaign: ISS-1219 DECOMPOSED (user chose wire-it; ~1100-LOC @jridgewell source-map subsystem) → phases ISS-1222/1223/1224/1225. Loop continues on Phase 1 (ISS-1222 sourcemap-codec)
+0b58c677 2026-06-20 campaign: ISS-1219 scoping error RECOVERED — source-map subsystem already exists+works (VlqCodec/SourceMapGenerator/Consumer wired, 25+6 tests green); ISS-1222/1223/1224/1225 decomposition was misconceived → resolved REDUNDANT, duplicate discarded. Real ISS-1219 gap is narrow (inline-map input + includeSources)
+2966200e 2026-06-20 ssg-js: wire Terser.minify sourceMap options (inline-decode/includeSources/url-inline/asObject) + faithful source-map emission (ISS-1219)
+5450d766 2026-06-20 campaign: ISS-1219 resolved — source-map epic closed (option wiring + emission port + 2 oracle-proven covenanted bug-fixes; port-audit PASS, 2 bounces return+covenant-header). Ratchet IMPROVED fail_marks_ssg-js 916→911. Auditor follow-ups ISS-1227/1228
+8001bce9 2026-06-20 ssg-liquid: numeric dotted path access {{ a.0 }}/{{ Data.1.Value }} (ISS-1016)
+ff9b17fd 2026-06-20 campaign: ISS-1016 resolved (numeric dotted path, liqp-faithful; audit PASS, 0 bounces). Ratchet IMPROVED fail_marks_ssg-liquid 26→25 + shortcut_hits 132→131. Filed ISS-1229 (negative-key)
+0216cd85 2026-06-20 chore: gitignore .rescale/.metals-pid (transient Metals PID file)
+aa407f5a 2026-06-21 docs: sbt 2.0 migration plan (handoff SGE_SSG_SBT2_HANDOFF.md)
+dfca81e5 2026-06-21 build: migrate to sbt 2.0 (handoff SGE_SSG_SBT2_HANDOFF.md)
+59e92e2a 2026-06-21 build: track hearth/kindlings sbt-2.0 dev snapshots (not the releases)
+60aa02ae 2026-06-21 build: pre-create scoverage data dir so ci-jvm-3 (coverage) is green on sbt 2.0
+9a24fc02 2026-06-21 ssg-js: register Terser fixture tests conditionally, not assume()-skip (ratchet hygiene)
+36fa9f6b 2026-06-21 ssg-liquid: enforce inline-comment line-prefix strictness (ISS-1017)
+67fe081a 2026-06-21 campaign: ISS-1017 resolved (ssg-liquid inline-comment line-prefix strictness, P1; audit PASS first try)
+5ec01c13 2026-06-21 ssg-js: add ParserOptions.toplevel parse option for multi-file input (ISS-1042)
+5484b272 2026-06-21 campaign: ISS-1042 resolved (ssg-js ParserOptions.toplevel multi-file option, P1; audit PASS first try)
+c242045f 2026-06-21 campaign: ISS-1218 adjudicated stale (CompressFixtureSuite already fixed by sbt-2.0 migration + conditional-registration, P1)
+1ed2c9a4 2026-06-21 ssg-commons: map Native normalize of "." to "" matching JVM/JS (ISS-1182)
+02ee3d75 2026-06-21 campaign: ISS-1182 resolved (ssg-commons Native dot-normalize, P1; audit PASS first try)
+52a15bbc 2026-06-21 ssg-liquid: reject negative numeric dotted key h.-1 per liqp IdChain (ISS-1229)
+9e235450 2026-06-21 campaign: ISS-1229 resolved (ssg-liquid negative dotted-key rejection, P1; audit PASS first try)
+1540cafb 2026-06-21 campaign: ISS-1199 adjudicated stale (widest-first ordering already mutation-pinned by ISS-1091 OverlapPolicySuite, P1)
+8a75dfe5 2026-06-21 ssg-mermaid: no-target flowchart link omits target attr per upstream (ISS-1181)
+498638fd 2026-06-21 campaign: ISS-1181 resolved (ssg-mermaid no-target flowchart link, P1; audit PASS first try)
+152098ce 2026-06-21 ssg-mermaid: ClassDb.setLink forces linkTarget=_top under sandbox (ISS-1185)
+ee5684ed 2026-06-21 campaign: ISS-1185 resolved (ssg-mermaid ClassDb sandbox->_top link target, P1; audit PASS first try)
+dae1a4ed 2026-06-21 campaign: file ISS-1230 (P3) — ClassRenderer doesn't emit clickable <a>/target, surfaced during ISS-1185
+7ab7cf53 2026-06-21 ssg-js: sequences default + true-mapping resolve to 800 per terser (ISS-1184)
+12aee130 2026-06-21 campaign: ISS-1184 resolved (ssg-js sequences default 800, P1; audit PASS first try, zero blast-radius)
+d63afc72 2026-06-21 ssg-js: flesh out 12 vacuous mangle_catch_redef stubs in CompressIssue1704Suite (ISS-1187)
+0a3f80c3 2026-06-21 campaign: ISS-1187 resolved + ISS-1231 filed (de-vacuify redef stubs, P1; ratchet fail_marks_ssg-js 911->906)
+1be8aada 2026-06-21 ssg-js: fix catch-var-redefinition ClassCastException in scope analysis (ISS-1231)
+d35cd5a3 2026-06-21 campaign: ISS-1231 resolved (catch-var-redef crash fix + un-pinned 8 tests, P1; ratchet fail_marks_ssg-js 906->898)
+cdc586de 2026-06-21 ssg-sass: deprecation warnings reflect the logger's full emit decision (ISS-1183)
+01934cd8 2026-06-21 campaign: ISS-1183 resolved (ssg-sass deprecation-leak single-emission-path fix, P1; audit PASS first try)
+4d5fd0cd 2026-06-21 ssg-mermaid: gantt parseDateString honors the configured dateFormat (ISS-1196)
+a51f7c4a 2026-06-21 campaign: ISS-1196 resolved (gantt dateFormat-driven date parsing, P1; audit PASS first try) + filed exotic-token P3 follow-up
+fee51875 2026-06-21 ssg-mermaid: sequence addALink mirrors upstream's unguarded slice on missing @ (ISS-1186)
+0417b179 2026-06-21 campaign: ISS-1186 resolved (sequence addALink unguarded-slice parity, P1; audit PASS first try) + filed ISS-1233
+03782ef7 2026-06-21 ssg-mermaid: gantt compileTasks multi-pass resolves forward after/until references (ISS-1197)
+86f9b727 2026-06-21 campaign: ISS-1197 resolved (gantt forward-after multi-pass, P1; audit PASS first try)
+d9f69f5a 2026-06-21 ssg-js: PropMangler keep_quoted reserves quoted keys + obj.prop mangling + full domprops (ISS-1217)
+9f51b613 2026-06-21 campaign: ISS-1217 resolved (PropMangler keep_quoted + obj.prop + 9193-entry domprops, fail_marks_ssg-js 898->896); file ISS-1234/1235
+6e0a2fcf 2026-06-21 ssg-js: un-pin 10 stale .fail compress tests (ISS-1235)
+cbc311a2 2026-06-21 campaign: ISS-1235 resolved (10 stale .fail un-pins, fail_marks_ssg-js 896->886); file ISS-1236
+5df91ca6 2026-06-21 ssg-js: reduce_vars/drop_unused use insertion-ordered maps for id-invariance (ISS-1236)
+eb1fecb4 2026-06-21 campaign: ISS-1236 resolved (reduce_vars/drop_unused id-invariance, fail_marks_ssg-js 886->885); port-implementer 4.6 frontmatter fix
+74c34420 2026-06-21 campaign: ISS-1237 progress — cross-model re-validate ISS-1045 (holds; filed ISS-1238/1239/1240 fidelity gaps)
+39f131cd 2026-06-21 campaign: ISS-1237 progress — cross-model re-validate ISS-1219 (holds; filed ISS-1241 VlqCodec per-line-sort edge gap)
+2c3b35a3 2026-06-21 campaign: ISS-1237 progress — cross-model re-validate ISS-1192 (holds, clean, no new gaps)
+737209a5 2026-06-21 campaign: ISS-1237 progress — cross-model re-validate ISS-1217 (holds, clean; domprops byte-fidelity independently re-proved)
+60b2f4bb 2026-06-21 campaign: ISS-1237 RESOLVED — C13 cross-model re-validation complete (all 8 prior 4.8/4.8 resolutions hold)
+67dde1f1 2026-06-21 ssg-js: apply wrap/enclose before compress+mangle so the wrapper is optimized (ISS-1238)
+ff25b450 2026-06-21 campaign: ISS-1238 resolved (wrap/enclose before compress; cross-model Sonnet 4.6 audit)
+65bd98e4 2026-06-21 ssg-js: variable nameCache advances mangled names across minify calls (ISS-1234)
+8cc00d62 2026-06-21 campaign: ISS-1234 resolved (var nameCache cross-call advancement, fail_marks_ssg-js 885->884); file ISS-1242
+3e18d926 2026-06-21 ssg-js test: independently mutation-pin inline guard-1 (withinArrayOrObjectLiteral) (ISS-1221)
+be2efbde 2026-06-21 campaign: ISS-1221 resolved (inline guard-1 independently mutation-pinned; guard-2 unpinnable -> ISS-1243)
+1717c663 2026-06-21 ssg-js: port terser's vendored Unicode ID_Start/ID_Continue tables (ISS-1194)
+bebbbc97 2026-06-21 campaign: ISS-1194 resolved (port terser Unicode ID tables; corrected the U+0EB3 mis-example)
+cc17a2bd 2026-06-22 campaign: ISS-1151/1157 resolved (re-scale --all fans out to JVM+JS+Native; fix in re-scale@5f4596c)
+480db029 2026-06-22 ssg-js: AstSize.isFirstInStatement faithfully walks the left spine (ISS-1173)
+73613737 2026-06-22 campaign: ISS-1173 resolved (AstSize left-spine first_in_statement port; no best_of regression)
+38d50dda 2026-06-22 ssg-js: restore literal NUL to Evaluate's safe-regexp set, matching terser (ISS-1138)
+615a4c79 2026-06-22 campaign: ISS-1138 resolved (literal-NUL safe-regexp set restored, false comment corrected; Native verified)
+e831a9e4 2026-06-22 ssg-liquid: renderToObjectUnguarded ports the liqp tail — templateContext + transform + exception wrap (ISS-1148)
+83aab959 2026-06-22 campaign: ISS-1148 resolved (liqp render tail ported); file ISS-1244 (exception_swallows metric reconcile)
+0e7ef33f 2026-06-22 ssg-js: template-fold numbers use JS-faithful formatting via shared JsNumber (ISS-1175)
+558c2e6e 2026-06-22 campaign: ISS-1175 resolved (template-fold JS number format, fail_marks_ssg-js 884->883); file ISS-1245/1246
+2ebfe305 2026-06-22 ssg-katex: makeEm rounds magnitude away from zero like toFixed, not Math.round (ISS-1155)
+36099ccc 2026-06-22 campaign: ISS-1155 resolved (makeEm away-from-zero rounding matches toFixed; Native-verified)
+6339fcf0 2026-06-22 ssg-mermaid: honest provenance for 6 SSG-native diagram types + correct 31->30 types claim (ISS-1069)
+49526d73 2026-06-22 campaign: ISS-1069 resolved (honest provenance for 6 SSG-native mermaid diagrams); file ISS-1247, resolve ISS-1248
+c0f1852a 2026-06-22 ssg-js: top_retain defaults toplevel ON (cross-default), matching terser (ISS-1145)
+2e2f8a11 2026-06-22 ssg-js: JsNumber.scala on-compile scalafmt fixpoint (ISS-1175 follow-up)
+6d4b4b5f 2026-06-22 campaign: ISS-1145 resolved (toplevel cross-default wired) + JsNumber on-compile fmt-fixpoint
+6ad9ec3c 2026-06-22 ssg-sass: replace raw-null fuzzy-match accumulator with Nullable in callbackFor (ISS-1004)
+203f2485 2026-06-22 campaign: ISS-1004 resolved (ssg-sass callbackFor no-null convention)
+25fc41a4 2026-06-22 campaign: mark ISS-1004 resolved in issues DB
+fb19aab3 2026-06-22 ssg-graphs-commons: toFixed exact ECMA tie-rounding via BigDecimal HALF_UP + red test (ISS-1158)
+ab97e2b1 2026-06-22 campaign: ISS-1158 resolved (toFixed BigDecimal tie-rounding) + ISS-1249/1250 filed
+18dc253e 2026-06-22 ssg-katex: add KaTeXOptions overload to KaTeX.renderToString as the discoverable entry point (ISS-1086)
+3914739d 2026-06-22 campaign: ISS-1086 resolved (KaTeX entry-point ergonomics)
+b28ae538 2026-06-22 ssg-mermaid: remove unreachable duplicate sequencediagram check in DetectType + alias-coverage test (ISS-1071)
+c1b1669e 2026-06-22 ssg-katex: on-compile scalafmt fixpoint for KaTeXOptionsEntryPointIss1086Suite (ISS-1152)
+21ce3610 2026-06-22 campaign: ISS-1071 resolved (DetectType dead-code) + katex fmt-fixpoint + ISS-1252 filed
+7bb18385 2026-06-22 ssg-md: add Markdown facade (one-liner parse/render entry point) (ISS-1105)
+adc2822d 2026-06-22 campaign: ISS-1105 resolved (ssg-md Markdown facade)
+7b679ceb 2026-06-22 ssg-katex: restore corrupted minRuleThickness scaladoc from upstream KaTeX options docs (ISS-1088)
+d3529250 2026-06-22 campaign: ISS-1088 resolved (katex scaladoc restore) + stale-stubs candidate filed
+63da4e07 2026-06-22 ssg-minify: update stale HtmlMinifier/JsMinifier headers to resolved-with-evidence (ISS-1032)
+21901990 2026-06-22 campaign: ISS-1032 resolved (minify stale headers) + ISS-1254 filed
+6e2192be 2026-06-22 ssg-js: update stale Compressor multi-pass gap-note to resolved-with-evidence (ISS-1254)
+624fbb32 2026-06-22 campaign: ISS-1254 resolved (Compressor stale header)
+35ec3078 2026-06-22 ssg-js: global_defs @key expression-parse normalization + un-pin 2 MinifySuite global_defs tests (ISS-1179)
+5ade94d4 2026-06-22 campaign: ISS-1179 resolved (global_defs @key) + fail_marks_ssg-js baseline 883->881 + ISS-1255 filed
+9f709626 2026-06-22 ssg-js: optionBool falsy cases for None and ToplevelConfig(false,false) + red test (ISS-1167)
+676bd708 2026-06-22 campaign: ISS-1167 resolved (optionBool falsy modeling)
+9200b872 2026-06-22 ssg-liquid: {% endraw-%} no-space whitespace-control close now recognized + red test (ISS-1178)
+c7c86f61 2026-06-22 campaign: ISS-1178 resolved (endraw no-space close)
+4a1cec1f 2026-06-22 ssg-sass: update stale MathFunctions failure-notes header to resolved-with-evidence (ISS-1009)
+adfce179 2026-06-22 campaign: ISS-1009 resolved (MathFunctions stale header) + ISS-1256 filed + ISS-1180 staleness noted
+724bd2a9 2026-06-22 ssg-katex: validate Settings.output against the upstream enum with a loud error (ISS-1087)
+191976b3 2026-06-22 campaign: ISS-1087 resolved (KaTeX output validation)
+b2875f14 2026-06-22 campaign: ISS-1051 held/deferred (coupled to ISS-1101 Nullable consolidation; reverted wrong-type partial fix)
+29297e03 2026-06-22 campaign: ISS-1169 resolved (stale-adjudication — duplicate_arg_var .fail un-pinned by ISS-1141/1166)
+63586579 2026-06-22 ssg-md: on-compile scalafmt fixpoint for Markdown facade + Iss1105 suite (ISS-1152)
+60ead7b9 2026-06-22 ssg: correct false aggregator header (no re-exports; depends-on list + Terser adapters; drop stale ssg-html) (ISS-1112)
+d8e004f2 2026-06-22 campaign: ISS-1112 resolved (false aggregator header) + ssg-md fmt-fixpoint
+ae652bdf 2026-06-22 ssg-js: makeNodeFromConstant handles Int/Long/Short/Byte/Float + un-pin unsafe_charAt_noop + red test (ISS-1255)
+32aec544 2026-06-22 campaign: ISS-1255 resolved (makeNodeFromConstant Int) + fail_marks_ssg-js baseline 881->880
+9b9d7ab5 2026-06-22 ssg-js: liftKey numeric computed-key uses JsNumber.toJsString + un-pin issue_2554_3/4 + red test (ISS-1245)
+e722076b 2026-06-22 campaign: ISS-1245 resolved (liftKey JsNumber) + fail_marks_ssg-js baseline 880->878
+e1a08c06 2026-06-22 ssg-js: optimizeSub numeric key full integer range via JsNumber.toJsString + red test (ISS-1246)
+3ee0dc50 2026-06-22 campaign: ISS-1246 resolved (optimizeSub big numeric key)
+f621e300 2026-06-22 campaign: ISS-1247 scope-corrected (only treemap stamps 2cfdd1620; provenance needs un-vendored v11.1+ source) — not picked
+5cb32388 2026-06-22 campaign: ISS-1186 resolved (non-reproducing — lexer truncates entities + upstream un-escape undoes own sanitizeText)
+7dec3cdb 2026-06-22 ssg-mermaid: remove unfaithful sequence-diagram hyphen alias from DetectType (ISS-1252)
+349ff9e5 2026-06-22 campaign: ISS-1252 resolved (unfaithful sequence-diagram alias removed)
+41d2ad7e 2026-06-22 ssg-liquid: document unknown-filter parse-vs-render-time divergence in LiquidParser header + conversion docs (ISS-1023)
+342c9823 2026-06-22 campaign: ISS-1023 resolved (unknown-filter divergence documented; premise corrected)
+c26d6305 2026-06-22 campaign: ISS-1124 resolved (done — 3 test files at scalafmt fixpoint, fmt-twice-clean verified)
+162eeff0 2026-06-22 campaign: ISS-1130 resolved (done — goal skill §3 mandates red-test on-compile fixpoint + amend fallback)
+160b8064 2026-06-22 ssg-highlight: skip grammar-dependent HighlightSuite tests loudly on JS (conditional registration, cite ISS-1118) (ISS-1161)
+d45bf884 2026-06-22 campaign: ISS-1161 resolved (HighlightSuite JS honest skip)
+d659547d 2026-06-22 ssg: disambiguate Version constant — rename katex/mermaid Version->UpstreamVersion + scaladoc on all version constants (ISS-1106)
+af581bfa 2026-06-22 campaign: ISS-1106 resolved (Version disambiguation) + InfoDiagramSuite Native candidate filed
+9e4bd75b 2026-06-22 ssg-sass: fix malformed sass-spec-baseline TSV header so stats query works (ISS-1002)
+0d4058c9 2026-06-22 campaign: ISS-1002 resolved (sass-spec-baseline header fix, stats restored; auditor PASS)
+8592d726 2026-06-22 ssg-js: correct stale sourcemap.js + inline.js migration rows (ISS-1053)
+01e0db39 2026-06-22 campaign: ISS-1053 resolved (ssg-js migration rows corrected; auditor PASS)
+723ce0a5 2026-06-22 ssg-md: correct 28 stale 'ported' migration rows to true status (ISS-985)
+01e4a50c 2026-06-22 campaign: ISS-985 resolved (28 ssg-md migration rows corrected; auditor PASS)
+538af8a2 2026-06-22 ssg-md: re-stamp 19 stale major_issues audit rows to true status (ISS-986)
+33dbb236 2026-06-22 campaign: ISS-986 resolved (19 ssg-md audit rows re-stamped; auditor PASS)
+e9f65c96 2026-06-22 ssg-liquid: cite an open tracking issue on all 24 .fail marks (ISS-1024)
+3c4c8f2f 2026-06-22 campaign: ISS-1024 resolved (24 ssg-liquid .fail marks cited to 10 new tracking issues; auditor PASS)
+5939acd8 2026-06-22 ssg-sass: cross-reference 37 residual sass-spec failures to 8 cluster issues (ISS-1001)
+fd9a5e73 2026-06-22 campaign: ISS-1001 resolved (37 sass-spec failures clustered+tracked in 8 issues; auditor PASS)
+b1051f15 2026-06-22 ssg-sass: document MapImporter as deliberate cross-platform public API (ISS-1005)
+901ffe72 2026-06-22 campaign: ISS-1005 resolved (MapImporter documented as deliberate public API; auditor PASS)
+25d0fb00 2026-06-22 ssg-js: Terser.minify propagates 5 top-level shorthand options via set_shorthand (ISS-1239)
+53ddcf48 2026-06-22 campaign: ISS-1239 resolved (Terser top-level shorthand options; auditor PASS)
+cfad8b58 2026-06-22 ssg-js: thread resolved mangle_options into Compressor for per-pass scope analysis (ISS-1240)
+9b22a3d1 2026-06-22 campaign: ISS-1240 resolved (Compressor mangle_options threading; auditor PASS)
+771bc168 2026-06-22 ssg-js: SymbolDef.mangle dispatches AstFunction next_mangled for Safari tricky-def (ISS-1242)
+a78737cd 2026-06-22 ssg-js: scalafmt-canonicalize ISS-1239/1240/1242 test suites (fmt-fixpoint, ISS-1152)
+430a5dd1 2026-06-22 campaign: ISS-1242 resolved (SymbolDef AstFunction next_mangled dispatch; auditor PASS)
+2948b3dd 2026-06-22 ssg-js: sort per-line source-map segments by generated column on consume (ISS-1241)
+5c240160 2026-06-22 campaign: ISS-1241 resolved (per-line source-map segment sort; auditor PASS)
+b4920bad 2026-06-22 ssg-katex: \verb delimiter uses ASCII-letter check matching upstream [^*a-zA-Z] (ISS-1089)
+8d9cb40e 2026-06-22 campaign: ISS-1089 resolved (verb ASCII-letter delimiter; auditor PASS); ISS-998 deferred to user
+630154bf 2026-06-22 ssg-js: resetOptFlags TOP-flag parity with terser reset_opt_flags (ISS-1146)
+a3ae85be 2026-06-22 campaign: ISS-1146 resolved (resetOptFlags TOP-flag parity; auditor PASS)
+887228e8 2026-06-22 ssg-js: scalafmt-canonicalize ISS-1241 sourcemap suite (fmt-fixpoint, ISS-1152)
+2cac6668 2026-06-22 ssg-js: scalafmt-canonicalize ISS-1146 suite (import-sort+reflow fixpoint, ISS-1152)
+543bb548 2026-06-22 ssg-js: remove stale .fail comment on un-pinned object-methods test (ISS-1176)
+c798b07d 2026-06-22 campaign: ISS-1176 resolved (stale .fail comment removed; fail_marks_ssg-js baseline 878->877; auditor PASS)
+982c421f 2026-06-22 ssg-graphviz: render HTML-like label text instead of escaped markup (ISS-1078)
+3a6898be 2026-06-22 campaign: ISS-1078 resolved (HTML-like label text rendering; auditor PASS); filed ISS-1277/1278
+07fdb962 2026-06-22 ssg-graphviz: render cluster subgraphs as boxed regions with labels (ISS-1077)
+63e06064 2026-06-22 campaign: ISS-1077 resolved (cluster box rendering; auditor PASS); filed ISS-1279
+e1cd6fb4 2026-06-22 ssg-graphviz: scalafmt-canonicalize ISS-1077 cluster suite (fmt-fixpoint, ISS-1152)
+c835c85d 2026-06-22 ssg-graphs-commons: remove dead node.y assignment in dagre positionY (ISS-1076)
+9430608c 2026-06-22 campaign: ISS-1076 resolved (dagre positionY dead-code removal; auditor PASS)
+fc112bb1 2026-06-22 campaign: ISS-1126 resolved (stale duplicate of ISS-1182, evidence-adjudicated)
+5d435cd0 2026-06-22 ssg-commons: drop JS FilePath Win32 heuristics for posix java.nio parity (ISS-1128)
+26f2f072 2026-06-22 campaign: ISS-1128 resolved (JS FilePath posix parity; auditor PASS)
+a2373574 2026-06-22 ssg-commons: scalafmt-canonicalize ISS-1128 suite (fmt-fixpoint, ISS-1152)
+0b5dc64b 2026-06-22 campaign: ISS-1172 resolved (stale/not-reproducible, empirical terser parity)
+c8605446 2026-06-22 campaign: ISS-1168 resolved (verified-correct shorthand ecma gate, false-alarm)
+94f04178 2026-06-22 ssg-highlight: supportsLanguage/supportedLanguages share one source of truth (registry ∩ runtime) (ISS-1093)
+de5891fc 2026-06-22 campaign: ISS-1093 resolved (highlight registry∩runtime consistency; auditor PASS); filed ISS-1280/1281
+e5adf423 2026-06-22 ssg-highlight: scalafmt-canonicalize ISS-1093 suite (fmt-fixpoint, ISS-1152)
+225d7a45 2026-06-22 ssg-js: re-optimize rebuilt left in associativity flattening; un-pin 4 concat tests (ISS-1049 chip)
+2fe9b49a 2026-06-22 campaign: ISS-1049 chipped — fail_marks_ssg-js 877->873 (concat-flatten un-pin; auditor PASS)
+2162bced 2026-06-22 ssg-js: re-optimize rebuilt sequence in delete/typeof unary-prefix branches; un-pin 4 (ISS-1049 chip)
+0446fdff 2026-06-22 campaign: ISS-1049 chipped — fail_marks_ssg-js 873->869 (delete/typeof re-optimize; auditor PASS); filed ISS-1282/1283
+473071de 2026-06-23 ssg-js: re-optimize makeVoid0 in unary-prefix void branch for terser parity (ISS-1282)
+d478b8fb 2026-06-23 campaign: ISS-1282 resolved (void-branch terser parity, faithfulness-only; auditor PASS)
+5b03d67c 2026-06-23 ssg-js: re-optimize folded constant + lifted unary sequence; un-pin 3 (ISS-1049 chip)
+051985bd 2026-06-23 campaign: ISS-1049 chipped — fail_marks_ssg-js 869->866 (folded+lift re-optimize; auditor PASS)
+2d8512e7 2026-06-23 ssg-js: fix in32BitContext IndexOutOfBoundsException crash via activeWalker (ISS-1284)
+9e5343a8 2026-06-23 campaign: ISS-1284 resolved (in32BitContext crash fix; auditor PASS); filed ISS-1285/1286/1287
+09498b45 2026-06-23 ssg-js: scalafmt-canonicalize In32BitContextCrashSuite (fmt-fixpoint, ISS-1152)
+e53ddb1b 2026-06-23 ssg-js: fix inBooleanContext dormant-false via activeWalker (remove swallow); un-pin 4 (ISS-1285)
+93fa3dc6 2026-06-23 campaign: ISS-1285 resolved — fail_marks_ssg-js 866->862, exception_swallows 9->3; filed ISS-1288/1289
+cd4fadb3 2026-06-23 ssg-js: route 4 load-bearing Compressor band-aids through liveParent, un-pin 12 .fail tests (ISS-1288)
+a627fe7f 2026-06-23 campaign: ISS-1288 chip (4 load-bearing band-aids, 12 un-pins) + ISS-1283 resolved; fail_marks_ssg-js 862->850
+68ebb436 2026-06-23 ssg-js: remove stray NUL byte from Evaluate.scala comment; correct exception_swallows baseline 3->9 (ISS-1117)
+2cc4a41b 2026-06-23 ssg-highlight: reconcile Native grammar set with LanguageRegistry, remove 11 dead grammars (ISS-1094)
+aec768bc 2026-06-23 campaign: ISS-1094 resolved (Native grammar/registry reconciliation, 11 dead removed); ISS-1291/1292 spun out
+7cbd18ab 2026-06-23 ssg-highlight: make native-lib/wasm load failures diagnosable (ISS-1095)
+18b8d6e1 2026-06-23 campaign: ISS-1095 resolved (ssg-highlight load diagnostics); ISS-1293 perf follow-up
+36926ea8 2026-06-23 ssg-sass: adjudicate ISS-1274 serializer-fidelity specs as dart-sass-faithful spec-drift (no code change)
+8e0c8413 2026-06-23 ssg-sass: adjudicate ISS-1273 parser/eval specs as dart-sass-faithful spec-drift (no code change)
+8cc60c04 2026-06-23 ssg-js: fix optimizeSwitch empty-stack break-target detection, un-pin 50 .fail tests (ISS-1049)
+83bd500a 2026-06-23 campaign: ISS-1049 chip (optimizeSwitch break-target, 50 un-pins, fail_marks_ssg-js 850->800); ISS-1294 default-fold follow-up
+e88c4145 2026-06-23 ssg-js: port terser switch default-fold/splice, un-pin 7 .fail tests (ISS-1294)
+be36132a 2026-06-23 campaign: ISS-1294 resolved (switch default-fold port, 7 un-pins, fail_marks_ssg-js 800->793); ISS-1295 constant-switch follow-up
+c6777d34 2026-06-23 ssg-js: restore dropped top_retain option in 20 DropUnused tests, un-pin (ISS-1049)
+440fb411 2026-06-23 campaign: ISS-1049 chip (DropUnused top_retain test-fidelity, 20 un-pins, fail_marks_ssg-js 793->773); ISS-1296 mangle-helper follow-up
+5e1bb4d9 2026-06-23 ssg-js: route constant-eval number->string through JsNumber.toJsString + add indexed prop access, un-pin 8 (ISS-1049)
+ae97311e 2026-06-23 campaign: ISS-1049 chip (JsNumber-eval, 8 un-pins, fail_marks_ssg-js 773->765); ISS-1297/1298 follow-ups
+61ea05cb 2026-06-23 ssg-js: reimplement JsNumber.toJsString per ECMA NumberToString (ISS-1298)
+b8fab91c 2026-06-23 campaign: ISS-1298 resolved (JsNumber ECMA NumberToString, correctness, 0 un-pin); ISS-1299 denormal follow-up
+4aa25079 2026-06-23 ssg-mermaid: port utils.wrapLabel into sequence renderer so msg.wrap line-breaks messages (ISS-1202)
+84ecc868 2026-06-23 campaign: ISS-1202 resolved (mermaid sequence message wrap, utils.wrapLabel port); ISS-1300 note-wrap follow-up
+b4b8a722 2026-06-23 ssg-liquid: port RFC 3492 Punycode, IDN-encode absolute_url hosts, close false covenant (ISS-1261)
+9ae63e3b 2026-06-23 campaign: ISS-1261 resolved (RFC3492 punycode, closed false full-port covenant); fail_marks_ssg-liquid 25->23
+9d02b75b 2026-06-23 campaign: false-covenant sweep — filed ISS-1301 (Strip_HTML DOTALL-vs-MULTILINE), ISS-1302 (Round neg-arg), ISS-1303 (Date strftime); 3 candidates confirmed, several legitimate
+aa5eace4 2026-06-23 campaign: ISS-1303 sharpened to confirmed 2nd false-covenant (Date.scala full-port but strftime %C/%U/%W diverge from liqp strftime4j); API-down read-only adjudication
+51c8d94c 2026-06-23 ssg-liquid: scalafmt-canonicalize Punycode (fmt-fixpoint, ISS-1152)
+9f233ca7 2026-06-23 ssg-liquid: make Strip_HTML faithful to liqp Pattern.MULTILINE, close false covenant (ISS-1301)
+eeba5802 2026-06-23 campaign: ISS-1301 resolved (Strip_HTML MULTILINE, 2nd false covenant closed); +Punycode fmt-fixpoint
+25b5a2b2 2026-06-23 ssg-liquid: scalafmt-canonicalize StripHtmlMultilineIss1301Suite (fmt-fixpoint, ISS-1152)
+4435f7fd 2026-06-23 ssg-liquid: make Date strftime faithful to liqp strftime4j, close false covenant (ISS-1303)
+a38e86c8 2026-06-23 campaign: ISS-1303 resolved (Date strftime, 3rd false covenant closed); ISS-1304 scanner false-positive; +fmt-fixpoint
+01d8d099 2026-06-23 ssg-js: scalafmt-canonicalize JsNumberEcmaIss1298Suite (fmt-fixpoint, ISS-1152)
+ae3028f9 2026-06-23 ssg-js: evaluate computed sub-property in join_object_assignments, un-pin 6 (ISS-1049)
+69a964a6 2026-06-23 campaign: ISS-1049 chip (join_object_assignments computed-key, 6 un-pins, fail_marks_ssg-js 765->759); +fmt-fixpoint
+5ac30474 2026-06-23 ssg-js: complete flatten-object inline (re-optimize + shared safeToFlatten), un-pin 10 (ISS-1049)
+efa3724e 2026-06-23 campaign: ISS-1049 chip (flatten-object inline, 10 un-pins, fail_marks_ssg-js 759->749); ISS-1305 follow-up
+a2d501d6 2026-06-23 ssg-js: parse object-pattern shorthand-default { x = expr }, un-pin 10 (ISS-1049)
+80835e6b 2026-06-23 campaign: ISS-1049 chip (shorthand-default parser, 10 un-pins, fail_marks_ssg-js 749->739); ISS-1306 unused-pass follow-up
+b0d98b18 2026-06-23 ssg-js: restore mis-transcribed pure_getters option in 7 destructuring tests, un-pin (ISS-1306)
+af21e1e7 2026-06-23 campaign: ISS-1306 resolved (destructuring test-fidelity, 7 un-pins, fail_marks_ssg-js 739->732); ISS-1307 systemic generator-mistranscription vein
+0e0d5b1e 2026-06-23 ssg-js: fix compress-test generator (pure_getters + top_retain mistranscription), un-pin 21 (ISS-1307)
+12c393a1 2026-06-23 campaign: ISS-1307 chip (generator pure_getters+top_retain root-fix, 21 un-pins, fail_marks_ssg-js 732->716, 1 bounce); ISS-1308/1309/1310 deeper-bug splits
+5a569d01 2026-06-23 ssg-sass: adjudicate ISS-1268 @media-merging specs as dart-sass-faithful blank-line drift (no code change)
+ba53b35c 2026-06-23 ssg-js: faithful may_throw_on_access on receiver — keep throwing null/undef property access (ISS-1309)
+f2c88b31 2026-06-23 campaign: ISS-1309 resolved (pure-getters may_throw soundness, 12 un-pins, fail_marks_ssg-js 716->705); split ISS-1311 (collapse_vars over-collapse) + ISS-1312 (residual may_throw vein)
+7f39662b 2026-06-24 ssg-js: collapse_vars — pass assign LHS to isLhs so prop-write may-alias stop fires (ISS-1308, ISS-1313)
+73d37a76 2026-06-24 campaign: ISS-1308 + ISS-1313 resolved (collapse_vars may-alias stop, 2 un-pins, fail_marks_ssg-js 705->702)
+6bbaf47b 2026-06-24 test: scalafmt fixpoint — canonicalize 3 prior-committed suites (comment reflow + val-align, fmt-only) reflowed by full verify-compile (ISS-1152)
+0523d677 2026-06-24 ssg-js: Compressor.hasDirective delegates to activeWalker so passes see live strict-mode directives (ISS-1311)
+5145b38d 2026-06-24 campaign: ISS-1311 resolved (hasDirective/activeWalker, 6 un-pins, fail_marks_ssg-js 702->696); filed ISS-1314 (arrow-strict residual)
+d7f8d054 2026-06-24 ssg-js: parser — empty arrow body () => {} end falls back to prevTok, no crash (ISS-1314)
+ab418fb2 2026-06-24 campaign: ISS-1314 resolved (empty-arrow-body parser crash, 9 un-pins, fail_marks_ssg-js 696->687)
+7b2c3c71 2026-06-24 ssg-js: compress reads live activeWalker for export-destructuring + pure-prototype-drop scope (ISS-1310 sub-bugs 1+3)
+3bcb0bce 2026-06-24 campaign: ISS-1310 sub-bugs 1+3 resolved (activeWalker vein, 4 un-pins, fail_marks_ssg-js 687->682); split ISS-1316/1317, filed systemic ISS-1315
+e896390a 2026-06-24 ssg-js: compress reads live activeWalker ancestry across 13 optimize sites (liveSelf/liveFindParent), removing empty-stack band-aids (ISS-1315 safe batch)
+072fc9dc 2026-06-24 campaign: ISS-1315 safe batch resolved (activeWalker sweep, 19 un-pins, fail_marks_ssg-js 682->663); deferred ISS-1318/1319
+4598a987 2026-06-24 ssg-js: complete dead_code in_try port (bfinally/bcatch+may_assignment_throw) on live activeWalker (ISS-1318)
+afe610c4 2026-06-24 campaign: ISS-1318 resolved (dead_code in_try port, 5 un-pins, fail_marks_ssg-js 663->658, shortcut_hits 131->129)
+b196a714 2026-06-24 ssg-js: optimizeConciseMethod fires on live activeWalker + uses containsThis (super/this detection) (ISS-1319)
+d90ede74 2026-06-24 campaign: ISS-1319 resolved (conciseMethod live activeWalker + containsThis, fail_marks_ssg-js 658->657); empty-stack vein complete
+1e33abe7 2026-06-24 campaign: record ISS-1319 resolution in issues db
+9f8f9ac0 2026-06-24 ssg-js: collapse_vars resets replaced=0 on too-many-refs abort (terser replaced=false), fixing let-shadowed over-prune (ISS-1316)
+fc00588f 2026-06-24 campaign: ISS-1316 resolved (collapse_vars replaced=0 1-line, 5 un-pins, fail_marks_ssg-js 657->651, shortcut 129->128)
+26d443ad 2026-06-24 ssg-js test: cross-platform compressor coverage — shared CompressTestHelper + CompressRunner seam, relocate 10 suites (55 tests) to JS+Native (ISS-1048)
+bf7fe033 2026-06-24 campaign: ISS-1048 resolved (cross-platform compress test infra, 10 suites on JS+Native); filed ISS-1320 (Native number discrepancy)
+fd10b6b3 2026-06-24 test: scalafmt fixpoint — canonicalize ISS-1048 CompressTestHelper + CompressRunner scaladoc (fmt-only, ISS-1152)
+f1da98b1 2026-06-24 ssg-js: parse numeric literals via Token.parseJsNumber — fixes hex/oct/bin -> NaN on JVM/JS (ISS-1320)
+37351f31 2026-06-24 campaign: ISS-1320 resolved (hex/oct/bin literals -> NaN on JVM/JS, 1-line parse fix, 5 un-pins, fail_marks_ssg-js 651->646)
+9bad0779 2026-06-24 ssg-js: template-+ fold uses jsStringOf (Double 1.0->1 on JVM/Native, terser String()); relocate 25 compress suites cross-platform (ISS-1322, ISS-1321 batch1)
+26ab4241 2026-06-24 campaign: ISS-1322 resolved (template-Double cross-platform bug, 2 un-pins, 646->644) + ISS-1321 batch1 (25 suites cross-platform)
+78a7cfe6 2026-06-24 ssg-js test: ISS-1321 batch2 — relocate 25 compress suites cross-platform (808 tests JS+Native, 0 bugs)
+063d2257 2026-06-24 ssg-site: move TerserJsCompressorAdapter + options + test from compileOnly ssg aggregator so the suite runs in CI (ISS-1104)
+808245a6 2026-06-24 campaign: ISS-1104 resolved (adapter test moved to ssg-site, now runs in CI)
+efcb8737 2026-06-24 ssg-js: in32BitContext takes other_operand_must_be_number, narrows bitwise-binop to isNumber(other) — fixes over-permissive bitwise fold (ISS-1286)
+33cb8230 2026-06-24 campaign: ISS-1286 resolved (in32BitContext other_operand_must_be_number, new faithfulness test); filed ISS-1323/1324/1325
+3bb8c5c0 2026-06-24 test: scalafmt fixpoint — canonicalize ISS-1286 suite import braces (fmt-only, ISS-1152)
+8810a5b6 2026-06-24 ssg-js: bitwise folds gate on is32BitInteger() — add OR-alt at 3 sites + fix x&0 over-fold correctness bug (ISS-1324)
+012f007c 2026-06-24 campaign: ISS-1324 resolved (is32BitInteger fold gates + x&0 over-fold fix, new cross-platform test)
+a91e340d 2026-06-24 ssg-js: document Inline.isRecursiveRef as terser-faithful but structurally subsumed (ISS-1243 adjudication)
+38895064 2026-06-24 campaign: ISS-1243 adjudicated-(a) (isRecursiveRef faithful+subsumed, doc-comment)
+5da8388a 2026-06-24 ssg-js: may_throw_on_access residual gaps — isCallPure/TightenBody use the wrapper, recursions use type-dispatch (ISS-1312); fixes pure_getters=false unsound call drop
+25ea868d 2026-06-24 campaign: ISS-1312 resolved (may_throw residual gaps + pure_getters=false unsound-drop fix)
+40bb4ad5 2026-06-24 ssg-js test: correct false 'PropMangler not integrated' claim in mangleprops-computed stubs — it IS integrated; blocked on expect_stdout runner (ISS-1326); shortcut 128->126, fail 644->642
+9f78c073 2026-06-24 campaign: ISS-1326 runner assessed (Scala.js eval, deferrable) — exposed PropMangler over-mangle bug; filed ISS-1327 (high) + ISS-1328
+d40d6ebd 2026-06-24 ssg-js: liftKey copies key.quote onto lifted method/getter/setter/classprop — fixes keep_quoted over-mangle of inlined computed keys (ISS-1327)
+9e1c7f0a 2026-06-24 campaign: ISS-1327 resolved (HIGH liftKey quote over-mangle, new test); filed ISS-1329 (symbol-type gap)
+5bb1bbab 2026-06-24 test: scalafmt fixpoint — val-align ISS-1327 suite (fmt-only, ISS-1152)
+abe00d5b 2026-06-24 ssg-js test: add JS-only expect_stdout runner (StdoutAssert) + convert 24 mangleprops-computed stubs to real passing tests (ISS-1326); fail_marks 642->618
+1aae76cf 2026-06-24 campaign: ISS-1326 resolved (expect_stdout runner + 24 mangleprops un-pins, fail_marks 642->618)
+c3b8e69b 2026-06-24 ssg-js: model keep_quoted tri-state (KeepQuoted), un-pin 24 strict cases (ISS-1328)
+698410fd 2026-06-24 db: resolve ISS-1328 (keep_quoted tri-state, 24 strict un-pins)
+fa652436 2026-06-24 ci: remove pull_request trigger from release workflow (ISS-1109)
+16339d79 2026-06-24 db: resolve ISS-1109 (release pull_request trigger removed)
+214eb8ff 2026-06-24 ci: add blocking ratchet gate to enforce job (ISS-1107)
+272e26d1 2026-06-24 db: resolve ISS-1107 (CI enforce gate now blocking via ratchet)
+d46dfd60 2026-06-24 ssg-commons: delete dead buggy Nullable duplicate (ISS-981)
+6a083dd1 2026-06-24 db: resolve ISS-981 (delete dead Nullable duplicate)
+38a444fa 2026-06-24 docs: correct version/module-count/settings drift (ISS-1110)
+baf2ff8d 2026-06-24 db: resolve ISS-1110 (docs drift sweep)
+8cf34096 2026-06-24 db: file ISS-1330 (residual cross-platform-settings.md drift, follow-up to ISS-1110)
+39b806a0 2026-06-24 build: delete stray orphan lowlevel/Nullable.scala (ISS-1111)
+be1d80e8 2026-06-24 db: resolve ISS-1111 (delete stray orphan Nullable)
+95f14940 2026-06-24 audit: re-stamp 3 stale major_issues rows after re-audit (ISS-1114)
+5f473fee 2026-06-24 db: resolve ISS-1114 (re-audit 3 stale audit rows)
+bc87442a 2026-06-24 docs: correct munit/scalacheck versions + tree-sitter prose in cross-platform-settings (ISS-1330)
+51153e30 2026-06-24 db: resolve ISS-1330, file ISS-1331 (sbt version drift follow-up)
+620be1c3 2026-06-24 ssg-sass: eliminate returns in Parser.scala via boundary/break (ISS-1003, 375->354)
+b8a7f4c6 2026-06-24 ssg-sass: eliminate returns in EvaluateVisitor via boundary/break (ISS-1003, 354->322)
+6dd4342f 2026-06-24 ssg-sass: eliminate returns in StylesheetParser chunk 1/2 via boundary/break (ISS-1003, 322->277)
+58d17e29 2026-06-24 ssg-sass: eliminate returns in StylesheetParser chunk 2/2 via boundary/break (ISS-1003, 277->229)
+30df4cf2 2026-06-24 ssg-sass: eliminate returns in SerializeVisitor via boundary/break (ISS-1003, 229->196)
+cf74af99 2026-06-24 ssg-sass: eliminate returns in NodePackageImporter via boundary/break (ISS-1003, 196->176)
+a05469a9 2026-06-24 ssg-sass: eliminate returns in Environment via boundary/break (ISS-1003, 176->160)
+a4c76390 2026-06-24 ssg-sass: eliminate returns in ColorFunctions+SelectorParser+SassParser via boundary/break (ISS-1003, 160->137)
+78f33139 2026-06-24 ssg-sass: eliminate returns in ExtensionStore+CssParser+ExtendFunctions+CompoundSelector (ISS-1003, 137->108)
+0b838346 2026-06-24 ssg-sass: eliminate returns in CssMediaQuery+InterpolationMap+SourceInterpolationVisitor+MediaQueryParser+MapFunctions (ISS-1003, 108->83)
+a71bef15 2026-06-24 ssg-sass: eliminate returns in 12 tiny files via boundary/break (ISS-1003, 83->64)
+8cdf2171 2026-06-24 ssg-sass: eliminate final returns in Callable — no-return sweep COMPLETE (ISS-1003, 64->62 bottom-out)
+e0564131 2026-06-24 db: resolve ISS-1003 (ssg-sass no-return sweep complete)
+d867c42c 2026-06-24 docs: add Emoji->EmojiData mapping (ISS-989) + fix sbt/plugin version drift (ISS-1331)
+a059a56e 2026-06-24 db: resolve ISS-989 + ISS-1331 (docs lows)
+646db90d 2026-06-24 ssg-liquid: justify-keep ssg.liquid.antlr (faithful port of liqp.antlr) (ISS-1022)
+af1e70db 2026-06-24 db: resolve ISS-1022 (justify-keep ssg.liquid.antlr)
+b8dc9d00 2026-06-24 db: file ISS-1332 (JVM CI AsDataView macro timeout) + ISS-1333 (Native AbsoluteUrlFilterSuite)
+bfb6b796 2026-06-24 ssg-mermaid: derive AsDataView/FromDataView on nested configs to split MermaidConfig macro (ISS-1332)
+98e93881 2026-06-24 db: resolve ISS-1332 (AsDataView timeout, CI-proven); file ISS-1334 (StackOverflow) + ISS-1335 (Windows FS)
+1a149fff 2026-06-24 ssg-sass: stack-safe parenthesized-expression parsing (ISS-1334)
+7541815a 2026-06-24 db: resolve ISS-1334 (stack-safe paren parsing)
+ba3b1810 2026-06-24 ssg-commons: OS-independent POSIX FilePath on JVM (ISS-1335)
+4193ac7c 2026-06-25 campaign: ISS-1335 core verified Windows-green (commons.io 77/0); filed ISS-1336 regression
+4c9a828e 2026-06-25 ssg-liquid: cross-platform target/-relative temp dir in jail test (ISS-1336)
+d4b56211 2026-06-25 ssg-commons: round-trip Windows drive-absolute FilePath through the nio bridge (ISS-1335)
+c2264a52 2026-06-25 campaign: ISS-1335 + ISS-1336 RESOLVED (Windows FilePath CI-green); filed ISS-1337
+dcb6ccfe 2026-06-25 campaign: Windows-JVM tail triage — filed ISS-1338/1339 (bounded, shared root)
+28737bfc 2026-06-25 ssg-site/ssg-sass/ssg-md: route host nio paths via fromNioPath / proper file URIs (ISS-1337/1338/1339)
+43b76613 2026-06-25 campaign: ISS-1337 resolved (windows FileUri green); ISS-1339 scope corrected
+e7f68a23 2026-06-25 ssg-sass: complete Windows-JVM importer path handling (ISS-1339)
+8a5d04c1 2026-06-25 ssg-site: route model cwd through toNioPath in golden test (ISS-1338); resolve ISS-1339
+1eb52393 2026-06-26 campaign: ISS-1338 resolved — JVM CI matrix fully green (6/6)
+8a6dcd61 2026-06-26 ssg-liquid: collapse consecutive slashes for Native URI.normalize parity (ISS-1333)
+8bc5c08a 2026-06-26 campaign: ISS-1333 resolved (Native AbsoluteUrl URI.normalize parity); filed ISS-1341
+18acd441 2026-06-26 ssg-mermaid: remove re2-incompatible lookahead from Directives regexes (ISS-1342)
+fcb1655a 2026-06-26 ssg-mermaid/graphs-commons: Native BigDecimal + italic-strip re2 parity (ISS-1343/1344)
+82ae0ca7 2026-06-26 campaign: resolve ISS-1343/1344 (mermaid Native BigDecimal+italic); file ISS-1345 (backref)
+c0be91f0 2026-06-26 ssg-mermaid: split backreference regex for Native re2 parity (ISS-1345)
+d0b3b6dd 2026-06-26 campaign: resolve ISS-1345 — ssg-mermaid Native fully green (604/0)
+a57279d9 2026-06-26 campaign: Native track closed — ssg-mermaid re2 cluster (ISS-1342/1343/1344/1345) resolved
+7fc66001 2026-06-26 campaign: Native linux/macos CI-confirmed green; filed ISS-1346 (Native-Windows FilePath)
+49894154 2026-06-26 ssg-commons: OS-independent POSIX FilePath on Native (ISS-1346)
+d716eb2c 2026-06-26 campaign: ISS-1346 substantial (Native-Windows FilePath core fixed); ~9-test CI-only residual characterized
+25eaece9 2026-06-26 ssg-commons: pure-Scala Native normalize + POSIX-render Native FilePath test refs (ISS-1346 tail)
+b8330742 2026-06-26 ssg-commons: NOFOLLOW_LINKS capability probe for Native-Windows symlink tests (ISS-1347)
+13a758d3 2026-06-26 ssg-commons: gate symlink creation on Native-Windows capability probe (ISS-1347)
+ef136857 2026-06-26 campaign: ISS-1346 + ISS-1347 resolved — Native matrix fully green (incl windows-x86_64)
+91bfe6a2 2026-06-26 campaign: file ISS-1348 (flaky KaTeX \tmspace macro non-determinism)
+d0eb3b3a 2026-06-26 ssg-katex: make builtin macro registration atomic + serial (ISS-1348)
+1717f64d 2026-06-26 campaign: resolve ISS-1348 (flaky KaTeX macro race) — last bouncing CI failure fixed
+2e7e45ca 2026-06-26 campaign: ISS-1348 resolved (KaTeX flake); filed ISS-1349 (AsDataView compile-timeout flake on slow runner)
+38337757 2026-06-26 ssg-data-commons: raise AsDataView/FromDataView macro timeout 2s->10s (ISS-1349)
+a70512e3 2026-06-26 build: upgrade hearth 0.3.1-SNAPSHOT -> 0.4.0, kindlings-yaml 0.2.0-SNAPSHOT -> 0.3.0
+4aabe3b2 2026-06-26 campaign: ISS-1349 resolved (AsDataView timeout cured, JVM 6/6 green); hearth 0.4.0 upgrade non-regressing
+a775820b 2026-06-26 campaign: CI infra-flake triage — code-CI green (JVM 6/6 + Native 5/5); flakes are coursier/download infra, not code
+26a2d3cc 2026-06-26 ci: swap coursier/setup-action -> setup-java+setup-sbt with caching (ISS-1350)
+e979d2e6 2026-06-27 campaign: ISS-1350 resolved — CI infra flakiness mitigated (setup-java + caching); jvm-index 400 gone
+c6b1920d 2026-06-27 campaign: hearth 0.4.0 JS-runtime confirmed green (local); filed ISS-1351 (Scala.js CI job 3-6h perf)
+47bedde2 2026-06-29 ssg-md/ci: platform-aware pathological-test size — cut Scala.js CI job from 6h (ISS-1351)
+fc1bbfcc 2026-06-29 campaign: resolve ISS-1351 (Scala.js CI job 6h->minutes via platform-aware pathological size)
+36bf6ee9 2026-06-29 campaign: ISS-1351 pathological fix worked (JS 6h->~40min) but reveals pre-existing JS failures + needs sharding; filed ISS-1352
+fd4977a9 2026-06-29 ssg-md/ci: fix JS test resource path (ISS-1352) + shard the Scala.js CI job (ISS-1351)
+8f18e996 2026-06-29 campaign: resolve ISS-1352 (JS resource path) — JS spec tests green; ci-js sharded
+bd5e2771 2026-06-29 campaign: JS job 6h->~3min all shards green (ISS-1351/1352); only scalafmt ISS-1152 remains
+86b838e7 2026-06-29 all: scalafmtAll the drifting files to the check-canonical form (ISS-1152)
+0f2b775c 2026-06-29 campaign: resolve ISS-1152 (scalafmt drift) — Scalafmt-check now clean; CI fully green
+281d5804 2026-06-29 build: scalafmtSbt project/Versions.scala (ISS-1152 .sbt drift); file ISS-1353 (Native-win ssg-site flake)
+c4250b7b 2026-06-29 campaign: ISS-1152 resolved — entire CI green except 1 flaky Native-win test (ISS-1353); ~26 issues this window
+fb04da7b 2026-06-29 ssg-site: serialize tests to fix Native-Windows FS-race flake (ISS-1353)
+6889d85b 2026-06-29 campaign: ISS-1353 resolved (PR#42 blocker cleared); filed ISS-1354 (kindlings macro slow-runner timeout)
+6a71f82e 2026-06-29 build: raise kindlings-yaml macro timeout to 30s via -Xmacro-settings (ISS-1354)
+ad21975b 2026-06-29 campaign: resolve ISS-1354 (kindlings macro timeout via -Xmacro-settings)
+226faf77 2026-06-29 campaign: ENTIRE CI MATRIX GREEN — both PR#42 blockers cleared (ISS-1354 + ISS-1353)
+5de71d10 2026-06-29 build: disable Claude Code session-URL/attribution in committed settings (#66504)
+de0b5f56 2026-06-30 build: bump sbt to 2.0.1
+a0e8be72 2026-06-30 build: vendor roughjs v4.6.6 submodule for handDrawn port (ISS-1204)
+da2feebf 2026-06-30 build: vendor roughjs transitive source-deps (path-data-parser 0.1.0, points-on-curve 0.2.0, points-on-path 0.2.1, hachure-fill 0.5.2) for handDrawn port (ISS-1204)
+19bd5985 2026-06-30 docs: ISS-1204 rough.js handDrawn 9-chip port plan + progress ledger
+07c5c800 2026-06-30 ssg-graphs-commons: port path-data-parser, rough.js chip 1 (ISS-1204)
+a8cd1271 2026-06-30 campaign: ISS-1204 chip 1 path-data-parser PASS; resolve ISS-1355 (parity test gap)
+87a611be 2026-06-30 ssg-graphs-commons: scalafmt-normalize chip-1 pathdata to CI fixpoint (content-identical)
+9a0bdcd4 2026-06-30 ssg-graphs-commons: port points-on-curve + points-on-path, rough.js chip 2 (ISS-1204)
+6931c56c 2026-06-30 campaign: ISS-1204 chip 2 points-on-curve/path PASS; resolve ISS-1356 (M1 fixed, M3 equivalent-mutant)
+17a2f4b3 2026-06-30 ssg-graphs-commons: scalafmt-normalize chip-2 curve to multi-pass fixpoint (content-identical)
+12de6b1a 2026-06-30 ssg-graphs-commons: port hachure-fill, rough.js chip 3 (ISS-1204)
+4f60c281 2026-06-30 campaign: ISS-1204 chip 3 hachure-fill PASS (0 bounces, self-mutation-battery)
+c036c005 2026-06-30 ssg-graphs-commons: scalafmt-normalize chip-3 hachure to convergent fixpoint (RedundantBraces, semantics-preserved)
+f8da725a 2026-06-30 ssg-graphs-commons: port roughjs foundation (RNG/geometry/core types), rough.js chip 4 (ISS-1204)
+04bf1287 2026-06-30 campaign: ISS-1204 chip 4 roughjs foundation PASS; resolve ISS-1357 (Int.MinValue RNG fixed-point test gap)
+6c7c9d48 2026-06-30 ssg-graphs-commons: scalafmt-normalize chip-4 to compile fixpoint (scalafmtCheckAll-clean, semantics-preserved)
+7cf1fde7 2026-06-30 ssg-graphs-commons: port roughjs fillers (9 fill patterns + getFiller), rough.js chip 5 (ISS-1204)
+dad072ee 2026-06-30 campaign: ISS-1204 chip 5 roughjs fillers PASS; resolve ISS-1358 (roughness>=1 skipOffset coverage)
+87d1ae5a 2026-06-30 ssg-graphs-commons: scalafmt-normalize chip-5 fillers to scalafmtAll fixpoint (CI scalafmtCheckAll-clean, semantics-preserved)
+a18bc403 2026-06-30 ssg-graphs-commons: port roughjs renderer (core sketch algorithm), rough.js chip 6 (ISS-1204); Core randomizer val->var for RNG threading
+2e3784b5 2026-06-30 campaign: ISS-1204 chip 6 roughjs renderer PASS; resolve ISS-1359 (arc >2pi clamp coverage)
+cebea034 2026-06-30 ssg-graphs-commons: scalafmt-normalize chip-6 renderer to scalafmtAll fixpoint (cold CI scalafmtCheckAll-clean)
+976a8e54 2026-07-01 ssg-graphs-commons: port roughjs generator (RoughGenerator + opsToPath/toPaths), rough.js chip 7 (ISS-1204)
+b176cc6d 2026-07-01 ssg-graphs-commons: scalafmt-normalize chip-7 generator to cold scalafmtAll fixpoint
+0b9659e6 2026-07-01 campaign: ISS-1204 chip 7 roughjs generator PASS (0 bounces)
+7e26d41e 2026-07-01 ssg-graphs-commons: port roughjs svg output + entry (RoughSVG + Rough), rough.js chip 8 (ISS-1204); canvas.ts platform-inapplicable
+bcac8ec2 2026-07-01 ssg-graphs-commons: scalafmt-normalize chip-8 svg/entry to cold scalafmtAll fixpoint
+8a9100e1 2026-07-01 campaign: ISS-1204 chip 8 svg/entry PASS; resolve ISS-1360; file canvas.ts skip-policy
+976cd979 2026-07-01 docs: decompose ISS-1204 Chip 9 (mermaid handDrawn) into sub-chips 9a-9j (user: full decomp)
+2ac44b29 2026-07-01 ssg-mermaid: handDrawn config + look/seed plumbing + handDrawnShapeStyles, ISS-1204 chip 9a
+d0210d5f 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9a to cold scalafmtAll fixpoint
+e2e19f4e 2026-07-01 campaign: ISS-1204 chip 9a mermaid handDrawn plumbing PASS; resolve ISS-1361
+25c69082 2026-07-01 ssg-mermaid: rect + roundedRect handDrawn rendering (createRoundedRectPathD + RectShape branch + options threading), ISS-1204 chip 9b
+4db67738 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9b to cold scalafmtAll fixpoint
+f767bc22 2026-07-01 campaign: ISS-1204 chip 9b rect handDrawn PASS (0 bounces)
+3ac9e479 2026-07-01 ssg-mermaid: circle + ellipse + doublecircle handDrawn + shared graftElement, ISS-1204 chip 9c
+88e454a2 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9c to cold scalafmtAll fixpoint
+29cf4cba 2026-07-01 campaign: ISS-1204 chip 9c circle/ellipse/doublecircle handDrawn PASS (0 bounces)
+9825186b 2026-07-01 ssg-mermaid: diamond/rhombus/question handDrawn (Rough.svg().polygon of SSG vertices), ISS-1204 chip 9d
+3b088cae 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9d to cold scalafmtAll fixpoint
+e3a05649 2026-07-01 campaign: ISS-1204 chip 9d diamond handDrawn PASS (0 bounces)
+0c1e6ab2 2026-07-01 ssg-mermaid: hexagon + trapezoid handDrawn (Rough.svg().polygon of SSG vertices), ISS-1204 chip 9e
+d4cde71c 2026-07-01 campaign: ISS-1204 chip 9e hexagon/trapezoid handDrawn PASS (0 bounces)
+225a0764 2026-07-01 ssg-mermaid: stadium + cylinder handDrawn (Rough.svg().path; cylinder body+cap fill:none), ISS-1204 chip 9f
+7db3ed19 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9f to cold scalafmtAll fixpoint
+d016c2da 2026-07-01 campaign: ISS-1204 chip 9f stadium/cylinder handDrawn PASS; resolve ISS-1362
+e2fc203b 2026-07-01 ssg-mermaid: note + subroutine handDrawn (note fold+opts; subroutine SSG-analog rect+inset bars), ISS-1204 chip 9g
+bb88652a 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9g to cold scalafmtAll fixpoint
+58220011 2026-07-01 campaign: ISS-1204 chip 9g note/subroutine handDrawn PASS; resolve ISS-1363 (subroutine SSG-analog geometry); ALL 12 shapes done
+66d50ce0 2026-07-01 ssg-mermaid: edges handDrawn (Rough.svg().path of SSG pathData, roughness 0.3, markers/stroke preserved) + EdgeStyle threading, ISS-1204 chip 9h
+40ef4d3c 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9h to cold scalafmtAll fixpoint
+3ce91278 2026-07-01 campaign: ISS-1204 chip 9h edges handDrawn PASS (0 bounces)
+1946517c 2026-07-01 ssg-mermaid: clusters/subgraphs handDrawn (Rough.svg().path createRoundedRectPathD radius-0, cluster opts) + ClusterConfig threading, ISS-1204 chip 9i
+8a9014ba 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9i to cold scalafmtAll fixpoint
+8b16a4c3 2026-07-01 campaign: ISS-1204 chip 9i clusters handDrawn PASS (0 bounces); all handDrawn wiring complete
+4bd75541 2026-07-01 ssg-mermaid: look=handDrawn flowchart acceptance (e2e all-sketch test) + activate rough-node CSS, ISS-1204 chip 9j
+6af40c56 2026-07-01 ssg-mermaid: scalafmt-normalize chip-9j to cold scalafmtAll fixpoint
+9fad1608 2026-07-01 campaign: RESOLVE ISS-1204 (umbrella) — full mermaid look=handDrawn integration complete via chips 1-8 roughjs port + 10 sub-chips 9a-9j
+9d2736bd 2026-07-01 campaign: resolve ISS-1220 (rough.js vendored — enabled ISS-1204 port)
+8eed28f1 2026-07-01 ssg-js: replace resolveDefaults majority-match heuristic with GatedPresence HOP tracking (ISS-1193)
+736d2ad8 2026-07-01 ssg-js: scalafmt-normalize ISS-1193 test to cold scalafmtAll fixpoint
+b12dfecc 2026-07-01 campaign: resolve ISS-1193 (last P1) — CompressorOptions GatedPresence HOP tracking
+363235dc 2026-07-01 campaign: resolve ISS-1307 (compress-test mis-transcription vein exhausted — verified 0 false pins remain); file ISS-1364/1365/1366
+e606e40f 2026-07-01 ssg-js: restore dropped semicolon in reduce_vars test + un-pin (ISS-1364 misdiagnosed — parser is faithful); add ForInDestructuring diagnosis suite
+b38900cf 2026-07-01 ssg-js: scalafmt-normalize ForInDestructuring suite to cold fixpoint
+16060d2f 2026-07-01 campaign: resolve ISS-1364 (misdiagnosed parser bug = test-transcription un-pin); ratchet fail_marks_ssg-js 594->593
+44ce5605 2026-07-01 ssg-js: optimizeSwitch tail_node() eval for comma-expr discriminant + case labels (terser index.js:1247/1271); un-pin 3 switch tests (ISS-1295)
+9266c91d 2026-07-01 campaign: resolve ISS-1295 (optimizeSwitch comma-expr tail_node fold, 3 un-pins); ratchet fail_marks_ssg-js 593->590; file ISS-1367
+d479d0f3 2026-07-01 ssg-js: convert raw null to lls Nullable in Terser.scala public API + minify orchestration (ISS-1051)
+b58cd408 2026-07-01 campaign: resolve ISS-1051 (Terser.scala raw-null -> Nullable); file ISS-1368 (sibling No-null sweep)
+8b80a4b2 2026-07-01 ssg-liquid: strict-variables error contract — strictVariables->STRICT build bridge + per-child error list; un-pin 7 RenderSettings tests (ISS-1258)
+115e6340 2026-07-01 campaign: resolve ISS-1258 (liquid strict-variables, 7 un-pins); ratchet fail_marks_ssg-liquid 23->16; file ISS-1369
+ecb65160 2026-07-01 ssg-liquid: include_relative lexer flavor conditional (g4:229-245) + NameResolver fallback for nested in-memory (SSG divergence); un-pin 4 tests (ISS-1259)
+0247f401 2026-07-01 campaign: resolve ISS-1259 (liquid include_relative, 4 un-pins incl user-approved NameResolver-fallback divergence); ratchet fail_marks_ssg-liquid 16->12
+28580195 2026-07-01 campaign: resolve ISS-1269 (ssg-sass @media range — verified faithful blank-line drift vs dart-sass v1.99.0, no code fix)
+9d95cc22 2026-07-01 ssg-sass: delete dead StylesheetGraph (dart executable/watch-layer; no SSG consumer, cycle detection done by EvaluateVisitor._activeModules) (ISS-998)
+3e5c97ba 2026-07-01 campaign: resolve ISS-998 (delete dead StylesheetGraph); migration->skipped, audit->deleted
+943c46bd 2026-07-01 ssg-liquid: Insertions.get returns lls Nullable[Insertion] + delete module-local Nullable duplicate (ISS-1021)
+ac30c2ec 2026-07-01 ssg-liquid: Insertions.get -> Nullable[Insertion] + 21 LiquidParser call-site updates + 3 regression tests (ISS-1021 fix body)
+47c69ba7 2026-07-01 campaign: resolve ISS-1021 (liquid Insertions.get->Nullable + delete local Nullable dup); advances ISS-1101
+d39708c5 2026-07-01 ssg-sass: make FilesystemImporter cross-platform (java.nio/URI -> FileOps/FilePath) + flip Native/JS loadPaths to real; +FileOps.lastModifiedTime; retire 2 skip-policy entries (ISS-1154)
+875fcc2f 2026-07-01 ssg-sass: scalafmt-normalize ISS-1154 files to cold fixpoint
+3c6483ff 2026-07-01 campaign: resolve ISS-1154 (cross-platform FilesystemImporter, Native/JS loadPaths real); ratchet shortcut_hits 125->124; file ISS-1370
+e3ccc691 2026-07-01 ssg-highlight: SyntaxHighlighter.highlight -> Either[HighlightError,String] distinguishing 4 outcome modes (ISS-1096)
+6c5026e3 2026-07-01 ssg-highlight: scalafmt-normalize HighlightError to cold fixpoint
+71b607f7 2026-07-01 campaign: resolve ISS-1096 (highlight Either[HighlightError] contract); file ISS-1371/1372
+ebef7537 2026-07-01 ssg-mermaid: unify Mermaid.render failure contract — parse failures render ErrorDiagram (mermaidAPI.ts:393-401) + suppressErrorRendering (ISS-1068)
+0d869f5e 2026-07-01 campaign: resolve ISS-1068 (mermaid parse-failure -> ErrorDiagram contract)
+d87481cf 2026-07-01 ssg-highlight: ISS-1096 zero-captures test -> conditional registration (drop assume, restore assumes_ssg-highlight=4)
+c5399d40 2026-07-01 ssg-highlight: JS QueryLoaderPlatform emits loud diagnostic when TREE_SITTER env unset (ISS-1118)
+d8c6f31c 2026-07-01 ssg-highlight: scalafmt-normalize ISS-1118 to cold fixpoint
+d31d52ab 2026-07-01 campaign: resolve ISS-1118 (JS query-loader loud diagnostic) + fix latent assumes_ssg-highlight regression from ISS-1096
+b5a06808 2026-07-01 ssg-commons: shared diagnostics/result envelope + error-contract adoption plan (ISS-1102)
+77d27910 2026-07-01 campaign: resolve ISS-1102 (error-contract design); file ISS-1373..1382 wiring; fold returns_ssg-sass 62->61; add campaign handoff doc
+5904d3bf 2026-07-01 ISS-1381: add highlightResult DiagResult facade to ssg-highlight
+57dd5a32 2026-07-01 ISS-1376: add minifyResult DiagResult facade to ssg-minify
+c5e3e287 2026-07-02 ssg-highlight+ssg-minify: scalafmt-normalize ISS-1381/ISS-1376 to on-compile fixpoint
+9ebb028e 2026-07-02 verify-issue: restore Fable 5 auditor for the availability window (user-approved 2026-07-02); Opus 4.8 fallback; never implementer model
+9b3f3aed 2026-07-02 plan: sync auditor-model routing with restored Fable window (user-approved 2026-07-02)
+849e5471 2026-07-02 campaign: resolve ISS-1381+ISS-1376 (first error-contract wirings, fable audits); ledger + handoff
+37a8a04b 2026-07-03 protocol: two-tier model routing — Opus per-issue audits, Fable milestone reviews only (user decision 2026-07-03, token economy)
+c910c165 2026-07-03 ssg-commons: lift native Windows drive-absolute paths into /C:/x model form (ISS-1383; red:a6ac8574 fix:9d6395c4 audit:PASS)
+1cc5677c 2026-07-03 campaign: handoff — PR #45 green + merge pending user approval; ISS-1384 in DB
+802042fe 2026-07-07 ssg-sass: add DiagResult error-contract facade (ISS-1375)
+650803bd 2026-07-07 ssg-md: add DiagResult error-contract facade (ISS-1373)
+f0ae8386 2026-07-07 campaign: resolve ISS-1373 + ISS-1375 (ssg-md + ssg-sass DiagResult facades)
+2b3fa560 2026-07-07 ssg-js: add DiagResult error-contract facades (ISS-1377)
+b370c84e 2026-07-07 ssg-katex: add DiagResult error-contract facades (ISS-1378)
+3d51ddca 2026-07-07 ssg-mermaid: add DiagResult error-contract facade (ISS-1379)
+106d0e33 2026-07-07 ssg-liquid: add DiagResult error-contract facades (ISS-1374)
+9f7393a8 2026-07-07 ssg-site: wire Diagnostics envelope into BuildResult + Site.build (ISS-1382)
+91d4ae3d 2026-07-07 ssg-graphviz: structured DotParseException + DiagResult facades (ISS-1380)
+c840b921 2026-07-07 ssg-commons: port Windows drive-lift into JS+Native FilePathPlatform (ISS-1384)
+940a6129 2026-07-07 ci: upload the real sbt-2.0 scoverage aggregate path (ISS-1108)
+47d06667 2026-07-07 campaign: resolve ISS-1108 (codecov scoverage upload path fixed)
+f3f9284a 2026-07-06 build(deps): bump actions/setup-java from 4 to 5
+427356b4 2026-07-08 Update lls to 0.3.0
+e8b77414 2026-07-08 Update multiarch-core, ... to 0.4.0
+b8858d51 2026-07-10 Update munit to 1.3.4
+e1ef3202 2026-07-10 Update scalafmt-core to 3.11.2
+9315a22e 2026-07-10 Reformat with scalafmt 3.11.2
+1f84f8e1 2026-07-10 Add 'Reformat with scalafmt 3.11.2' to .git-blame-ignore-revs
+aad73ac1 2026-07-12 Update scalafmt-core to 3.11.3
+73c55a4c 2026-07-14 Update hearth, hearth-cross-quotes to 0.4.1
+2df42b17 2026-07-14 Update sbt to 2.0.2
+877b6299 2026-07-16 Update kindlings-yaml-derivation to 0.3.1
+5672375d 2026-07-28 Update scalafmt-core to 3.11.5
+459a43c1 2026-08-05 Update sbt to 2.0.5
+4881431c 2026-07-20 build(deps): bump actions/setup-node from 6 to 7
+be07df0e 2026-08-07 Update sbt to 2.0.6
+ec980bad 2026-08-09 Update munit to 1.3.5
+0ae30f54 2026-08-10 build(deps): bump coursier/setup-action from 3.0.0 to 3.0.2
+77baedc1 2026-08-21 Update sbt to 2.0.7
+f2b8e0ae 2026-08-29 Update sbt to 2.0.8
+61030101 2026-08-31 Update kindlings-yaml-derivation to 0.3.2
+5047587d 2026-08-31 Update hearth, hearth-cross-quotes to 0.4.2
+2534bd1b 2026-08-31 build(deps): bump actions/setup-java from 5 to 6
+020b9602 2026-09-04 Update munit-scalacheck to 1.3.1
+a7d863df 2026-09-05 Update munit to 1.3.6
+024b3b92 2026-09-21 build(deps): bump coursier/setup-action from 3.0.2 to 3.0.3
+bb611d16 2026-09-22 Update sbt to 2.0.9
+b3b3987f 2026-09-12 ssg-liquid: Baltic Porter sourceGenerator integration (initial)
+4925977d 2026-09-12 ssg-liquid + ssg-md: Baltic Porter sourceGenerator integration
+0417dca9 2026-09-12 ssg-liquid: DataView unwrap + include name fix — 963/1000 tests passing
+22a2a987 2026-09-12 ssg-site: fix 5 downstream compile errors from generated API
+0aa38515 2026-09-12 ssg-site: add ANTLR parser classes to test classpath
+3c781415 2026-09-12 ssg-liquid: ISS-100 Split lookbehind fix + flip .fail tests
+8f2587f1 2026-09-12 ssg-site: fix include_relative test + generic Liquid error handler
+66dd7c72 2026-09-12 ssg: test adaptation — 0 failures across all modules
+ed3694f8 2026-09-12 ssg-md tests: partial adaptation — 151/178 test files compile clean
+032b6836 2026-09-12 ssg-md tests: fix remaining 27 files — 0 failures, 13161 tests
+d4bf7978 2026-09-12 ssg-md tests: 163 → 49 disabled, 16958 passing, 78 failures
+f22526da 2026-09-12 ssg-md tests: 163 → 45 disabled, 17808 tests, 0 failures
+710df168 2026-09-12 ssg: 0 failures, 17808 tests, 0 disabled infrastructure
+8e759568 2026-09-12 ssg: 0 failures, 17806 tests, 43 disabled (162 of 205 active)
+a7f60394 2026-09-12 ssg-md tests: all 205 files enabled, 185 compile clean
+ae2c4126 2026-09-12 ssg-md tests: 0 disabled files, 13 files with compile errors remaining
+c69c7781 2026-09-12 ssg: ALL 205 test files compile, 0 failures, 18011 tests
+dfd4bfdd 2026-09-14 D4: ssg-graphs-commons reference/ tree — 24 roughjs files moved, 235 tests pass
+6e18bc0b 2026-09-14 D4: move non-Java port sources to reference/scala/ for katex, js, mermaid, sass
+6f197982 2026-09-14 D1+Phase 2: wire non-Java Baltic Porter snapshots into ssg meta-build
+6d00fcbc 2026-09-14 Phase 2: sourceGenerators for all 5 non-Java modules via ParityDerive
+bf5ea876 2026-09-14 D3: commit RAST files for all 5 non-Java modules, wire rastDir into sourceGenerators
+1d713aa6 2026-09-14 wire Baltic Porter for CI: self-contained generators, re-scale coverage, CI setup
+a7ad49af 2026-09-14 pin Baltic Porter snapshot to published 637f03b3
+47b3f0a0 2026-09-14 fix BalticPorterGen: nested /* in scaladoc breaks Scala 3 meta-build compiler
+5d87aca8 2026-09-14 fix CI: revert lls to released 0.3.0, update shortcut baseline, scalafmt
+56baa22b 2026-09-14 CI: remove clone+publishLocal fallback — resolve from Maven Central Snapshots
+6d4d9ba4 2026-09-14 trigger CI for latest commits
+ceeb6713 2026-09-14 BalticPorterGen: guard on submodule presence, not just BP sibling
+030b35ba 2026-09-14 fix duplicate flexmarkSrc val in generateFlexmarkExt
+35ef9189 2026-09-14 CI: restore BP toolchain for test jobs, remove from format/enforce
+dbea20bb 2026-09-15 scalafmt BalticPorterGen.scala
+ad96b050 2026-09-15 CI: add coursier/setup-action for cs CLI needed by Java port generators
+f5d5581a 2026-09-15 broaden Java port generator catch: handle contract-question and fatal-finding exceptions
+b1ccb53d 2026-09-15 CI: skip scaladoc during BP publishLocal — DottydocRunner crash on JDK 25
+162cba95 2026-09-15 CI: use doc/sources := Nil to fully skip scaladoc in BP publishLocal
+232dcba3 2026-09-15 CI: revert to plain publishLocal — BP build now skips doc for snapshots
+d41cad4b 2026-09-15 exclude Baltic Porter generated code from scoverage
+a02ee7e3 2026-09-15 CI: remove Java port toolchain — generators produce broken code without base-port chain
+cebcc20a 2026-09-15 Revert "CI: remove Java port toolchain — generators produce broken code without base-port chain"
+4b60370c 2026-09-15 update BP version pin to ea3ad52f (doc-skip fix, complete JARs)
+fb12b3f0 2026-09-15 fix BalticPorterGen path alignment: portRoot = outDir, collect from src_managed/main/scala
+f8861e1e 2026-09-15 trigger CI with path alignment + BP doc/skip fixes
+b7c48342 2026-09-15 debug: log file collection in generateFlexmark to diagnose CI
+61bca469 2026-09-15 fix Java port generation: use conf's portRoot, not --portRoot CLI arg
+19e688a2 2026-09-15 fix ssg-md compilation: suppress warnings for ported/ generated code, scalafmt
+fbc094b7 2026-09-15 wrap ClasspathCache.ensure inside try/catch — ANTLR parser build fails in CI
+10e507fb 2026-09-15 CI: generate liqp ANTLR parser before BP generation, wrap ensure in try/catch
+1f950a8a 2026-09-15 fix ssg-liquid classpath: call LiqpClasspath.ensure in unmanagedClasspath
+45cb3e27 2026-09-15 fix ext port: run generateFlexmark THEN generateFlexmarkExt sequentially
+4f0e7269 2026-09-15 set baseReports for ext port — point it to base's port-report directory
+072ad84f 2026-09-15 update BP version to 9fb82906 (CompileCommand quiet fix, verified locally)
+1831bf7f 2026-09-15 remove rastDir from build — RAST generated at build time, not committed
+2bc0bfb8 2026-09-15 restore rastDir pointing to BP fixtures — RAST not committed to ssg
+124d5564 2026-09-15 trigger CI — all tests pass locally (8877+ tests, 0 failures)
+d2e3231a 2026-09-15 enable artifact layer for base port — ext needs port-map.tsv for contract answers
+309ccfe0 2026-09-15 trigger CI — verified on JDK 25 locally
+19184a98 2026-09-16 fix CI: reportDir for ext port, jackson version alignment, JS/Native skips
+80938955 2026-09-16 fix CI: revert jackson-databind to 2.13.4.2, fix Native sbt command quoting
+abe39fe3 2026-09-16 move Native test exclusions into ci-native-3 alias in build.sbt
+b45e49bf 2026-09-19 pin Baltic Porter 2c735f52 for the corpus, frontend-ts and runtime artifacts
+d0fa4703 2026-09-19 generate the markdown ports from the published Baltic Porter jars, not a sibling checkout
+2aa782f2 2026-09-19 enable the Baltic Porter plugin for agents working in this repository
+27df1894 2026-09-18 issues: the open items of the generated liquid and markdown ports (ISS-1385..1392), moved here from the Baltic Porter repository's progress document
+3699e6f7 2026-09-20 CI: generate once, compile once per platform, test jobs only link and run; no engine checkout (15 engine clones + publishLocal -> 0, submodule checkouts 15 -> 1); shared steps as composite actions; remote cache on for snapshot publishing
+71337383 2026-09-20 WIP (scratch clone, LOCAL engine pin 05e187f6, to be replaced by a published snapshot): generate flexmark's own test suites, drop the 31 hand-ported copies of its test infrastructure, CI aliases, remote cache wiring, Generated code section
+b73fb46a 2026-09-20 ssg-md tests: the MUnit spec harness calls the generated flexmark test infrastructure by java's own spelling (Test/compile 31 -> 0 errors)
+13f891f9 2026-09-20 ssg-md tests: 28 stubbed suites and their 2 helpers removed, flexmark's own generated suites are the tests (ignored stubs 35 -> 5)
+1cd3e565 2026-09-20 ssg-md tests: the five suites with no generated twin restored from master and spelled against the generated API (ignored stubs 5 -> 0)
+5afc2f6f 2026-09-20 ssg-md tests: the test JVM's locale is pinned, as flexmark's own suites format and parse numbers with the default locale (8 failures on a comma-decimal machine -> 0)
+dd0a6c09 2026-09-21 WIP (scratch clone, LOCAL engine pin 1b4a7b57): ssg owns its ports — the liqp and flexmark configurations, the injected liquid sources and the ANTLR parser classpath step live in ssg (ssg-liquid/port, ssg-md/port, project/), the build depends on the generic engine artifact only; liquid generates beside markdown under one marker with no ANTLR, jackson or strftime4j on any classpath and no regex patch
+094b9ba6 2026-09-21 ssg-liquid parser: a digit-led identifier is one Id by the grammar's longest match, and STRICT's trailing output junk raises the message liqp's parser raises (2 failures -> 0; checked against liqp itself: 'mismatched input' where the tag also reads as an expression, 'no viable alternative' elsewhere)
+59fa7cbc 2026-09-21 ssg-liquid port: Sort's map-entry class keeps java's Map.Entry (scoped out of collections) and Sort.apply hands it a java entry — sorting a map no longer dies of a ClassCastException in compareTo
+ab6a6164 2026-09-21 ssg-liquid tests: the 24 ignored tests run (ignored 27 -> 3, JVM 1000 total / 994 passed / 6 failed); one filter in RenderSettingsSuite reads the environment map by the generated API's spelling; the 6 failures assert what liqp does not do and are left failing for triage
+79557414 2026-09-21 ssg-liquid port: the Scala Native test binary links and runs (no link -> 998 total / 974 passed / 6 failed, the same 6 as the JVM): java.net.IDN and the render executor get a file per platform row, and five filters restate what Native's regex, split, URI.normalize and DecimalFormat answer differently (9 Native-only failures -> 0; JVM unchanged at 994 of 1000)
+2ba23d8c 2026-09-21 ssg-liquid strftime: %e and the day in %c are space-padded, following Ruby per ISS-1303 where strftime4j differs (JVM failures 6 -> 4; the header names every directive carried under that decision)
+8d64b117 2026-09-21 ssg-liquid tests: 'pop: zero length string' is master's .fail again, ISS-1262 being open (JVM failures 4 -> 3; 'shift' stays a plain passing test)
+2d41a365 2026-09-21 ssg-liquid lexer: the unterminated-raw leniency names ISS-1019 and what liqp does instead (comment only)
+180d961a 2026-09-21 ssg-liquid: the root jail is real again (ISS-1214, ISS-1020; withJailRoot was a no-op) and ISS-1259's resolver fall-back is carried — IncludeRelative and LocalFSNameResolver are injected with the recorded decisions, java.nio.file.Path is ssg.commons.io.FilePath throughout, and the two jail suites are restored from master (JVM 1006 total, failed 3 -> 2, ignored 3 -> 1)
+a7b6c54c 2026-09-21 ssg-liquid tests: the parseResult/renderResult placeholder suite is deleted — nothing in ssg calls that API and it is not restored (JVM ignored 1 -> 0)
+b83877df 2026-09-21 ssg-site: the two template parses use ssg-liquid's (String, FilePath) extension instead of the removed ANTLR runtime (does not compile -> 80 of 80 on the JVM)
+1bc8983b 2026-09-21 ssg-liquid off the JVM: the concurrent map, the executor and a multiline regex flag get per-platform answers, 17 speculative JVM-only guards removed, the 2 real ones are JVM-only suites (JVM 1004 of 1006; Native and Scala.js measured next)
+32817879 2026-09-21 ssg-liquid port: off the JVM a run of slashes is collapsed BEFORE the platform's URI.normalize, java's own order — Scala Native's normalize lost the last segment of /base///css/main.css (Native failed 3 -> 2 of 1002, the two left being the tests awaiting a decision)
+42d62f79 2026-09-21 build: a test directory shared by the JVM and Scala Native rows of ssg-liquid, and ssg-liquid leaves the Native exclusion set (Native 1000 of 1002, the same two tests as on the JVM)
+aa0c70d6 2026-09-21 ssg-liquid tests: the six tests that print a whole-number Double run on the JVM and Scala Native only, in src/test/scala-jvm-native — on Scala.js such a Double cannot be told from an integer (JVM 1006 and Native 1002 unchanged with the same 2 failing; JS total 1002 -> 996)
+0c2b035f 2026-09-21 ssg-site: an include_relative jail violation is recognised by the liquid jail's own exception again, as on master (ISS-1214; ssg-site 80 of 80 on the JVM)
+1b6d8240 2026-09-22 ssg-md off the JVM: enum reflection, Class/Matcher/String gaps, the entity table, autolink, MessageFormat, java.net.URL, the concurrent maps and the swing package get per-platform answers in the port, and the generated test set compiles on Scala.js and Scala Native (JVM 6185 -> 6179 of 6179, the six HtmlBuilder/HtmlHelpers tests leaving with their swing package; ssg-site test links green on Scala.js and Scala Native)
+56d15463 2026-09-22 ssg-md regexes off the JVM: a per-row Pattern.compile, lookahead-free fence and list-marker matching on Scala Native, Unicode categories and scoped case-insensitivity restated for Scala.js, and StringBuilder.append(cs, start, end) by characters (ssg-site 73 of 73 on Scala Native and 73 of 73 on Scala.js, neither of which linked before; JVM 6179 of 6179 unchanged)
+d281a27f 2026-09-22 build: the engine pin is the published snapshot 74c286af; scala-java-locales on ssg-md's JS and Native rows; ssg-md and ssg-site leave the Native exclusion set (ssg-site Native 73/73, JS 73/73; ssg-md JVM 6179/0)
+11d17a75 2026-09-22 ssg-md tests off the JVM: every Scala Native failure group answered in the port (Native 253 failed + 15 errors -> 0 failed; the 4 left are the spec files the build does not embed), the Scala.js number parse linked and its suite run (6173, 7 failed: 5 await compliant null-pointer semantics, 2 placed JVM+Native), JVM 6179 of 6179 unchanged
+2bcb6570 2026-09-22 ssg-md tests: the two JVM+Native placement suites as scalafmt-on-compile spells them (JVM 6179 of 6179; Scala Native 0 failed of 6159 with the 4 spec-file lookups awaiting the build; Scala.js 6171 with 5 awaiting compliant null-pointer semantics; ssg-site 73 of 73 on both rows)
+39658bd9 2026-09-22 build: the generated test resources are on ssg-md's test classpath on every row, and the JS row keeps java's NullPointerException (ssg-md Native 6159/0, JS 6171/0, JVM 6179/0)
+c15a939b 2026-09-22 ssg-liquid port: the two Ruby-compatible answers the user decided on are carried as method-bodies — where's numeric match (ISS-1393) and an empty string equalling blank (ISS-1394), each with a tracker row (JVM failed 2 -> 0 of 1006)
+1ed578d1 2026-09-22 ci: the generate job produces liqp's ANTLR parser with liqp's maven wrapper before the generator runs, the port directories and the parser step join the generated-tree cache key, and the shared action moves to the version that reads the balticporter-engine pin (a fresh runner had no parser sources and the old action read no engine pin); CLAUDE.md names the engine artifact and the port directories
+68df757c 2026-09-22 ssg-liquid tracker: ISS-1264 resolved by the injected lexer's longest match (the test comment said the ANTLR parser did it), ISS-1262 keeps one of its two marks, ISS-1263 and ISS-1265 say which injected or substituted code the remaining divergence lives in and what is unmeasured (no behaviour change)
+cf5a8279 2026-09-22 build: the sbt server heap is 6G as in sge (the whole-build local gate verifyLocal ran out of the 3G heap while linking ssg-md's Scala.js tests after the JVM rows, with no failed test)
+af9ca237 2026-09-23 build: the two meta-build sources the generation and the remote cache need are tracked (project/* is ignored by default and they were never added: the pushed branch compiled only two of the four project sources); the dead SsgSettings exception leaves .gitignore
+a2e8afa1 2026-09-23 CI on the rebased branch: the two flag-controlled loops the rows and the injected JSON reader had use boundary, the media-tags suite's stale TODO names the spec-runner refusal and ISS-075, the 12 files whose hits are named platform refusals or java-contract null boundaries get skip-policy rows with reasons (shortcut_hits 279 -> 261 against the 263 baseline), the port-directory hash is ordered by the normalised path so a Windows checkout reads the Linux-generated tree's marker, the liqp classpath helper is in brace style as the project requires, and the nine unformatted platform-row files are formatted
+602acd72 2026-09-23 actionlint config: the windows-11-arm runner label the Native matrix already used on master is declared (actionlint 1.7.7 does not know GitHub's Arm Windows runner and failed the lint step)
+c456bbf5 2026-09-23 ssg-liquid: injected lexer whitespace-control fix and pop test expectations (divergences 3 -> 1)
+9bcad10d 2026-09-23 ssg-liquid: fix include_iteration snippet in IncludeExtraSuite (fail marks 3 -> 2)
+1231037c 2026-09-23 ssg-katex generated from jar-extracted RAST export, full policy, unclassified 0, scalafmt clean (1/474 translated)
+88018d6c 2026-09-23 generatePort also runs ssg-katex's generator, so the CI generate job produces the katex tree the compile jobs restore (they have no submodule and failed with a missing marker)
+3d04db89 2026-09-23 generated-port cache key covers build.sbt, which decides which generators generatePort runs (a tree cached before the katex generator existed was restored and the compile jobs, having no submodule, failed on its missing marker)
+6d2a9a1c 2026-09-23 KaTeX builder: fix module table, pin released engine (translated 0/474, no-translated-body 284->212, 30 translator defects recorded, 5 no-export files, unclassified 0)
+466fa443 2026-09-24 KaTeX builder: wire reference indices and oracle into body translator, delete memberExclusions (translated 4/474, translator-refusal 8->44, uncompilable-pattern 179->207, 711 tests green)
+a410d59a 2026-09-24 KaTeX builder: remove ??? uncompilable pattern (translated 4 -> 4 / 474, translator-refusal 44->53, uncompilable-pattern 207->198, 711 tests green)
+56a26db4 2026-09-24 KaTeX builder: remove ' options.' uncompilable pattern (translated 4 -> 4 / 474, translator-refusal 53->55, uncompilable-pattern 198->196, 711 tests green)
+21554840 2026-09-24 KaTeX builder: remove 'document.' uncompilable pattern (translated 4 -> 4 / 474, 711 tests green)
+eeb163d4 2026-09-24 KaTeX builder: remove 'node.' uncompilable pattern (translated 4 -> 4 / 474, translator-refusal 55->61, uncompilable-pattern 196->190, 711 tests green)
+3750fedf 2026-09-24 KaTeX builder: remove 'symbols(' uncompilable pattern (translated 4 -> 4 / 474, translator-refusal 61->65, uncompilable-pattern 190->186, 711 tests green)
+6ae75825 2026-09-24 KaTeX builder: remove 'BuildMathML.' uncompilable pattern (translated 4 -> 4 / 474, 711 tests green)
+f3ae82f0 2026-09-24 KaTeX builder: remove DOM/browser uncompilable patterns (window., console., HTMLElement, addEventListener, createElement, querySelector, innerHTML), all covered by other guards (translated 4/474, 711 tests green)
+94aae9f5 2026-09-24 KaTeX builder: remove 18 uncompilable patterns covered by translator named refusals (DEFMETHOD, UNTRANSLATED, macro, typeof, void 0, ..., ?., .prototype, arguments, RegExp, new (, new Set(, new RegExp(, self/that = this, throw new Error, >>>=), translated 4/474, 711 tests green
+f580c760 2026-09-24 KaTeX builder: remove 37 redundant uncompilable patterns (data(, data ++=, options(, new Options, new Style, prev., next., elem., child., result., .italic, .height, toMarkup(, validUnit(, assertParsed(, sqrtPath(, braketHelper(, formLigatures(, new Span(, sizeElementFromChildren, new Anchor(, new DocumentFragment, sqrtSize, extraVinculum =, consumeArg, macros.get(, macros.update(, macros.beginGroup, context.consumeArg, parser.gullet, .tokens, tok.text, isAssertParsed, delimsizingFromValue, mu =, pt =, throw new RuntimeException, unit.isInstanceOf, unit.unit, .charCodeAt(, .isInstanceOf[Function), translated 4 -> 5 / 474, 711 tests green
+49d12dc8 2026-09-24 KaTeX builder: remove .charCodeAt( and .isInstanceOf[Function patterns (translated 5/474, 711 tests green)
+cdb592ba 2026-09-24 KaTeX builder: remove collection operation patterns (++=, new Array, .concat(, .splice(, .join(, .map(, .filter(, .forEach(), translated 5/474, 711 tests green
+eb6b5d02 2026-09-24 KaTeX builder: remove buildExpression( and buildGroup( patterns (translated 5/474, 711 tests green)
+cf659d12 2026-09-24 KaTeX builder: remove 'options =' pattern (translated 5/474, 711 tests green)
+e5176aec 2026-09-24 KaTeX builder: remove '(((' pattern (translated 5/474, 711 tests green)
+181e093b 2026-09-24 KaTeX builder: remove 'throw new ParseError' pattern (translated 5/474, translator-refusal 76->84, uncompilable-pattern 174->166, 711 tests green)
+9b5c19aa 2026-09-24 Update ssg CLAUDE.md katex paragraph and ISS-1396 with final bodies numbers (translated 5/474, 11 patterns remain, 711 tests green)
+764e5f20 2026-09-24 KaTeX builder: classify all 212 no-translated-body members (NTB 212->0, 711 tests green)
+b34bcec6 2026-09-24 KaTeX builder: update CLAUDE.md numbers, apply scalafmt (NTB 212->0, 711 tests green)
+7ca27ef5 2026-09-24 Repin engine to 3d0d42b5, pass oracle to translateBody (translated 5/474, uncompilable-pattern 174->150, 711 tests green)
+699e2b74 2026-09-24 KaTeX builder: wire memberRenames, record this. defects (translated 5/474, 122 errors without pattern, pattern stays, 711 tests green)
+c4ec5d1f 2026-09-24 KaTeX builder: test pattern removals, all three stay (translated 5/474, 711 tests green)
+809fc23c 2026-09-24 KaTeX builder: replace per-file reference-only with Library.referenceOnly (translated 5/474, 0 unclassified, 0 no-translated-body, 711 tests green)
+75bc7524 2026-09-24 Update katex CLAUDE.md and ISS-1396 with final bodies numbers (translated 5/474, reference-only 208, 711 tests green)
+d69de44e 2026-09-24 format project/KaTeXBuilder.scala (scalafmtSbtCheck)
+5cc8017a 2026-09-24 Repin engine+frontend-ts to 35af0050 (translated 4/466, 711 tests green)
+0ee1617e 2026-09-24 Remove ${, this., BuildCommon., BuildHTML. from uncompilablePatterns (translated 4/466, uncompilable-pattern 141->29, 711 tests green)
+a24e5db8 2026-09-24 Remove span., .depth, toNode(, delimFromValue(, canCombine(, var delim = null from uncompilablePatterns (translated 4/466, uncompilable-pattern 29->1, 711 tests green)
+30f5d0e3 2026-09-24 Update katex CLAUDE.md and ISS-1396 with final numbers (translated 4/466, uncompilable-pattern 141->1, 711 tests green)
+1f9e26f5 2026-09-23 KaTeX builder: fix module table, pin released engine (translated 0/474, no-translated-body 284->212, 30 translator defects recorded, 5 no-export files, unclassified 0)
+bcb7a568 2026-09-24 ssg-graphs-commons: wire RAST body translation from 5 rough.js upstreams, translated 17/130 (213 tests green)
+24da865b 2026-09-24 scalafmt: format RoughBuilder.scala
+9ce18794 2026-09-24 tracker: record graphs-commons translator defects, 14 patterns in ISS-1397
+2a52ae08 2026-09-24 CI cache key: fold the generation inputs into one digest (the key exceeded the 512-character limit with seven upstream commits)
+65b68e71 2026-09-24 ssg-js: wire RAST body derivation from terser, translated 5/1057 (2768 tests green)
+81906a7a 2026-09-24 ssg-js: classify 498 reference-only members into reason groups, translated 5/1057 (2768 tests green)
+4379f1ba 2026-09-24 tracker: record terser translator defects, 35 patterns in ISS-1398
+e482e7b4 2026-09-24 CLAUDE.md: update ssg-js paragraph with final body derivation numbers
+b881dc77 2026-09-24 scalafmt: format TerserBuilder.scala
+50a7455f 2026-09-25 TerserBuilder: refuse Mangler.frequency body (translated 3->2, uncompilable-pattern 113->114)
+a51743cc 2026-09-25 Engine 61c1deb0: delete the Mangler.frequency pattern, pass the declaring object to the body translator (ssg-js uncompilable-pattern 114->85, graphs-commons translated 6->7)
+fcaf2176 2026-09-26 pin balticporter-engine 8a6c5937 and lls 0.3.0-55-g0e701f2: java T... is emitted T*, so callers pass elements and overrides declare repeated parameters (array-at-repeated-slot sites 65 -> 0)
+1b987768 2026-09-26 ssg-liquid: the Date, Split and Truncatewords body texts spread params into Filter.get (liquid test failures 98 -> 0)
+95f96575 2026-09-26 pin balticporter-engine ca78e90e and lls 0.3.0-56-g77316f1 (owned T* binds through the element's ClassTag on Scala.js: ssg-liquid JS failures 8 -> 0)
+795e5402 2026-09-27 pin balticporter-engine da3d2de9 and lls 0.3.0-57-gd32ce62 (engine batch E: signature-matched base renames, per-type concurrent portability; repeated-forward rows 0 -> 0)

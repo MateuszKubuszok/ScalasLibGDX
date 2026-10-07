@@ -1,0 +1,26 @@
+2026-06-18 {'claude-opus-4-8': 1482873, 'claude-sonnet-4-6': 613}
+2026-06-19 {'claude-opus-4-8': 5966625, 'claude-haiku-4-5-20251001': 34787, 'claude-opus-4-6': 191571}
+2026-06-20 {'claude-opus-4-8': 3809794, 'claude-haiku-4-5-20251001': 27932, 'claude-opus-4-6': 27180}
+2026-06-21 {'claude-opus-4-8': 7792018, 'claude-haiku-4-5-20251001': 51462, 'claude-opus-4-6': 224016, 'claude-sonnet-4-6': 100686}
+2026-06-22 {'claude-opus-4-8': 10742018, 'claude-haiku-4-5-20251001': 29997, 'claude-sonnet-4-6': 5423, 'claude-opus-4-6': 501827}
+2026-06-23 {'claude-opus-4-8': 6052659, 'claude-opus-4-6': 447917}
+2026-06-24 {'claude-opus-4-8': 8133331, 'claude-opus-4-6': 529402, 'claude-haiku-4-5-20251001': 4699}
+2026-06-25 {'claude-opus-4-8': 1913008, 'claude-opus-4-6': 27552}
+2026-06-26 {'claude-opus-4-8': 2280486, 'claude-opus-4-6': 101734, 'claude-haiku-4-5-20251001': 2527}
+2026-06-29 {'claude-opus-4-8': 1451772, 'claude-opus-4-6': 13752}
+2026-06-30 {'claude-opus-4-8': 7730450, 'claude-haiku-4-5-20251001': 21523}
+2026-07-01 {'claude-opus-4-6': 41518, 'claude-opus-4-8': 9459789, 'claude-fable-5': 4672107, 'claude-haiku-4-5-20251001': 185976}
+2026-07-02 {'claude-fable-5': 4686434, 'claude-haiku-4-5-20251001': 209049, 'claude-opus-4-8': 994529}
+2026-07-03 {'claude-fable-5': 4780910, 'claude-opus-4-8': 8781245, 'claude-sonnet-5': 59979, 'claude-haiku-4-5-20251001': 73207}
+2026-07-04 {'claude-fable-5': 1478782, 'claude-opus-4-8': 3379522}
+2026-07-05 {'claude-opus-4-8': 3887092}
+2026-07-06 {'claude-opus-4-8': 9310268}
+2026-07-07 {'claude-opus-4-8': 9187418}
+2026-07-09 {'claude-fable-5': 1790260}
+2026-07-10 {'claude-fable-5': 11641140, 'claude-opus-4-8': 218751}
+2026-07-11 {'claude-fable-5': 244651, 'claude-opus-4-8': 6793718, 'claude-opus-4-6': 27461}
+2026-07-12 {'claude-opus-4-8': 2381382}
+2026-07-13 {'claude-opus-4-8': 1993684}
+2026-07-14 {'claude-opus-4-8': 1707029}
+2026-07-15 {'claude-opus-4-8': 3034110, 'claude-opus-4-6': 214232}
+2026-07-16 {'claude-fable-5': 1883186, 'claude-opus-4-8': 566762}

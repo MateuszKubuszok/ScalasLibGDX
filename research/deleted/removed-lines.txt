@@ -1,0 +1,1050 @@
+sge	CLAUDE.md	39b464c1 2026-02-24	    ! It automatically imports all the definitions from the packages `a`, `a.b` and `a.b.c`, and they don't need to be imported with `import`.
+sge	CLAUDE.md	c9853fca 2026-04-04	| `sge-dev native cross-all` | Build all 6 desktop targets |
+sge	CLAUDE.md	c9853fca 2026-04-04	| Demo compilation | ubuntu-latest — all 10 demos × JVM + JS + Native |
+sge	CLAUDE.md	41ac4a5a 2026-04-08	| `sge-dev` | CLI toolkit — builds, tests, git, quality, databases, process management |
+sge	CLAUDE.md	d6eb7fc3 2026-09-25	  wins in the build. They are covenanted and scanned like every ported file (`sge-port/overrides` is
+sge	CLAUDE.md	37222817 2026-09-25	  `TextFormatter`, the reflection-free stand-ins). They are covenanted and scanned like every ported file (`sge-port/overrides` is
+sge	CLAUDE.md	2e11c2d2 2026-09-25	  `TextFormatter`, the reflection-free stand-ins; each one's reason is an ISS-894..901 row, or ISS-871). They are covenanted and scanned like every ported file (`sge-port/overrides` is
+sge	CLAUDE.md	04793f9d 2026-09-26	  the reflection-free stand-ins; each one's reason is an ISS-894..901 row, or ISS-871). They are covenanted and scanned like every ported file (`sge-port/overrides` is
+sge	README.md	c6e0c0f5 2026-03-20	cd demos && sbt --client 'androidAll'   # Build all 10 demo APKs
+sge	README.md	c9853fca 2026-04-04	cd demos && sbt --client 'androidAll'             # Build all 10 demo APKs
+sge	README.md	1aff5b77 2026-04-08	cd demos && sbt --client 'androidAll'             # Build all 11 demo APKs
+sge	README.md	f5a775b3 2026-04-28	| Extension | Ported from | Platforms |
+sge	README.md	6a41295e 2026-05-22	Ported from [LibGDX](https://github.com/libgdx/libgdx) **1.14.0** (`4b4d2c4fd`).
+sge	docs/architecture/platform-targets.md	c6e0c0f5 2026-03-20	complete: 539 of 605 files converted, 66 skipped (stdlib replacements).
+sge	docs/architecture/platform-targets.md	292daacd 2026-05-11	10 demo applications build and run on all 4 active platforms.
+ssg	CLAUDE.md	ad2cc90b 2026-05-07	| `ssg/` | Aggregator module (depends on all 4 above) |
+ssg	CLAUDE.md	798cd6ea 2026-09-23	| `<module>/reference/scala/` | Hand-ported Scala, used as the skeleton for parity-derive. Auditable, **never generated**. |
+ssg	CLAUDE.md	798cd6ea 2026-09-23	| `<module>/rast/` | Pre-exported RAST (Resolved AST) from the upstream source. Committed, deterministic input. |
+ssg	CLAUDE.md	da5ab1f6 2026-09-24	translator cannot yet compile). `bodies.tsv` records translated 1/474, reference by reason:
+ssg	CLAUDE.md	4bf105df 2026-09-24	(ISS-1396). `bodies.tsv` records translated 5/474, reference by reason: no-translated-body=212,
+ssg	CLAUDE.md	01b2f49c 2026-09-24	(ISS-1396). `bodies.tsv` records translated 5/474, reference by reason:
+ssg	CLAUDE.md	30f5d0e3 2026-09-24	`bodies.tsv` records translated 5/474, reference by reason: reference-only=208,
+ssg	CLAUDE.md	e482e7b4 2026-09-24	wrong constructor patterns, wrong state references). `bodies.tsv` records translated 5/1057,
+ssg	CLAUDE.md	a51743cc 2026-09-25	Scala-specific members. `bodies.tsv` records translated 4/466, reference by reason:
+ssg	CLAUDE.md	a51743cc 2026-09-25	translated 17/130, reference by reason: reference-only=19, translator-refusal=54,
+ssg	CLAUDE.md	a51743cc 2026-09-25	wrong callee resolution 9). `bodies.tsv` records translated 5/1057, reference by reason:
+ssg	README.md	1fb16a20 2026-04-29	| `ssg-md` | [flexmark-java](https://github.com/vsch/flexmark-java) 0.64.8 | Java | Markdown engine | 1645/1645 tests |
+ssg	README.md	1fb16a20 2026-04-29	| `ssg-liquid` | [liqp](https://github.com/bkiers/Liqp) 0.9.2 | Java | Liquid template engine | 280/280 tests |
+ssg	README.md	1fb16a20 2026-04-29	| `ssg-sass` | [dart-sass](https://github.com/sass/dart-sass) 1.99 | Dart | SASS/SCSS compiler | 13865/13902 sass-spec (99.7%) |
+ssg	README.md	1fb16a20 2026-04-29	| `ssg-minify` | [jekyll-minifier](https://github.com/digitalsparky/jekyll-minifier) | Ruby | HTML/CSS/JS/JSON minification | 113/113 tests |
+ssg	README.md	1fb16a20 2026-04-29	| `ssg-js` | [terser](https://github.com/terser/terser) | JavaScript | JavaScript compiler/minifier | 116/116 tests |
+balticporter	CLAUDE.md	a8bde889 2026-07-30	A lesson that would change how the NEXT library is ported does not belong only in that port's status
+balticporter	CLAUDE.md	c46db5c9 2026-07-30	compile-error count; all four were found by running the ported tests, in one session:
+balticporter	CLAUDE.md	3dde8dbc 2026-07-30	No file under `core/`, `frontend-spoon/` or `scala-emit/` may name a ported library **in code**:
+balticporter	CLAUDE.md	1f6416f3 2026-08-03	No file under `api/`, `engine/`, `frontend-spoon/` or `runtime/` may name a ported library **in
+balticporter	CLAUDE.md	ee322fcf 2026-08-08	| `yield v` that is NOT the arm's last statement (SE14) | the value, in place | java's `yield` completes the WHOLE switch expression abruptly, from arbitrary depth (JLS 14.21). Dropped into place it is an expression whose value is discarded, and every statemen
+balticporter	CLAUDE.md	c989210c 2026-08-19	third member is already printing it**: one ported suite reconciles `727 outcomes against 725 emitted`
+balticporter	CLAUDE.md	c989210c 2026-08-19	does not describe the suite") — the same counter, the same cause, reported by the one lane whose
+balticporter	CLAUDE.md	54269483 2026-08-25	or dropped with the finding recorded. The verdict file (`ported/<module>/divergence-verdicts.tsv`)
+balticporter	CLAUDE.md	1d465617 2026-09-02	  `balticporter/corpus/*-overrides/` and `ported/*/src/` and every runtime support file under
+balticporter	CLAUDE.md	1d465617 2026-09-02	  in the `Justfile`, one exported variable, `--jvm` on every `scala-cli` a lane runs) and the
+balticporter	CLAUDE.md	74b2c457 2026-09-04	the target is every libGDX module already ported in sge, every Java library that became part of ssg,
+balticporter	CLAUDE.md	74b2c457 2026-09-04	| `PortabilityCheck(targets)` | match a rule against every external symbol the program references, and report each site | WHICH BACKENDS the module is ported for (`PortManifest.targets`) — the rule LIST is derived from them, because JS and Native disagree on
+balticporter	CLAUDE.md	74b2c457 2026-09-04	retype. And the two representations are not an edge case: a ported library holds its own values
+balticporter	CLAUDE.md	74b2c457 2026-09-04	port supplies — which is complete for a type a FIXTURE builds and empty for the shape that is
+balticporter	CLAUDE.md	74b2c457 2026-09-04	emission is often the JAVA CONTRACT'S OWN refusal (an `UnsupportedOperationException` at an operation
+balticporter	CLAUDE.md	74b2c457 2026-09-04	No file under `balticporter/{api,engine,frontend-spoon,runtime}/` may name a ported library **in
+balticporter	CLAUDE.md	74b2c457 2026-09-04	cannot state.** Which backends a module is ported for moves no emitted signature — it decides which
+balticporter	CLAUDE.md	74b2c457 2026-09-04	extension modules landing in one hand-ported module, opened as ONE dependent port at 0 errors with
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  and is reported with the phase's own sentence for why;
+balticporter	CLAUDE.md	74b2c457 2026-09-04	refusal is reported honestly under a real guard; every count is flat; both ports compile alone. So a
+balticporter	CLAUDE.md	74b2c457 2026-09-04	finding. If a resolution root is genuinely NOT a ported module, declare an empty manifest for it and
+balticporter	CLAUDE.md	74b2c457 2026-09-04	(`api`, `engine`, `frontend-spoon`, `runtime`, `testkit`, `corpus`) and **`ported/`** holds one
+balticporter	CLAUDE.md	74b2c457 2026-09-04	directory per ported library. What goes in a `ported/` name is the **reference port's own module
+balticporter	CLAUDE.md	74b2c457 2026-09-04	not the upstream library's name. libGDX core is `ported/sge`; Ashley is `ported/sge-ecs`; liqp is
+balticporter	CLAUDE.md	74b2c457 2026-09-04	`ported/ssg-liquid`.
+balticporter	CLAUDE.md	74b2c457 2026-09-04	SERIALLY and a flat count can hide a completely different error.** `isRunnable` is not a fact about
+balticporter	CLAUDE.md	74b2c457 2026-09-04	has reported. So a port at zero does not learn its true count in one run; it learns it one error at a
+balticporter	CLAUDE.md	74b2c457 2026-09-04	sge is a hand-written port of the same library, and ssg contains hand-ported Java libraries. Where
+balticporter	CLAUDE.md	74b2c457 2026-09-04	and 16 tests back out of it, one of them a fixture that typed clean and then reported 18
+balticporter	CLAUDE.md	74b2c457 2026-09-04	16 tests on gdx-ai — cannot be taken at all; and scalac reaching no backend phase writes no class
+balticporter	CLAUDE.md	74b2c457 2026-09-04	(`ported/<module>/divergence-verdicts.tsv`) is the durable record, joined into `divergence.tsv`
+balticporter	CLAUDE.md	74b2c457 2026-09-04	**A TODO list shrinks by DELETION.** A completed item is REMOVED — never moved to a "done" section,
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  nothing is instrumented to answer for) and the work list (`undischarged`) are reported apart.
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  (one row per declined site, naming the guard) and the unrewritten-usage residue are reported
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  artifact the build does not name, and a build-graph fact reported as a symbol-reference one is a
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  which no binding can say, so it is reported apart (`PolicyIssue.NeverApplied`), declared beside
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  is neither applied nor inert, and reported as silence it reads exactly like success — so it is one
+balticporter	CLAUDE.md	74b2c457 2026-09-04	    not against a sum of markers, so a test with no recognised line is reported whatever the reason
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  manifest. Every injected shim under `balticporter/corpus/*-overrides/` and `ported/*/src/` and
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  been stale since waves 0/1**, carrying a declaration count the base's own commit had moved
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  newly-failing tests, anchors each on the first stack frame in ported code, and says how good that
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  was observed). A test that stopped running is reported as such, never as a pass.
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  entirely and the run reported success (ashley: 112 emitted, 110 recorded). A skip moves no pass
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  ported-test lanes gate on `TestDiff.newlySkipped`; `sbt <project>/testOnly *` gates on nothing —
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  every `corpus/test` since had reported success without executing it. **Two things follow**: a
+balticporter	CLAUDE.md	74b2c457 2026-09-04	the ported class's own `size`, `isEmpty`, `remove`.
+balticporter	CLAUDE.md	74b2c457 2026-09-04	compile-error count; every one was found by RUNNING the ported tests, never by a compile:
+balticporter	CLAUDE.md	74b2c457 2026-09-04	| `yield v` that is NOT the arm's last statement (SE14) | the value, in place | java's `yield` completes the WHOLE switch expression abruptly, from arbitrary depth (JLS 14.21). Dropped into place it is an expression whose value is discarded, and every statemen
+balticporter	CLAUDE.md	74b2c457 2026-09-04	| a test class's INSTANCE STATE — a field with its own INITIALISER (`private final BehaviorTree<E> t = new BehaviorTree<>()`), an instance initialiser block, a constructor body, or a field a test simply ASSIGNS | the same members on the converted suite | the
+balticporter	CLAUDE.md	74b2c457 2026-09-04	| `x instanceof Map`, `(Map<K,V>) x` — a REIFIED occurrence of a type a phase RETYPED | `x.isInstanceOf[mutable.Map[?, ?]]`, `x.asInstanceOf[mutable.Map[K,V]]` | a retyping moves STATIC types; these two ask about a RUNTIME OBJECT, and neither the objects nor
+balticporter	CLAUDE.md	74b2c457 2026-09-04	**This table is the rows an agent must know BY HEART; it is not the complete set.**
+balticporter	CLAUDE.md	74b2c457 2026-09-04	LOWERED body (every write in this IR is a `Tree.Assign`, so the scan is complete); rendered
+balticporter	CLAUDE.md	74b2c457 2026-09-04	  `JsonTest` failures were reported as unexpected on every run since the rule was written, with the
+balticporter	CLAUDE.md	74b2c457 2026-09-04	Note this failure is invisible to every count: the port still compiled and every check reported the
+balticporter	CLAUDE.md	74b2c457 2026-09-04	rule: the node test is then a LIST of node kinds, and a list is complete only against the syntax
+balticporter	CLAUDE.md	74b2c457 2026-09-04	witness is MEASURED before it is counted as one.** One ported suite reconciles `727 outcomes against
+balticporter	CLAUDE.md	74b2c457 2026-09-04	cause), and the substitution is ONE derivation — `ParentSubst`, complete over `TypeRepr` — because
+balticporter	CLAUDE.md	74b2c457 2026-09-04	fix.** The boundary check reported all five seams, precisely, on every run since that port began —
+balticporter	CLAUDE.md	74b2c457 2026-09-04	RAN**, and the phase is the one place that can check it: a reported boundary whose (source kind,
+balticporter	CLAUDE.md	74b2c457 2026-09-04	porter:' src_managed` is the complete inventory of non-mechanical translation in a port.
+balticporter	CLAUDE.md	74b2c457 2026-09-04	(`SubstitutionCheck.dangling` reported 3 phantom dangling drops the first time notes shipped).
+balticporter	CLAUDE.md	74b2c457 2026-09-04	attachment model, which is exactly what may be incomplete. `TriviaCheck` re-lexes the Java
+balticporter	CLAUDE.md	74b2c457 2026-09-04	reported lost while sitting in the emitted file. Whatever the emitter may WRAP the text in comes off
+balticporter	CLAUDE.md	9da2364c 2026-09-16	| `ElementWitnessTransform(witness, members, subjectTypes, dropBound, boxedWitness, scope)` — an array whose element is a TYPE PARAMETER is allocated/copied/cleared through a type-class WITNESS, java's implicit `Object` bound dropped and CLOSED under applica
+balticporter	CLAUDE.md	f659bbde 2026-09-18	| `x instanceof Map`, `(Map<K,V>) x` — a REIFIED occurrence of a type a phase RETYPED | `x.isInstanceOf[mutable.Map[?, ?]]`, `x.asInstanceOf[mutable.Map[K,V]]` | a retyping moves STATIC types; these ask about a RUNTIME OBJECT, and a ported library holds BOTH
+balticporter	CLAUDE.md	f659bbde 2026-09-18	`balticporter.catalog.Differences` is the complete set (`DESIGN.md` §2.8, `just catalog`).
+balticporter	CLAUDE.md	b16c6f34 2026-09-19	| `x instanceof Map`, `(Map<K,V>) x` — a REIFIED occurrence of a type a phase RETYPED | `x.isInstanceOf[mutable.Map[?, ?]]`, `x.asInstanceOf[mutable.Map[K,V]]` | a retyping moves STATIC types; these ask about a RUNTIME OBJECT, and a ported library holds BOTH
+balticporter	CLAUDE.md	f91244dd 2026-09-23	No file under `balticporter/{api,engine,frontend-spoon,runtime}/` may name a ported library or one
+balticporter	CLAUDE.md	f91244dd 2026-09-23	`ported/<reference module id>/` (`sge`, `sge-ecs`, `ssg-liquid`). **The port's `label` and
+balticporter	CLAUDE.md	f91244dd 2026-09-23	(`ported/<module>/divergence-verdicts.tsv`). details: `.claude/rules/dependents.md`
+balticporter	README.md	d2efbd55 2026-09-22	| `balticporter-corpus` | the port configurations of the libraries ported so far, with the hand-written files they inject |
+balticporter	PROGRESS.md	edacbb58 2026-07-31	Three libraries are ported on the current (TIR) pipeline, across six runs — a library and its own test
+balticporter	PROGRESS.md	edacbb58 2026-07-31	| `sge-noise` | noise4j | 12 / 2,491 | 10 / 2,608 | **83 %** | 3 / 13 | Apache-2.0 |
+balticporter	PROGRESS.md	fff03549 2026-07-31	Four libraries are ported on the current (TIR) pipeline, across seven runs — a library and its own test
+balticporter	PROGRESS.md	9e0ae7cb 2026-07-31	Every check count above is unchanged and both lanes still compile to 0 with 217/4 tests. The emitted
+balticporter	PROGRESS.md	c82ecc1e 2026-07-31	Six libraries are ported on the current (TIR) pipeline, across nine runs — a library and its own
+balticporter	PROGRESS.md	8dea7217 2026-07-31	Seven libraries are ported on the current (TIR) pipeline, across eleven runs — a library and its own
+balticporter	PROGRESS.md	be111cb6 2026-07-31	Eight libraries are ported on the current (TIR) pipeline, across twelve runs — a library and its own
+balticporter	PROGRESS.md	be111cb6 2026-07-31	| `gltf-test` | gdx-gltf `gltf/test` | 1 of 7 → **1** (§7.5.1) | **8** ported + **22** hand-written, **none run** — the port does not compile | — |
+balticporter	PROGRESS.md	be111cb6 2026-07-31	| `screens` | libgdx-screenmanager `src/main/java` | 22 → **22** (0 dropped, 0 injected) | **16** hand-written, all passing — upstream's 12 need an unported BACKEND (§8 libgdx-screenmanager) | **0** |
+balticporter	PROGRESS.md	be111cb6 2026-07-31	| `sge-vfx` | gdx-vfx | 45 / 5,732 | 41 / 3,881 | **91 %** | 6 / 29 | Apache-2.0 |
+balticporter	PROGRESS.md	be111cb6 2026-07-31	| **tests** | 8 ported + 22 hand-written = **30, NONE RUN** — the port does not compile (§7.5.4) | |
+balticporter	PROGRESS.md	be111cb6 2026-07-31	application, and no libGDX backend is ported (§1.1's first surprise). `src/test/java` is §8.4.
+balticporter	PROGRESS.md	6c79115a 2026-08-01	land.** The TIR edit is complete — the clause lands on every constructor, the closure propagates down
+balticporter	PROGRESS.md	5fd4f9fc 2026-08-01	the same one** (D9). `ashley` and `screens` each reported `1 fatal SurfaceDivergence`; the escape
+balticporter	PROGRESS.md	5fd4f9fc 2026-08-01	renamed declaration carries its porter note, `NoteCoverageCheck` **0/0**, in the §4.575 grammar with
+balticporter	PROGRESS.md	b70c665a 2026-08-01	today — not refused, simply unreachable, with the hint reported as never-fired. That is a mechanism
+balticporter	PROGRESS.md	b70c665a 2026-08-01	byte-for-byte: `members.tsv` **0 changed**, errors 0, all 21 check counts identical.
+balticporter	PROGRESS.md	f0fb67ff 2026-08-02	| every check count, all 21 | **identical** |
+balticporter	PROGRESS.md	f0fb67ff 2026-08-02	byte-for-byte: `members.tsv` **0 changed**, errors 0, all 21 check counts identical. The revert
+balticporter	PROGRESS.md	fd558fd3 2026-08-02	| | attempt 1 (pre-O1/O2) | O1+O2 proof | delivery (all 13 ports) |
+balticporter	PROGRESS.md	fd558fd3 2026-08-02	identical, and every lane returns to its committed numbers (gdx-test 217/4, ashley 108/2 + 2 skips,
+balticporter	PROGRESS.md	43345c94 2026-08-02	| | attempt 1 (pre-O1/O2) | O1+O2 proof | delivery (all 13) | **O5 proof (all 13)** |
+balticporter	PROGRESS.md	43345c94 2026-08-02	| ashley (+ test port) | 0 → **0** | 108 / 2, plus the 2 committed skips, 112 of 112 |
+balticporter	PROGRESS.md	43345c94 2026-08-02	| anim8 | 0 → **0** | 23 / 0 |
+balticporter	PROGRESS.md	43345c94 2026-08-02	| gdx-vfx | 0 → **0** | 64 / 0 |
+balticporter	PROGRESS.md	43345c94 2026-08-02	| screens | 0 → **0** | 16 / 0 |
+balticporter	PROGRESS.md	43345c94 2026-08-02	| simple-graphs (+ test), noise4j, jbump | unchanged | 16 / 0, 2 pre-existing, jbump's derived zero |
+balticporter	PROGRESS.md	43345c94 2026-08-02	committed numbers (gdx-test 217/4, ashley 108/2 + 2 skips, anim8 23, vfx 64, screens 16, sg 16,
+balticporter	PROGRESS.md	43345c94 2026-08-02	| every check count, all 21 | **identical**, `nullability-boundary` 160 → 160 included |
+balticporter	PROGRESS.md	43345c94 2026-08-02	deliberately leaves noteless), and `porter-notes` reports 0/0 accordingly.
+balticporter	PROGRESS.md	9c5b8401 2026-08-02	on all 13 ports with every check count identical** and no baseline moved — the re-baseline CHUNK3
+balticporter	PROGRESS.md	3e35a8c6 2026-08-02	| tests | 639 `@Test` upstream, **0 ported** — no `test.conf` in this milestone |
+balticporter	PROGRESS.md	5f41495c 2026-08-02	So the main set's 27 stay, and the classification splits 26/1 rather than running to one kind:
+balticporter	PROGRESS.md	a044cc13 2026-08-02	Nine libraries are ported on the current (TIR) pipeline, across thirteen runs — a library and its own
+balticporter	PROGRESS.md	b7c93a5a 2026-08-02	So the 13 stay for now, and the classification splits 10/3 rather than running to one kind:
+balticporter	PROGRESS.md	df92b60d 2026-08-03	So the classification no longer splits: **all 10 are (a) engine**, in the families
+balticporter	PROGRESS.md	df92b60d 2026-08-03	**Four files are excluded and 62 tests go with them.** `ENGINE-LIMITS.md` T9 — a method-LOCAL named
+balticporter	PROGRESS.md	c70148e7 2026-08-03	**The 414, by family** — three, and the first is 99% of the number:
+balticporter	PROGRESS.md	c70148e7 2026-08-03	**What is NOT yet evidence.** With 71% of the suite failing on one constructor, the 161 passes are a
+balticporter	PROGRESS.md	c70148e7 2026-08-03	161/414 rather than against nothing.
+balticporter	PROGRESS.md	4ff6d5e1 2026-08-03	| `gltf-test` | gdx-gltf `gltf/test` | 1 of 7 → **1** (§8.1) | **8** ported + **22** hand-written, **none run** — the port does not compile | — |
+balticporter	PROGRESS.md	4ff6d5e1 2026-08-03	| `screens` | libgdx-screenmanager `src/main/java` | 22 → **22** (0 dropped, 0 injected) | **16** hand-written, all passing — upstream's 12 need an unported BACKEND (§9 libgdx-screenmanager) | **0** |
+balticporter	PROGRESS.md	4ff6d5e1 2026-08-03	| `PortMapTransform.forBases("libgdx-core")` — **LAST** | it reads what the base actually emitted and reports a reference the base does not ship, so it must run after the seams that re-point those references. Run first it reported 7 findings, every one repai
+balticporter	PROGRESS.md	132e5bb8 2026-08-03	closed, **196 tests flipped to passing, 0 newly failed, and the 218 that remain are four families the
+balticporter	PROGRESS.md	132e5bb8 2026-08-03	| newly passing / newly failing / newly skipped | **196 / 0 / 0** |
+balticporter	PROGRESS.md	132e5bb8 2026-08-03	change is diffed against 357/218.
+balticporter	PROGRESS.md	93f78451 2026-08-03	| newly passing / newly failing / newly skipped | **196 / 0 / 0**, then **7 / 0 / 0** |
+balticporter	PROGRESS.md	93f78451 2026-08-03	change is diffed against 364/211.
+balticporter	PROGRESS.md	240693d2 2026-08-03	85% of everything left on this port. That is (a) work in the engine, not policy here, and with both
+balticporter	PROGRESS.md	240693d2 2026-08-03	change is diffed against 392/183.
+balticporter	PROGRESS.md	ef7962e8 2026-08-07	  | `catalog(consulted)` | **66–85 per port** (was 46–63, 14–29, 5–8) | rows the run REACHED, at any of the three surfaces. Area G is what last moved it — libGDX core reads 85 against 63 — and the artifact shows the split rather than a total: `JS-S
+balticporter	PROGRESS.md	ef7962e8 2026-08-07	  | `catalog(undischarged)` | **5** on the two libGDX lanes, **2–5** on the other thirteen (was 3 / 2) | the WORK LIST, and every entry on it is DECLARED. JS-E17, the lvalue's single evaluation (`ENGINE-LIMITS.md` F7), on every port that lowers a compound as
+balticporter	PROGRESS.md	87017f0f 2026-08-07	**Four files are excluded and 62 tests go with them, and D-liqp-7 takes 2 more — 64 of 639.** `ENGINE-LIMITS.md` T9 — a method-LOCAL named
+balticporter	PROGRESS.md	d849dbc0 2026-08-07	| tests | 639 `@Test` upstream, **575 emitted, 575 RUN — 161 -> 357 -> 364 -> 392 -> 552 -> 554 -> 559 -> 567 -> 572 -> 574 passing, 414 -> 218 -> 211 -> 183 -> 23 -> 21 -> 16 -> 8 -> 3 -> 1 failing** (§10.5.5; the last five steps are K20's carrier, K21 fac
+balticporter	PROGRESS.md	1e32df06 2026-08-07	**THE SIX, CLASSIFIED, AND TWO OF THEM ARE CLOSED — 631/6 -> 633/4.** Read each through
+balticporter	PROGRESS.md	67944229 2026-08-08	| `catalog(unmechanised)` (every port) | **5 -> 4** when the `EnumMap`/`EnumSet` shims landed and `JS-C42` became `Handled`. The trade is stated rather than absorbed: `catalog(unreached)` rose by 1 on all fifteen and `JS-C42` is now the ONE non-`Open` row in `
+balticporter	PROGRESS.md	b22d4b14 2026-08-08	  `ported/sge/src_managed/main`, 13 references in `ported/ssg-liquid`.
+balticporter	PROGRESS.md	b22d4b14 2026-08-08	  unrewritten usage would be unreported); and `surfaceFingerprint` must include the `target`, or two
+balticporter	PROGRESS.md	c202ccee 2026-08-08	  removes is **280 `$field` declarations and 2,998 references** in `ported/sge/src_managed/main` and
+balticporter	PROGRESS.md	c202ccee 2026-08-08	  13 references in `ported/ssg-liquid`.
+balticporter	PROGRESS.md	e12f236c 2026-08-08	| `sge` (libGDX core) | **155 / 23** — 127 `NotSam`, 5 `NonCapturing` | **137 / 91** — 32 `ComputedBody`, 14 `OverriddenBelow` | **709 / 2** — 678 `SelfTyped`, 29 `NotAlwaysThis` |
+balticporter	PROGRESS.md	fc32bed2 2026-08-16	Ten libraries are ported on the current (TIR) pipeline, across fifteen runs — a library and its own
+balticporter	PROGRESS.md	fc32bed2 2026-08-16	| `ssg-md` | flexmark-java 0.64.8 | BSD-2 | 912 / 83,680 | 773 / 77,468 | 792 mapped 1:1; **24 undocumented omissions** | 205 / 34,387 |
+balticporter	PROGRESS.md	fc32bed2 2026-08-16	83,680 LOC against 605 / 147,163). Which is "bigger" depends on whether the engine's cost is per file
+balticporter	PROGRESS.md	a519743b 2026-08-16	| scalac errors | **243** (coded 241 + bare 2), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of the 468 emitted files** — 87 % of the port compiles clean on its first run |
+balticporter	PROGRESS.md	237850d9 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after fix wave 1 (coded 171 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of the 468 emitted files** at first emit and **47** now — 90 % of the port compiles c
+balticporter	PROGRESS.md	237850d9 2026-08-16	| `collection-boundary` / `collection-closure` / `collection-retarget` | **28 / 3 / 0** |
+balticporter	PROGRESS.md	237850d9 2026-08-16	| 37 | **a ported java ENUM is not a `java.lang.Enum`**, so nothing satisfies `E extends Enum<E> & BitField`. `BitFieldSet.of(O_CONVERT_TABS, …)` and every `intMask`/`setBitField` call around it. The hand port's answer was a `given` type class, which §10.6.
+balticporter	PROGRESS.md	237850d9 2026-08-16	**Where the next wave starts:** the two rows the engine can close without policy — the ported-enum
+balticporter	PROGRESS.md	a43fea25 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1 and **106** after wave 2 (coded 106 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of the 468 emitted files** at first emit and **47** now — 90 % o
+balticporter	PROGRESS.md	a43fea25 2026-08-16	| `jdk-surface` | **456 classified, 38 unresolved at first emit** (shimmed 7, mapped 44, kept 367) and **27 after wave 2**. The 38 were the retyped-owner members `CollectionsTransform`'s tables had no entry for, and they were the SAME 33 errors the compile rep
+balticporter	PROGRESS.md	b9657dec 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2 and **89** after wave 3 (coded 89 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of the 468 emitted files** at first emit and *
+balticporter	PROGRESS.md	ace7ac0d 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2 and **81** after wave 3 (coded 81 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of the 468 emitted files** at first emit and *
+balticporter	PROGRESS.md	ace7ac0d 2026-08-16	| `collection-boundary` / `collection-closure` / `collection-retarget` | **28 / 3 / 0** at first emit, **27 / 3 / 0** after wave 2 — one seam left the lane when the call at it became a helper call rather than a member on a retyped receiver |
+balticporter	PROGRESS.md	2f612b99 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3 and **69** after wave 4 (coded 69 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of the 468 emitted files*
+balticporter	PROGRESS.md	2f612b99 2026-08-16	| `collection-boundary` / `collection-closure` / `collection-retarget` | **28 / 3 / 0** at first emit, **27 / 3 / 0** after wave 2 and **26 / 3 / 0** after wave 4 — one seam left the lane when the call at it became a helper call rather than a member on a ret
+balticporter	PROGRESS.md	c108e731 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4 and **67** after wave 5 (coded 67 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of t
+balticporter	PROGRESS.md	c108e731 2026-08-16	INHERITED formal. Wave 5 read all 22 sites and they are FOUR shapes, not one, which is what the next
+balticporter	PROGRESS.md	0b595e8d 2026-08-16	| 67 → 58 | **java's UNCHECKED CONVERSION at an *INHERITED* formal.** `AstActionHandler<C,N,A,H>.addActionHandler(H)` reached from a subclass whose `extends` clause says what `H` is, with the subclass's own RAW parameter: java admits it by JLS 5.1.9 and `unc
+balticporter	PROGRESS.md	a56b4377 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4 and **58** after wave 5 (coded 58 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Concentrated in **60 of t
+balticporter	PROGRESS.md	8f18cbce 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5 and **49** after wave 6 (coded 49 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Conc
+balticporter	PROGRESS.md	cb7b74ab 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5 and **47** after wave 6 (coded 47 + bare 0), all `EngineGap`, 0 `Approx`, 0 `Unmapped`. Conc
+balticporter	PROGRESS.md	13f7b10b 2026-08-16	| `collection-internal` | **16**, every one `DeclaredSubtype` and every one the SAME seam: `OrderedSet` — which `implements java.util.Set`, so the phase re-parented it onto `mutable.Set` — handed to its own `addAll`/`retainAll`, whose formal is the `Collec
+balticporter	PROGRESS.md	8079616a 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7 and **40** after wave 8 (coded 40 + bare 0), all `
+balticporter	PROGRESS.md	37c05edc 2026-08-16	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9 and **37
+balticporter	PROGRESS.md	cc5f0516 2026-08-16	| 2 | **a held-back `iterator()` against the class's OWN shim-parented iterator** — `BitFieldSet#iterator()` overrides `java.util.AbstractSet.iterator()`, whose class file returns `java.util.Iterator<E>`, while the nested `EnumBitSetIterator`/`EnumBitFieldIt
+balticporter	PROGRESS.md	110db2e8 2026-08-16	0 errors exactly as `liqp-measure` and `sg-measure` gate theirs; at 87 it prints that 723 tests are
+balticporter	PROGRESS.md	c0d91a74 2026-08-16	| 2 | **a held-back `iterator()` against the class's OWN shim-parented iterator** — `BitFieldSet#iterator()` overrides `java.util.AbstractSet.iterator()`, whose class file returns `java.util.Iterator<E>`, while the nested `EnumBitSetIterator`/`EnumBitFieldIt
+balticporter	PROGRESS.md	0d1bbfe9 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9 and **35
+balticporter	PROGRESS.md	0d1bbfe9 2026-08-17	| `jdk-surface` | **456 classified, 38 unresolved at first emit** (shimmed 7, mapped 44, kept 367) and **25 after wave 3** (27 after wave 2). The 38 were the retyped-owner members `CollectionsTransform`'s tables had no entry for, and they were the SAME 33 erro
+balticporter	PROGRESS.md	0d1bbfe9 2026-08-17	| `collection-boundary` / `collection-closure` / `collection-retarget` | **28 / 3 / 0** at first emit, **27 / 3 / 0** after wave 2, **26 / 3 / 0** after wave 4 and **22 / 3 / 0** after wave 5 — one seam left the lane when the call at it became a helper call 
+balticporter	PROGRESS.md	0d1bbfe9 2026-08-17	| 2 | **a held-back `iterator()` against the class's OWN shim-parented iterator** — `BitFieldSet#iterator()` overrides `java.util.AbstractSet.iterator()`, whose class file returns `java.util.Iterator<E>`, while the nested `EnumBitSetIterator`/`EnumBitFieldIt
+balticporter	PROGRESS.md	0d1bbfe9 2026-08-17	| `omissions` / `portability(emitted)` / `collection-boundary` / `overload-risk` | 13 / 14 / 6 / 1,655 |
+balticporter	PROGRESS.md	0d1bbfe9 2026-08-17	0 errors exactly as `liqp-measure` and `sg-measure` gate theirs; at 40 it prints that 723 tests are
+balticporter	PROGRESS.md	fda1de22 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	6db24095 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	7d8b7692 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	cb8b08c4 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	a76377ca 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	91cc2288 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	199b14ce 2026-08-17	| 2 | **K5.7**'s `UninheritableTargets`, counted as `InexpressibleParent` — **RE-READ AT WAVE 14, and the refusal is about WRITE-THROUGH, which this class has none of** | a class that IMPLEMENTS `java.util.Map.Entry` keeps java's parent, because the retyping
+balticporter	PROGRESS.md	8cdefe2d 2026-08-17	0 errors exactly as `liqp-measure` and `sg-measure` gate theirs; at 30 it prints that 723 tests are
+balticporter	PROGRESS.md	8a79381e 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	0ba7a2c8 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	4f3be03c 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	05f6c36f 2026-08-17	| scalac errors | **243** at first emit (coded 241 + bare 2), **171** after wave 1, **106** after wave 2, **81** after wave 3, **69** after wave 4, **58** after wave 5, **47** after wave 6, **43** after wave 7, **40** after wave 8, **38** after wave 9, **35** 
+balticporter	PROGRESS.md	b8253f71 2026-08-17	| test-framework refusals | **26, every one reported by the phase with its §1 classification** — `@RunWith(Suite.class)` × 9 and its `@Suite.SuiteClasses` × 9 (aggregators that declare no `@Test`, so they move neither side of the discovery count), `@Rule`
+balticporter	PROGRESS.md	b8253f71 2026-08-17	| **JUnit's `ExpectedException` `@Rule`, unported** | **37** | `grep -c "thrown.expect"` over the six suites — `OrderedMultiMapTest` 12, `BitFieldSetTest` 11, `OrderedMapTest` 6, `UtilsTest` 5, `OrderedSetTest` 2, `LineAppendableImplTest` 1 — matches the f
+balticporter	PROGRESS.md	b8253f71 2026-08-17	  worth of tests here and REFUSES the rest, and the refusal population is what has to be reported
+balticporter	PROGRESS.md	b8253f71 2026-08-17	723 tests are emitted and none of them runs. A lane that silently skipped that stage would read as a
+balticporter	PROGRESS.md	528fade0 2026-08-17	  the lowering that WOULD reach all 37 — modelling the rule with a flag and a `try` — with the price
+balticporter	PROGRESS.md	528fade0 2026-08-17	  reported one row per SITE naming its guard, where before it was one row per FIELD.
+balticporter	PROGRESS.md	0a6e93fb 2026-08-17	  remains is three guards (`unsupported-member`, `unsupported-reference`, `expect-overload` /
+balticporter	PROGRESS.md	9158b02d 2026-08-17	   modules) is now ported by the engine and stands at a measured, classified wall: §10.6. The rename
+balticporter	PROGRESS.md	9158b02d 2026-08-17	project has never had for any library, and it costs two ported classes plus
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| `ssg-md` | flexmark-java `flexmark` + 11 `flexmark-util-*` | 458 → **468** (0 dropped, 0 injected; 486 in scope, 28 declaration-only) | its suite is THREE upstream modules and a second lane emitting **88** files — **725** registrations from 726 `@Test` (
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| `ssg-md` | **CommonMark conformance is MEASURED now and it is 97.75%.** The four `FullOrigSpec*CoreTest` suites RUN (§10.6.7): 1,828 of 1,870 examples on the three spec versions upstream enables, with java compiled and run as the control and green on all 1,
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	   in the corpus with SPEC-LEVEL evidence: **97.75% of CommonMark, 1,828 of 1,870 examples, against a
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	compiled and run green on all 1,870**. The 114 `ComboSpecTestCase` subclasses and the 59
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| tests | **723 emitted, 0 lost, RUN FOR THE FIRST TIME AT WAVE 23 (683 passing, 40 failing) 704 passing / 19 failing after wave 24 and 721 passing / 2 failing after wave 25, with EVERY failure attributed.** All 40 of wave 23's were classified and wave 24 answ
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| `spec.txt` | 624 | **611** | 13 | 624 / 624 — green |
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| `spec.0.27.txt` | 622 | **606** | 16 | 622 / 622 — green |
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| `spec.0.28.txt` | 624 | **611** | 13 | 624 / 624 — green |
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| **the three java RUNS** | **1,870** | **1,828 (97.75%)** | **42** | **1,870 / 1,870** |
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	`org.junit.runner.JUnitCore`: `OK (4 tests)`. So java's dump equals the spec text EXACTLY on all
+balticporter	PROGRESS.md	9068fe9a 2026-08-17	| **link URLs are not percent-encoded** | **39** (13 + 13 + 13, every live version) | The suite sets `HtmlRenderer.PERCENT_ENCODE_URLS = true` and the emitted `href` is the raw destination — `/f&ouml;&ouml;` renders `/föö` where java renders `/f%C3%B6%C3%B
+balticporter	PROGRESS.md	4fc7db4c 2026-08-18	| `omissions` / `portability(emitted)` / `collection-boundary` / `overload-risk` | 13 / 14 / **4** / 1,655 — the boundary lane fell by two at wave 12, and both were the `ClassFileOverride` rows on `BitFieldSetTest#iterator` that the K29 mapping closed togeth
+balticporter	PROGRESS.md	f557110f 2026-08-18	same three jars and the four suites run under `org.junit.runner.JUnitCore`: `OK (4 tests)`. So java's
+balticporter	PROGRESS.md	f557110f 2026-08-18	one `assertEquals` over the whole rendered spec, so equality is per-example equality on all 1,870 by
+balticporter	PROGRESS.md	427a2d9b 2026-08-18	| test-framework refusals | **26 after wave 25, from 43 after wave 24 and 26 before it — and the round trip is the whole story of the two waves.** Wave 24's `intercept` shape converted 20 sites and DECLINED 17 with one row each (`ExpectedException(non-statem
+balticporter	PROGRESS.md	85757a84 2026-08-18	Eleven libraries are ported on the current (TIR) pipeline, across sixteen runs — a library and its
+balticporter	PROGRESS.md	85757a84 2026-08-18	| `sge-ai` | gdx-ai | 167 / 18,086 | 134 / 14,039 | **93 %** | 24 / 196 | Apache-2.0 |
+balticporter	PROGRESS.md	85757a84 2026-08-18	   — gdx-ai, vis-ui — has been ported, and no diamond (two bases sharing a third) has been built, so map
+balticporter	PROGRESS.md	692b9612 2026-08-18	| `sge-ai` | gdx-ai `gdx-ai/src` | 166 of 167 → **166** (0 dropped, 0 injected; the 167th is GWT super-source upstream's own build excludes, §10.7.1) | **none yet** — upstream ships **10** `@Test` in 2 files, milestone 2 (§10.7.1); the "24 / 196" in the 
+balticporter	PROGRESS.md	692b9612 2026-08-18	| dependency-coverage ( / all / declared) | 0 / 37 / 0 |
+balticporter	PROGRESS.md	692b9612 2026-08-18	| collection closure / boundary / retarget / internal | 0 / 2 / 0 / 0 |
+balticporter	PROGRESS.md	692b9612 2026-08-18	| idiom (converted / refused / residue) | 1 / 164 / 0 — `NarrowedReturn SelfTyped` 147, `SamLambda NotSam` 17 |
+balticporter	PROGRESS.md	692b9612 2026-08-18	| trivia lost / recovered / deliberate | **0** / 5 / 0 |
+balticporter	PROGRESS.md	27d72e87 2026-08-18	| `sge-ai-test` | gdx-ai `gdx-ai/tests` | 2 → **2** | **10** emitted from 10 upstream `@Test` — **none run yet**, the library it tests does not compile (§10.7.7). The "24 / 196" in the hand-port table below is the REFERENCE PORT's own MUnit suite, not ups
+balticporter	PROGRESS.md	27d72e87 2026-08-18	| dependency-coverage ( / all / declared) | 0 / 37 / 0 | — |
+balticporter	PROGRESS.md	27d72e87 2026-08-18	| collection closure / boundary / retarget / internal | 0 / 2 / 0 / 0 | — |
+balticporter	PROGRESS.md	27d72e87 2026-08-18	| idiom (converted / refused / residue) | 1 / 164 / 0 — `NarrowedReturn SelfTyped` 147, `SamLambda NotSam` 17 | — |
+balticporter	PROGRESS.md	27d72e87 2026-08-18	| trivia lost / recovered / deliberate | **0** / 5 / 0 | **0** / **1** / 0 |
+balticporter	PROGRESS.md	06d74646 2026-08-18	| `sge-ai-test` | gdx-ai `gdx-ai/tests` | 2 → **2** | **10 of 10 emitted and RUN — 6 passing, 4 failing**, all four one MUnit-instance fact in `ParallelTest` (§10.7.9, `ENGINE-LIMITS.md` X4). The "24 / 196" in the hand-port table below is the REFERENCE PO
+balticporter	PROGRESS.md	06d74646 2026-08-18	| test-framework refusals | **30, and it is `test-framework(refused)` in `baseline/counts.tsv` — a LANE, not this row.** One row per declined site naming its guard: `@RunWith` × 10, `@Suite.SuiteClasses` × 9, `@Rule` × 7 (the FIELDS, emitted and never app
+balticporter	PROGRESS.md	06d74646 2026-08-18	| **passing / failing** | **6 / 4** |
+balticporter	PROGRESS.md	06d74646 2026-08-18	| `ParallelTest` | **1 / 5** — the first test in declaration order, and only it |
+balticporter	PROGRESS.md	30d94262 2026-08-19	| `sge-ai-test` | gdx-ai `gdx-ai/tests` | 2 → **2** | **10 of 10 emitted and RUN — 10 passing, 0 failing.** 6 / 4 at wave 2, all four one MUnit-instance fact in `ParallelTest`, closed by the per-test reconstruction (§10.7.9/§10.7.10, `ENGINE-LIMITS.md` X
+balticporter	PROGRESS.md	5f66d4f8 2026-08-19	   first, `flexmark-ext-aside`, is ported as ONE dependent port at 0 errors and the pattern and its
+balticporter	PROGRESS.md	c989210c 2026-08-19	| `sge-ai-diff` | **nothing — this is HAND-WRITTEN Scala, never a ported suite** (`CLAUDE.md` §3) | — | **95 of the reference hand port's 194 RUN — 93 passing, 2 declared** (10 of its 24 files; the other 14 / 99 are class (c), §10.7.12) | **0** |
+balticporter	PROGRESS.md	c989210c 2026-08-19	### 10.7.12 The DIFFERENTIAL census — 10 of 24 files, 95 of 194 tests, 93 passing
+balticporter	PROGRESS.md	c989210c 2026-08-19	| (c) incompatible | 10 files / 83 tests | **14 files / 99 tests** |
+balticporter	PROGRESS.md	c989210c 2026-08-19	**WHAT CLASS (c) MEANS FOR COVERAGE — 14 files / 99 tests, and it is NOT 99 questions unanswered.**
+balticporter	PROGRESS.md	75f04fac 2026-08-19	2. **The fixture**, which is the gate on the other 65 tests and is a REWRITE rather than an
+balticporter	PROGRESS.md	9fdd9a3a 2026-08-19	| `sge-visui` | The **USL skin-DSL compiler is 100 % absent** (18 files: lexer, parser, style merger, JSON writer) and undocumented. Self-contained real work, zero reference implementation. |
+balticporter	PROGRESS.md	9fdd9a3a 2026-08-19	   be scoped as its own decision. (`sge-ai` was the first of this tier and its milestone 1 is ported
+balticporter	PROGRESS.md	baaa286e 2026-08-19	| `sge-textra-diff` | **nothing — this is HAND-WRITTEN Scala, never a ported suite** (`CLAUDE.md` §3) | — | **160 of the reference hand port's 239 RUN — 160 passing, 0 declared** (11 of its 32 files; the other 21 / 79 are class (c), §10.8.15) | **0** |
+balticporter	PROGRESS.md	baaa286e 2026-08-19	is the gate: **160 of the reference hand port's 239 tests now run against this port, and all 160
+balticporter	PROGRESS.md	baaa286e 2026-08-19	empty — `FontSuite` is class (c) on both of its halves, measured — so the final split is 11 / 160,
+balticporter	PROGRESS.md	baaa286e 2026-08-19	0 / 0 and 21 / 79. The table below is the typer-only reading and is kept for what it got wrong.)
+balticporter	PROGRESS.md	baaa286e 2026-08-19	**WHAT CLASS (c) MEANS FOR COVERAGE — 21 files / 79 tests, and the split is 75/4.** Seventy-five need
+balticporter	PROGRESS.md	de7580fb 2026-08-20	result (four files and 16 tests fell out) and matches TextraTypist's, and the reason is the same
+balticporter	PROGRESS.md	de7580fb 2026-08-20	| blocked | 8 files / 22 tests | **8 files / 22 tests**, re-classified below |
+balticporter	PROGRESS.md	84ce3d4b 2026-08-20	  only one that makes the emitted port incomplete rather than merely unfinished;
+balticporter	PROGRESS.md	84ce3d4b 2026-08-20	   error count reads. It is now also a MEASURED test blocker rather than only a completeness gap.
+balticporter	PROGRESS.md	e29a7af5 2026-08-20	fixture is nearer, and §3.5's own paragraph is about a census that scoped 75 tests behind a fixture
+balticporter	PROGRESS.md	974663a7 2026-08-25	   first half of this item is CLOSED: `sge-ai` is an *extension of libGDX itself* and is ported
+balticporter	PROGRESS.md	974663a7 2026-08-25	7. **THE PORT'S OWN CLASSPATH RESOURCES ARE NOT PART OF ITS OUTPUT, AND NOTHING SAYS SO.** A ported
+balticporter	PROGRESS.md	974663a7 2026-08-25	     while the port shipped nothing; it points at `ported/ssg-md/src_managed/main/resources` now, and
+balticporter	PROGRESS.md	d7475744 2026-08-25	`just ashley-measure` to produce the emitted sources at `ported/sge-ecs/src_managed/`. The sge-ecs
+balticporter	PROGRESS.md	d7475744 2026-08-25	module's census: 24 `Ported from` main files, 0 `Ported from` test files, 18 hand-written test
+balticporter	PROGRESS.md	d7475744 2026-08-25	files (no port header). The drop-in replaces the 24 ported main files and keeps all 18 hand-written
+balticporter	PROGRESS.md	053c6c23 2026-08-27	  none of them to a ported declaration; the table above is the evidence, and re-deriving it costs a
+balticporter	PROGRESS.md	d0421de7 2026-08-28	  are no longer supported* at a `return` inside a function literal (CLAUDE.md §3's "refuse loudly"
+balticporter	PROGRESS.md	efbd094a 2026-09-02	70 E198 closed). JVM/JS/Native 0/0/0 held. sg 0/0/0, noise4j 0/0/0. Engine suites: api 65/0,
+balticporter	PROGRESS.md	efbd094a 2026-09-02	engine 1113/0, corpus 1447/0.
+balticporter	PROGRESS.md	818bbeac 2026-09-02	| gdx | 0/0/0/93 | 0/0/0/54 | -- | -- | `.ref` 93->54 (UnusedSymbolTransform, 49 of 70 E198 closed; see §13.20) |
+balticporter	PROGRESS.md	54bd80f8 2026-09-02	removed all 126 fabricated-fact and dead catches). One new named helper added: `fieldDeclOf`,
+balticporter	PROGRESS.md	54bd80f8 2026-09-02	paragraph for the complete census table.
+balticporter	PROGRESS.md	ed985789 2026-09-02	not `() { ... }`). ecs-dropin **43/43/43 -> 6/7/7** ([error] line count, 8 unique -> 1 unique).
+balticporter	PROGRESS.md	ed985789 2026-09-02	ashley 0/0/0, tests 108/2/2 held. gdx 0/0/0/54 held. engine specs 1447 passed.
+balticporter	PROGRESS.md	d6f65671 2026-09-03	   residue. 1448/1449 green (PortMapAcceptanceSpec requires `just gdx-measure` artifact).
+balticporter	PROGRESS.md	43022cb6 2026-09-03	ref 51, suite 184/7. `ENGINE-LIMITS.md` P11.
+balticporter	PROGRESS.md	d9283703 2026-09-04	Twelve libraries are ported on the current (TIR) pipeline, across seventeen runs — a library and its
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-gltf-test` | gdx-gltf `gltf/test` | 1 of 7 → **1** (§8.1) | **8** ported + **22** hand-written, **none run** — the port does not compile | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-screens` | libgdx-screenmanager `src/main/java` | 22 → **22** (0 dropped, 0 injected) | **16** hand-written, all passing — upstream's 12 need an unported BACKEND (§9 libgdx-screenmanager) | **0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ai-test` | gdx-ai `gdx-ai/tests` | 2 → **2** | **10 of 10 emitted and RUN — 10 passing, 0 failing.** 6 / 4 at wave 2, all four one MUnit-instance fact in `ParallelTest`, closed by the per-test reconstruction (§10.7.9/§10.7.10, `ENGINE-LIMITS.md` X
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ai-diff` | **nothing — this is HAND-WRITTEN Scala, never a ported suite** (`CLAUDE.md` §3) | — | **95 of the reference hand port's 196 RUN — 93 passing, 2 declared** (10 of its 24 files; the other 14 / 101 are class (c), §10.7.12) | **0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-textra-diff` | **nothing — this is HAND-WRITTEN Scala, never a ported suite** (`CLAUDE.md` §3) | — | **165 of the reference hand port's 239 RUN — 165 passing, 0 declared** (12 of its 32 files; of the rest, 18 / 69 are class (b), 1 / 5 is a byte-i
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-liquid-test` | liqp `src/test/java` | 105 → **105** (nothing excluded since T9 closed, §10.5.4) | **637** emitted, **637 run — 636 passing, 1 failing, expected 1 / unexpected 0** (§10.5.4's classification: T16 took the three jackson ones; the last
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-md` | flexmark-java `flexmark` + 11 `flexmark-util-*` | 458 → **468** (0 dropped, 0 injected; 486 in scope, 28 declaration-only) | its suite is THREE upstream modules and a second lane emitting **88** files — **725** registrations from 726 `@Test` (
+balticporter	PROGRESS.md	d9283703 2026-09-04	every library they scout is ported through the TIR now
+balticporter	PROGRESS.md	d9283703 2026-09-04	### 1.1 What is available and unported
+balticporter	PROGRESS.md	d9283703 2026-09-04	Each ported Java library is meant to be handed to a **separate agent** supervising that library's port
+balticporter	PROGRESS.md	d9283703 2026-09-04	is unported work with **no reference implementation**, and it is systematically the part the per-repo
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge` | libGDX `gdx/src` (+63 cherry-picked backend files) | 605 / 147,163 | 692 / 153,687 | **83 %** (100 absent; ~14 in `../lls`) | 265 / 2,185 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-colorful` | colorful-gdx `colorful/` | 54 / 62,656 | 46 / 38,721 | **100 %** of `colorful/`; `colorful-pure/` (38 files, 40k LOC) 0 % | 7 / 54 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-textra` | TextraTypist | 95 / 38,607 | 92 / 28,054 | **100 %** | 32 / 239 | Apache-2.0 + **MIT** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-visui` | VisUI `ui/` + `usl/` | 182 / 27,236 | 156 / 20,639 | **88 %** — USL 0 of 18 | 12 / 72 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-anim8` | anim8-gdx | 16 / 19,594 | 16 / 9,747 | **93 %** | 4 / 21 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ai` | gdx-ai | 167 / 18,086 | 134 / 14,039 | **93 %** | 24 / 196 — **the HAND PORT's own suite, not upstream's** (§10.7.1: upstream ships 2 files / 10 `@Test`; this column reads the reference tree for every row and is the one library where the two ar
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-tools` | libGDX `gdx-tools` | 80 / 17,773 (8 ported) | 8 / 3,857 | **10 %** — deliberate | 2 / 10 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-gltf` | gdx-gltf | 135 / 11,307 | 141 / 17,615 | **100 %** | 40 / 150 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-vfx` | gdx-vfx | 45 / 5,732 | 41 / 3,881 | **91 %** — upstream now ported by the engine, §8 | 6 / 29 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-jbump` | jbump | 19 / 4,045 | 14 / 2,054 | **73 %** | 7 / 32 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-graphs` | simple-graphs | 29 / 3,784 | 25 / 2,525 | **82 %** | 8 / 77 | MIT |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-controllers` | gdx-controllers | 29 / 2,884 | 18 / 2,141 | **27 %** — deliberate | 6 / 33 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ecs` | Ashley | 21 / 2,523 | 24 / 2,404 | **100 %** | 18 / 172 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-noise` | noise4j | 12 / 2,491 | 10 / 2,608 | **83 %** — upstream now ported by the engine, §5 | 3 / 13 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-screens` | libgdx-screenmanager | 23 / 2,459 | 20 / 1,691 | **86 %** | 6 / 29 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-freetype` | libGDX `gdx-freetype` | 4 / 1,891 | 9 / 2,365 | **100 %** of the Java layer | 9 / 28 | Apache-2.0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`gdx-bullet`, 636, are entirely unported and cannot be poured into that API); `sge-test/*`, `demos/`
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-md` | flexmark-java 0.64.8 | BSD-2 | 872 / 79,825 covered (1,091 / 106,170 on disk) | 767 / 77,291 | 761 mapped 1:1; **28 undocumented omissions** | 178 / 25,274 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-liquid` | liqp 0.9.2.4-SNAPSHOT | MIT | 135 / 9,542 | 130 / 10,925 | 124 of 135; **11 absent** | 65 / 1,030 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`pom.xml` fact and the map is injective by construction — verified collision-free over all 53
+balticporter	PROGRESS.md	d9283703 2026-09-04	contains a single `Ported from:` header.
+balticporter	PROGRESS.md	d9283703 2026-09-04	files / 79,825 LOC against 605 / 147,163; 1,091 / 106,170 counting every module on disk). Which is
+balticporter	PROGRESS.md	d9283703 2026-09-04	"bigger" depends on whether the engine's cost is per file or per construct. The `912 / 83,680` this
+balticporter	PROGRESS.md	d9283703 2026-09-04	   for the 26 ported GWT-backend files; `ssg`'s marks 10 ported `liqp/filters/*` as `skipped`; a
+balticporter	PROGRESS.md	d9283703 2026-09-04	   per-file `Ported from:` headers as the oracle** — they matched the on-disk census in every module
+balticporter	PROGRESS.md	d9283703 2026-09-04	2. **Nobody hand-ported a single upstream test.** sge's ~3,500 test cases are hand-written MUnit; liqp's
+balticporter	PROGRESS.md	d9283703 2026-09-04	   65 suites are rewrites. Available and unported: libGDX 430 Java test files, colorful-gdx 162,
+balticporter	PROGRESS.md	d9283703 2026-09-04	   ported libGDX's 221 core tests, Ashley's 112 and simple-graphs' 16 end to end, so the capability is
+balticporter	PROGRESS.md	d9283703 2026-09-04	   **And "20 test files" is not "20 tests": anim8-gdx's are DEMOS.** This row said `anim8-gdx 20` until
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge` core | **No backend was ported.** 63 cherry-picked files out of 314; LWJGL3/GWT/Android/RoboVM are original Scala over Rust FFI, GLFW and multiarch. An engine-driven port yields a library that cannot open a window. |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge` core | The whole **LZMA `utils/compression` stack (13 files) vanished** → `.ubj.lzma` fonts unsupported. Also gone with no replacement: all 7 `assets/loaders/resolvers/*`, all `Json*`/`UBJson*`/`XmlWriter` (11), the HTTP stack (reimplemented on sttp-
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-controllers` | 27 % is **not a gap** — Jamepad and GWT were replaced by GLFW and the browser Gamepad API. Porting the missing 21 types produces dead code. |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-visui` | The **USL skin-DSL compiler is 100 % absent** (18 files: lexer, parser, style merger, JSON writer) and undocumented. Self-contained real work, zero reference implementation — and §10.9.1 has since priced it: the independence is one-direction
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-textra` | Upstream ships a **second licence** — `typing-label.LICENSE`, MIT — covering exactly the `TypingLabel` + 40 `effects/*` files sge ported. **No MIT attribution appears anywhere in sge.** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-tools` | 90 % deliberately dropped (all Swing/AWT editors). Not an incomplete port. |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-freetype` | Java layer 100 % ported, but every `native` method now binds a Rust crate. Carries a **deliberate behavioural fix upstream lacks** — do not "correct" it back. |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-jbump` | **Five of nineteen upstream types are absent and one is a name collision, not a port**: `Extra`, `util/{BooleanArray,FloatArray,IntArray,IntIntMap}` are gone, and the hand port's `util/MathUtils` holds `Extra`'s three members — upstream's own
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-noise` | The 17 % gap is `Array2D` and `Object2dArray` — the whole `array` package bar `Int2dArray`, absent with no note. And every one of the three **enum constant bodies** was REDESIGNED into a flat `enum` plus a `this match`, which no mechanical ru
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-colorful` | `colorful-pure` (40k LOC) unported with **no recorded rationale anywhere**. Confirm intent before treating it as scope. |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-md` | **CommonMark conformance is MEASURED and it is 100 %.** The four `FullOrigSpec*CoreTest` suites RUN (§10.6.7): 1,870 of 1,870 examples on the three spec versions upstream enables, with java compiled and run as the control and green on all 1,870 �
+balticporter	PROGRESS.md	d9283703 2026-09-04	  or the Ruby gems. Per-file headers exist, so this is arguably compliant, but the NOTICE is incomplete.
+balticporter	PROGRESS.md	d9283703 2026-09-04	1. (Tier 1 is complete: `sge-ecs`, `sge-graphs`, `sge-noise` and `sge-jbump`'s upstreams are
+balticporter	PROGRESS.md	d9283703 2026-09-04	   all ported by the engine — §3, §4, §5 and §6.)
+balticporter	PROGRESS.md	d9283703 2026-09-04	   of this tier's four are now ported by the engine and each closed its named redesign differently:
+balticporter	PROGRESS.md	d9283703 2026-09-04	   modules) is ported by the engine, compiles at 0 errors on both source sets, and is the only port
+balticporter	PROGRESS.md	d9283703 2026-09-04	   in the corpus with SPEC-LEVEL evidence: **100 % of CommonMark, 1,870 of 1,870 examples, against a
+balticporter	PROGRESS.md	d9283703 2026-09-04	   extension modules**, as ONE dependent port at 0 errors — 331 emitted files, 188 of 188 tests
+balticporter	PROGRESS.md	d9283703 2026-09-04	6. **`sge` core** — already ported by the engine. What remains is the 100 absent types and the backend
+balticporter	PROGRESS.md	d9283703 2026-09-04	| portability (all / emitted / injected) | 151 / 151 / 2 | 166 / 15 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| substitutions (emitted / dangling) | 0 / 0 | 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| collection closure / boundary | **2** / 0 | 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 4 / 12 | **0** / 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	it is the analysis a fix starts from): JSON *decoding* raises `UnsupportedOperationException`
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ashley-test | 0 (108 / 2 / 2 skipped) | 97 | — | — | 5 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| anim8 | 0 (23 / 23) | 128 | 11 | — | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| vfx | 0 (64 / 64) | 62 | — | 4 | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| screens | 0 (16 / 16) | 34 | — | — | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| simple-graphs | 0 (16 / 16) | 129 | — | — | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`just members-unchanged` reported 28 on `libgdx-core` and 6 on `libgdx-test` for one commit, and
+balticporter	PROGRESS.md	d9283703 2026-09-04	**65 → 66**, 0 members moved, compile 0 → 0, suite 217/4 unchanged). `TirEmitter.orderBody` drops
+balticporter	PROGRESS.md	d9283703 2026-09-04	*emission consumes* has nowhere to go. Carrying comments at all costs +33.8 % emitted bytes on libGDX
+balticporter	PROGRESS.md	d9283703 2026-09-04	The port does **not** cover libGDX's backends, and the test suite that runs is JVM-only. The 221 ported
+balticporter	PROGRESS.md	d9283703 2026-09-04	| the raw fill's four knob settings (inherited fill × `?`/`Object` fallback) | 162 / 97 / 87 / **1** | G2, G4 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| reasoning about the error count as if it were complete | it is TYPER-only until it reaches 0 | M1 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	collection shims are vendored by libGDX core and compiling `ported/sge-ecs` alone measures nothing.
+balticporter	PROGRESS.md	d9283703 2026-09-04	  no backend is ported.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| portability (all / emitted / injected) | 151 / **0** / 4 | 153 / 2 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 0 / 0 | **0** / 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `PortMapTransform.forBases("sge")` — **LAST** | it reads what the base actually emitted and reports a reference the base does not ship, so it must run after the seams that re-point those references. Run first it reported 7 findings, every one repaired by t
+balticporter	PROGRESS.md	d9283703 2026-09-04	**mockito-all 1.10.19** — read from upstream rather than guessed, because guessing it cost a full cycle,
+balticporter	PROGRESS.md	d9283703 2026-09-04	`CLAUDE.md` §3's *"a test that stopped running is reported as such, never as a pass"* failing inside the
+balticporter	PROGRESS.md	d9283703 2026-09-04	of known markers, so a test with no recognised line is reported whatever the reason and the next marker
+balticporter	PROGRESS.md	d9283703 2026-09-04	each"), because it is a fact about running any ported suite, not about Ashley.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| portability (all / emitted) | 6 / 6 | 6 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	port's 3 `collection-boundary` rows, at 0 errors and 16 of 16 tests passing.
+balticporter	PROGRESS.md	d9283703 2026-09-04	K2.5 lesson read one lane over: a residue count is only as good as the assumption that a reported
+balticporter	PROGRESS.md	d9283703 2026-09-04	because it is the smallest port that holds all three shapes, and because its 16 tests RUN — an
+balticporter	PROGRESS.md	d9283703 2026-09-04	after, 16 of 16 tests still passing**, and the `members.tsv` blast is **6**: the three selected
+balticporter	PROGRESS.md	d9283703 2026-09-04	| portability (all / emitted / injected) | 0 / 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia (comments lost) | **0** — every comment in all 12 files reached the Scala |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`throw new UnsupportedOperationException` — correctly, because a Scala iterator cannot remove. That
+balticporter	PROGRESS.md	d9283703 2026-09-04	is reported rather than avoided. Reported, counted, baselined — not silent.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia | **0** — every comment in all 19 files reached the emitted Scala |
+balticporter	PROGRESS.md	d9283703 2026-09-04	that way, and the first to do it at 100 % type coverage.
+balticporter	PROGRESS.md	d9283703 2026-09-04	transcripts diffed line for line.** It is hand-written and is **not a ported test** — it is a
+balticporter	PROGRESS.md	d9283703 2026-09-04	probe pins both halves of the contract the red test specified, that the copy carries all 19 arrays
+balticporter	PROGRESS.md	d9283703 2026-09-04	| a spec for the captured-local rename over a method-LOCAL named class | frontend refuses it: `unsupported construct: statement CtClassImpl` | recorded as ENGINE-LIMITS T9, zero sites in the whole corpus; the pass itself is indifferent between a local and an a
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-anim8` alone measures nothing.
+balticporter	PROGRESS.md	d9283703 2026-09-04	`bench/*StartupBench` — and no libGDX backend is ported. There is no upstream suite to migrate, so
+balticporter	PROGRESS.md	d9283703 2026-09-04	the available-and-unported test suites: 20 FILES, 0 tests.)
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-anim8/src/test/scala` holds **23 hand-written MUnit tests** — the only thing in that module a
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	Three independent confirmations that 32,768 / 4,096 are right: decoding the Java literal by Java's
+balticporter	PROGRESS.md	d9283703 2026-09-04	Scala, gdx-gltf's ported suite and gdx-gltf's hand-written suite on **one** `scala-cli` invocation.
+balticporter	PROGRESS.md	d9283703 2026-09-04	re-derived on every run and a second file gaining a real `@Test` is reported.
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-gltf/src/test/scala` adds **22 hand-written MUnit tests** over `GLTFTypes` — the file where the
+balticporter	PROGRESS.md	d9283703 2026-09-04	prints the two numbers SEPARATELY — a ported test and a written one are different evidence — and
+balticporter	PROGRESS.md	d9283703 2026-09-04	| model | 740 units / 56,368 symbols | 741 / 56,420 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| portability (all / emitted / injected) | 151 / **0** / **0** | 151 / 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 4 / 0 | **0** / 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| source map | 135 units / 1,523 members | 1 / 9 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **tests** | 8 ported + 22 hand-written = **30, NONE RUN** — the port does not compile (§8.4) | |
+balticporter	PROGRESS.md	d9283703 2026-09-04	108 / 2 / 2.
+balticporter	PROGRESS.md	d9283703 2026-09-04	The port does not compile, so **none of its 30 tests has ever executed.** `CLAUDE.md` §3 is explicit
+balticporter	PROGRESS.md	d9283703 2026-09-04	funnel plan is not a manifest key, and the port map records `Attribute` as `Ported`, which it is. The
+balticporter	PROGRESS.md	d9283703 2026-09-04	  **3/3 bound, 3 sites rewritten, 0 policy findings**, at `SeparatedDataFileResolver.java:30`
+balticporter	PROGRESS.md	d9283703 2026-09-04	`../sge/sge-extension/gltf` is **100 % coverage**, 135 upstream types → 141 Scala files, with six
+balticporter	PROGRESS.md	d9283703 2026-09-04	  injected `Json` facade, whose reflective paths raise `UnsupportedOperationException` naming the
+balticporter	PROGRESS.md	d9283703 2026-09-04	application, and no libGDX backend is ported (§1.1's first surprise). `src/test/java` is §9.4.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 1 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  §9.5. Measured by `grep -o 'de\.damios[A-Za-z0-9_.]*' ported/sge-screens/src_managed`, NOT by the
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-screens/src/main/scala` supplies. That is the whole of this port's library-specific policy:
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `com.badlogic.gdx.backends.headless.HeadlessApplication`.** No libGDX backend is ported, by this
+balticporter	PROGRESS.md	d9283703 2026-09-04	  time — `mockStatic` in particular replaces a static method of the ported library so the tests
+balticporter	PROGRESS.md	d9283703 2026-09-04	So the behavioural gate is **16 hand-written MUnit tests** in `ported/sge-screens/src/test/scala`, adapted
+balticporter	PROGRESS.md	d9283703 2026-09-04	is ported that block is what says the twelve became reachable.
+balticporter	PROGRESS.md	d9283703 2026-09-04	Both are completeness gaps in machinery that already existed, both are in `ENGINE-LIMITS.md`, both
+balticporter	PROGRESS.md	d9283703 2026-09-04	`sge-extension/screens` is 20 Scala files to these 22 Java ones (§1.1: 86 % coverage). The
+balticporter	PROGRESS.md	d9283703 2026-09-04	  three are ported mechanically here, and the hand-written suite covers all three — including
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-vfx` alone measures nothing.
+balticporter	PROGRESS.md	d9283703 2026-09-04	  what makes §10.3's reflective branch unreachable rather than merely unported.
+balticporter	PROGRESS.md	d9283703 2026-09-04	hand-written MUnit tests** under `ported/sge-vfx/src/test/scala` (§10.5). `just vfx-measure` prints the
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 2 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	of scope. So the branch is not merely unported — it is **unreachable**, and keeping the reflective
+balticporter	PROGRESS.md	d9283703 2026-09-04	reads it). Every check count and all 64 tests unchanged; nine other ports 0 members.
+balticporter	PROGRESS.md	d9283703 2026-09-04	**T13 is the exception and its blast radius is accounted**: it is emitted text for every ported
+balticporter	PROGRESS.md	d9283703 2026-09-04	64 tests over six suites, every expectation read off the UPSTREAM JAVA rather than off the emitted
+balticporter	PROGRESS.md	d9283703 2026-09-04	  this port resolves against and does not emit. It is the base's number, reported here because the
+balticporter	PROGRESS.md	d9283703 2026-09-04	  cheapest real step is a headless `GL20` implementation in `ported/sge-vfx/src/test`, which is a large
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `catalog(unmechanised)` (every port) | **5 -> 4** when the `EnumMap`/`EnumSet` shims landed and `JS-C42` became `Handled`. The trade is stated rather than absorbed: `catalog(unreached)` rose by 1 on all fifteen and `JS-C42` joined `just catalog-coverage`'s n
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `collection-closure` (main) | **8 -> 0** — all eight were `java.util.Stack`, which `liqp/blocks/For.java` uses as its for-loop drop stack and which the mapping had no key for. It is the only `java.util.Stack` in any ported module and it is what made chunk 
+balticporter	PROGRESS.md	d9283703 2026-09-04	closed, **196 tests flipped to passing, 0 newly failed, and the 218 that then remained are four families the
+balticporter	PROGRESS.md	d9283703 2026-09-04	  receivers. **No check could see that one** — the collapse fired, so nothing reported an
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `asList(98, "97", true, false, null)` reported one mismatch per element. Java's answer is on the
+balticporter	PROGRESS.md	d9283703 2026-09-04	  rather than a name. **161/414 -> 357/218 passing on liqp; 29 libGDX classes' emitted text moved and
+balticporter	PROGRESS.md	d9283703 2026-09-04	`LiqpClasspath` copies the six generated files, rewrites their references INTO the ported library to
+balticporter	PROGRESS.md	d9283703 2026-09-04	fatality. Five cases in `LiqpParserRewriteSpec`; liqp re-measured at **0 errors, 357/218, 0 member
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 1 | K2/K5.7's `Map.Entry.setValue` at the case with NO LOOP AND NO MAP — the receiver is a FIELD whose value, after the retyping, is a detached pair | **(a) ENGINE.** The refusal stands and it now has an EMISSION: `java.util.Map.Entry.setValue` is an OPTIO
+balticporter	PROGRESS.md	d9283703 2026-09-04	**The four excluded files are BACK, and with them 62 tests — the loss is now 2 of 639.**
+balticporter	PROGRESS.md	d9283703 2026-09-04	**The suite went 574/1 -> 631/6, and the five new failures are the number to read.** None of them
+balticporter	PROGRESS.md	d9283703 2026-09-04	**THE SIX, CLASSIFIED, AND FIVE OF THEM ARE CLOSED — 631/6 -> 633/4 -> 636/1.** Read each through
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ~~3~~ **0** | `@JsonSerialize(using = LiquidSupport.LiquidSerializer.class)` on the `LiquidSupport` INTERFACE was DROPPED — a TYPE's annotations are harvested at `defineType`, where no expression translator existed, so every argument-bearing one went to `o
+balticporter	PROGRESS.md	d9283703 2026-09-04	**`META-INF/services` is hand-written** (`ported/ssg-liquid/src/main/resources/META-INF/services/ssg.liquid.spi.TypesSupport`),
+balticporter	PROGRESS.md	d9283703 2026-09-04	**The run's CWD is part of the measurement.** 45 tests read `./snippets/`, `./_includes/` and
+balticporter	PROGRESS.md	d9283703 2026-09-04	| newly passing / newly failing / newly skipped | **196 / 0 / 0**, then **7 / 0 / 0**, then **28 / 0 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	for the derived rule to classify from, and a run that reported some other number would be reporting a
+balticporter	PROGRESS.md	d9283703 2026-09-04	**THE FIRST CENSUS: the 414, by family** — three, and the first was 99% of the number:
+balticporter	PROGRESS.md	d9283703 2026-09-04	warns about. `Template` is what every test parses through, so one ordering took 71% of the suite.
+balticporter	PROGRESS.md	d9283703 2026-09-04	change is diffed against 552/23.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **5** | the remaining `JekyllWhereImplTest` comparison failures | **(a)**, K21 face 1/2 — same two data classes, observed at the assertion rather than at the throw |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`class-init-trigger` reported `Unforced` **0 on all fifteen ports** from the first measurement —
+balticporter	PROGRESS.md	d9283703 2026-09-04	The number is **28**, enumerated against the 761 `Ported from:` headers: the whole
+balticporter	PROGRESS.md	d9283703 2026-09-04	compiled and run green on all 1,870** (1,828 at the census, and the 42 it left were one defect —
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `jdk-surface` | **456 classified, 38 unresolved at first emit** (shimmed 7, mapped 44, kept 367) and **25 after wave 3** (27 after wave 2). The 38 were the retyped-owner members `CollectionsTransform`'s tables had no entry for, and they were the SAME 33 erro
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `collection-boundary` / `collection-closure` / `collection-retarget` | **28 / 3 / 0** at first emit, **27 / 3 / 0** after wave 2, **26 / 3 / 0** after wave 4 and **22 / 3 / 0** after wave 5 — one seam left the lane when the call at it became a helper call 
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `idiom(converted / refused / residue)` | **0 / 315 / 0** — `SamLambda` 28 considered and 28 refused, `NarrowedReturn` 287 and 287 refused. The refusal population is the lane; nothing was converted |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| tests | **725 registrations from 726 `@Test` over THREE upstream modules, and 727 outcomes: 725 passing / 2 failing, with EVERY failure attributed** (§10.6.7 — the two are `Pair.equals`, K18.1). The 52-file util suite alone reads 723 emitted, 0 lost, RUN 
+balticporter	PROGRESS.md	d9283703 2026-09-04	governs here is larger, not smaller. What wave 7 changed is that the 723 tests now EXIST as emitted
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 171 → 137 | **a ported java ENUM is not a `java.lang.Enum`** — and no `sealed abstract class` may name that supertype at all (scalac: *"only enums defined with the enum syntax can"*), so the shape had to become the scala 3 `enum`. The refusals — a cons
+balticporter	PROGRESS.md	d9283703 2026-09-04	delegate is an infinite recursion that compiles); `MemberRenamer`'s world screen refused all 40
+balticporter	PROGRESS.md	d9283703 2026-09-04	is gated on a whole-compile of zero, and 723 tests plus every `CLAUDE.md` §4.4 form in a
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ~~2~~ | **LEFT THIS TABLE AT WAVE 15** — `ENGINE-LIMITS.md` **K5.7** | a class that IMPLEMENTS `java.util.Map.Entry` keeps java's parent, because the retyping's target is a `Tuple2` and no class can extend one — which is a statement about a PARENT and sa
+balticporter	PROGRESS.md	d9283703 2026-09-04	  right and complete: java's ARRAY COVARIANCE at a LOCAL INITIALISER (`Enum<?>[] universe =
+balticporter	PROGRESS.md	d9283703 2026-09-04	from 2 to 1; **it fell from 2 to ZERO and a post-typer phase reported its first row.**
+balticporter	PROGRESS.md	d9283703 2026-09-04	  that reported this one, so the 30–50 errors K28 prices are still unmeasured and will arrive when
+balticporter	PROGRESS.md	d9283703 2026-09-04	| test-framework refusals | **34, and it is `test-framework(refused)` in `baseline/counts.tsv` — a LANE, not this row.** One row per declined site naming its guard: `@RunWith` × 10, `@Suite.SuiteClasses` × 9, `@Rule` × 7 (the FIELDS, emitted and never app
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **JUnit's `ExpectedException` `@Rule`, unported** | **37 at wave 23, `20 → 0` at wave 24 and the remaining 17 are ONE guard** | `grep -c "thrown.expect"` over the six suites — `OrderedMultiMapTest` 12, `BitFieldSetTest` 11, `OrderedMapTest` 6, `UtilsTest
+balticporter	PROGRESS.md	d9283703 2026-09-04	  the lowering that WOULD reach all 37 — modelling the rule — with the price of building it. The
+balticporter	PROGRESS.md	d9283703 2026-09-04	  refusal was then the largest population on this port's refusal lane, reported one row per SITE
+balticporter	PROGRESS.md	d9283703 2026-09-04	rests on: the 20/17 split is what priced the model, and the residual catch-policy delta — junit
+balticporter	PROGRESS.md	d9283703 2026-09-04	  remains is four guards (`unsupported-member`, `unsupported-reference`, `arming-outside-test`,
+balticporter	PROGRESS.md	d9283703 2026-09-04	  mapping, its seven deltas and the 20/17 split are above and in `ENGINE-LIMITS.md` X5. Two things
+balticporter	PROGRESS.md	d9283703 2026-09-04	rule's 20 tests are that number. What is left is the aggregator drop's own blast: nine of this port's
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `omissions` / `portability(emitted)` / `collection-boundary` / `overload-risk` | **15 / 26 / 5 / 1,654**, which is `port-report/FlexmarkTestMigrate/baseline/counts.tsv` — the boundary lane had fallen by two at wave 12 (the `ClassFileOverride` rows on `BitF
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `collection-internal` | **0 after wave 9**, from 16 — every one of which was `DeclaredSubtype` and the SAME seam: `OrderedSet`, which `implements java.util.Set` and was therefore re-parented onto `mutable.Set`, handed to its own `addAll`/`retainAll` whose 
+balticporter	PROGRESS.md	d9283703 2026-09-04	gate theirs; while the main set stood at 5, 13, 30 the lane printed that 723 tests were emitted and
+balticporter	PROGRESS.md	d9283703 2026-09-04	reported **459 fatal `manifest` findings** — one per type — saying the base's published map had no
+balticporter	PROGRESS.md	d9283703 2026-09-04	carries none — the residues above are the engine's, they are counted, and every one of the 723 tests
+balticporter	PROGRESS.md	d9283703 2026-09-04	`FullSpecTestCase` declares. This wave ported the infrastructure and ran it. **The test port's scope
+balticporter	PROGRESS.md	d9283703 2026-09-04	0 compile errors on both source sets.** `test.conf` D-mdt-4/5 carry the scope decision and what it
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `spec.txt` | 624 | **624** | 0 | 624 / 624 — green |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `spec.0.27.txt` | 622 | **622** | 0 | 622 / 622 — green |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `spec.0.28.txt` | 624 | **624** | 0 | 624 / 624 — green |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **the three java RUNS** | **1,870** | **1,870 (100 %)** | **0** | **1,870 / 1,870** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `spec.0.29.txt` | 649 | 629 | 20 | **NOT RUN — 629 / 649 when driven anyway** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`OK (4 tests)`. So java's dump equals the spec text EXACTLY on all three live versions — and the
+balticporter	PROGRESS.md	d9283703 2026-09-04	per-example equality on all 1,870 by construction. The control's green is not vacuous either —
+balticporter	PROGRESS.md	d9283703 2026-09-04	same bytes. They are `Fenced code blocks` 20/28, `Link reference definitions` 4/10/24/25, `Lists`
+balticporter	PROGRESS.md	d9283703 2026-09-04	12/13, `Code spans` 4/5/7/8/9/10, `Emphasis and strong emphasis` 66/67, `Links` 6/10/11 and
+balticporter	PROGRESS.md	d9283703 2026-09-04	was an attribution somebody made by hand; this is the same claim DERIVED, and it covers all 20 rather
+balticporter	PROGRESS.md	d9283703 2026-09-04	and `Escaping.percentEncodeUrl("/föö")` answers `/f%C3%B6%C3%B6` — so the option was right, the
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **link URLs are not percent-encoded** — 39 (13 + 13 + 13, every live version), `/f&ouml;&ouml;` rendering `/föö` where java renders `/f%C3%B6%C3%B6` | `PERCENT_ENCODE_URLS = true` is the ONLY non-default option `OrigSpecCoreTest` sets, so it is the only 
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/ssg-md/src_managed/main/resources` now and the lane still reads **725 passing / 2 failing
+balticporter	PROGRESS.md	d9283703 2026-09-04	the first, it DELETES it. So `ported/ssg-md` has exactly two emission slots and `main.conf` and
+balticporter	PROGRESS.md	d9283703 2026-09-04	What shipped is therefore ONE dependent port at ONE port root of its own, `ported/ssg-md-ext`, whose
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 1 | `ext-aside` | 10 | 8 | 0 | 1/1 | `overload-risk` 1 (`GenericTieBreak`) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 9 | `ext-autolink` | 4 | 2 | 0 | **16/16** | `dependency-coverage(declared)` **0 → 1** (`covered`), `overload-risk` +5, `catalog(unreached)` **17 → 16** ext / **24 → 21** test |
+balticporter	PROGRESS.md	d9283703 2026-09-04	Batch 1 totals: **9 modules of 29, 58 units, 0 errors, 17 of 17 tests passing**, `manifest` /
+balticporter	PROGRESS.md	d9283703 2026-09-04	(`substitutions-drop` at `YouTubeLinkNodeRenderer`, `high`: all 3 sites of 2 APIs are inside that one
+balticporter	PROGRESS.md	d9283703 2026-09-04	trailing-punctuation rules, and no instrument in this repository would have reported the divergence.
+balticporter	PROGRESS.md	d9283703 2026-09-04	harness have to add `ported/ssg-md/src_managed/test/scala` to the lane's compile, and that is a
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 11 | `ext-admonition` | 11 | 9 | **3 → 0** | 18/18 | `overload-risk` +20 (13 `VarargPhaseSpan`, 7 `GenericTieBreak`), `omissions` **0 → 1** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 14 | `ext-jekyll-tag` | 13 | 11 | **1 → 0** | 21/21 | `overload-risk` +10, `base-surface` +1, `omissions` +1, `idiom(refused)` +1 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 15 | `ext-abbreviation` | 14 | 12 | 0 | 27/27 | `overload-risk` +9, `omissions` +2 (two `@SuppressWarnings`) — **the second 2b module, on a REAL source dependency** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 16 | `ext-footnotes` | 14 | 12 | 0 | 31/31 | `overload-risk` +16, `dependency-coverage` **0 → 2** (`java.util.Locale`), `dependency-coverage(all)` 10 → 12, `catalog(undischarged)` 5 → 6 (`JS-S23`), `omissions` +1 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 17 | `ext-definition` | 15 | 13 | 0 | 34/34 | `overload-risk` +5, `omissions` +1, and `catalog(unreached)` **16 → 14** — the port's FIRST `switch` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	Batch 2 totals: **10 modules admitted (10 → 19 of 29), 58 → 166 units, 0 errors, 17 → 34 of 34 tests
+balticporter	PROGRESS.md	d9283703 2026-09-04	on ssg-md (264 `private`, 155 package-private, 18 `protected`), 92 on liqp, 36/30/20 on
+balticporter	PROGRESS.md	d9283703 2026-09-04	gdx-gltf/jbump/ashley**, 771 / 580 / 133 member digests on the first three, every one carrying a
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 22 | `ext-macros` | 14 | 12 | 0 | **38/38** | `overload-risk` +9, `omissions` +1 — the FOURTH 2b module, on `ext-gitlab` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 26 | `ext-attributes` | 20 | 18 | 0 | **54/54** | `jdk-surface` +2, `idiom(refused)` +2, `omissions` +1, `overload-risk` +15 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 27 | `ext-tables` | 20 | 18 | 0 | **180/180** | `base-surface` +1, `omissions` +2, `dependency-coverage` +2, `idiom(refused)` +3, `overload-risk` +16 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 28 | `ext-enumerated-reference` | 23 | 21 | **2 → 0** | **8/8** | `overload-risk` +9, `omissions` +3, `idiom(refused)` +2, `trivia(recovered)` +1 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	records **24 / 196** against `sge-ai`. That figure is the REFERENCE HAND PORT's own MUnit suite
+balticporter	PROGRESS.md	d9283703 2026-09-04	`com.badlogic.gdx`, so the base's INHERITED `com.badlogic.gdx -> sge` already carries all 166 units
+balticporter	PROGRESS.md	d9283703 2026-09-04	| dependency-coverage ( / all / declared) | 0 / 37 / 0 | — | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| collection closure / boundary / retarget / internal | 0 / 2 / 0 / 0 | — | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| idiom (converted / refused / residue) | 1 / 164 / 0 — `NarrowedReturn SelfTyped` 147, `SamLambda NotSam` 17 | — | — |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered / deliberate | **0** / 5 / 0 | **0** / **1** / 0 | **0** / **2** / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	CONCENTRATED rather than spread: all 20 sit in three families and in **four** emitted files —
+balticporter	PROGRESS.md	d9283703 2026-09-04	| trivia lost / recovered · break residue | 0 / 0 · 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  unsupported types". Dropping it removes library surface to fix a type the port never wanted;
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **passing / failing** | **6 / 4** at wave 2 · **10 / 0** after the per-test reconstruction (§10.7.10) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `IndexedAStarPathFinderTest` | **5 / 5 PASSING** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ParallelTest` | **1 / 5** at wave 2 — the first test in declaration order, and only it · **5 / 5** after |
+balticporter	PROGRESS.md	d9283703 2026-09-04	**`6 / 4` → `10 / 0`, at 0 compile errors, with every other suite in the corpus reporting the same
+balticporter	PROGRESS.md	d9283703 2026-09-04	   the six packages upstream's own 10 tests do not (§10.7.1). It is a differential suite in the exact
+balticporter	PROGRESS.md	d9283703 2026-09-04	### 10.7.12 The DIFFERENTIAL census — 10 of 24 files, 95 of 196 tests, 93 passing
+balticporter	PROGRESS.md	d9283703 2026-09-04	can be run against it without editing an assertion*. The answer is **10 files / 95 tests**, they
+balticporter	PROGRESS.md	d9283703 2026-09-04	The adapted copies live in `ported/sge-ai/src/test/scala` — the port's HAND-WRITTEN half, which
+balticporter	PROGRESS.md	d9283703 2026-09-04	ported tests and no lane counts them as any.
+balticporter	PROGRESS.md	d9283703 2026-09-04	**HOW THE CENSUS WAS TAKEN — and why it had to be taken TWICE.** The first pass compiled all 24
+balticporter	PROGRESS.md	d9283703 2026-09-04	errors, moved **four files and 16 tests** out of (a)+(b):
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (a) compatible as-is | 4 files / 16 tests | **1 file / 14 tests** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (b) compatible after the mapping | 10 files / 95 tests | **9 files / 81 tests** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (c) incompatible | 10 files / 83 tests | **14 files / 101 tests** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	`SimpleSteerable` is the one to keep: it TYPED clean and then reported *18 unimplemented members*
+balticporter	PROGRESS.md	d9283703 2026-09-04	**A FIXTURE IS A DECLARATION, NEVER A TEST.** `TaskSuite` (26 tests, class (b)) constructs five leaf
+balticporter	PROGRESS.md	d9283703 2026-09-04	**WHAT CLASS (c) MEANS FOR COVERAGE — 14 files / 101 tests, and it is NOT 101 questions unanswered.**
+balticporter	PROGRESS.md	d9283703 2026-09-04	next wave: `steer` is the package with real coverage still available — 23 tests across three files,
+balticporter	PROGRESS.md	d9283703 2026-09-04	census — that is the typer-only pass above, and it is wrong by four files and 16 tests in the
+balticporter	PROGRESS.md	d9283703 2026-09-04	(gdx-ai is 166 files / 18,086 LOC, gdx-gltf 135 / 11,307) — a small number of very large files:
+balticporter	PROGRESS.md	d9283703 2026-09-04	`Font.java` is **8,421 lines** and `KnownFonts.java` 6,870, so two files are 40% of the library. Its
+balticporter	PROGRESS.md	d9283703 2026-09-04	239 tests" for this module is the **reference HAND PORT's own MUnit suite**
+balticporter	PROGRESS.md	d9283703 2026-09-04	while porting, not translations of anything upstream ships. It is not a ported suite and no lane may
+balticporter	PROGRESS.md	d9283703 2026-09-04	candidate files / 160 tests, 1 blocked by the hand port, 20 blocked by the environment — and it
+balticporter	PROGRESS.md	d9283703 2026-09-04	`gradle.properties`), and six of its classes are imported across the sources — `Category`,
+balticporter	PROGRESS.md	d9283703 2026-09-04	and `[jvm]` would empty the rule list for all 92 declarations at once. The irony is worth one
+balticporter	PROGRESS.md	d9283703 2026-09-04	  the port's USERS build it, the clause is part of the ported API.
+balticporter	PROGRESS.md	d9283703 2026-09-04	A `return` with no value is legal in a java constructor (JLS 14.17) and completes it normally;
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ecs` / `sge-ai` / `sge-textra` own | 0, unchanged | 6 / 4 / 3 — the same shape in each |
+balticporter	PROGRESS.md	d9283703 2026-09-04	id-stripped `findings.tsv` row differing, **0 errors, 0 member digests, `port-map` unchanged, 64/0
+balticporter	PROGRESS.md	d9283703 2026-09-04	tests**; `sge` (the base) reported `findings` content unchanged, so the arrival is flat by
+balticporter	PROGRESS.md	d9283703 2026-09-04	(CT6 face A), and its node list is `Tree.New` — complete for the syntax java had in 2004 and blind to
+balticporter	PROGRESS.md	d9283703 2026-09-04	**§10.8.9's refusal of `selfSupplied` was true and incomplete.** It said the mechanism fits and there
+balticporter	PROGRESS.md	d9283703 2026-09-04	is the gate: **165 of the reference hand port's 239 tests now run against this port, and all 165
+balticporter	PROGRESS.md	d9283703 2026-09-04	239 tests**, and the `scalanative` file is a BYTE-IDENTICAL duplicate of the `scalajvm`
+balticporter	PROGRESS.md	d9283703 2026-09-04	any of this is acted on, and on gdx-ai that pass moved four files and 16 tests in the dangerous
+balticporter	PROGRESS.md	d9283703 2026-09-04	class (b), and §10.8.17 built the fixture and emptied class (c) instead — the final split is 12 / 165
+balticporter	PROGRESS.md	d9283703 2026-09-04	running, 18 / 69 blocked by the hand port, and nothing blocked by the environment. The table below is
+balticporter	PROGRESS.md	d9283703 2026-09-04	### 10.8.15 The DIFFERENTIAL gate — 11 of 32 files, 160 of 239 tests, **160 passing at 0 errors**
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-textra/src/test/scala`. This is the port's ONLY behavioural evidence and the first it has
+balticporter	PROGRESS.md	d9283703 2026-09-04	**THE ANSWER.** Of the reference hand port's **32 files / 239 `test(…)`**, **11 files / 160 tests**
+balticporter	PROGRESS.md	d9283703 2026-09-04	file and 14 tests, and it moved them out of (b) rather than out of (a) — the opposite direction to
+balticporter	PROGRESS.md	d9283703 2026-09-04	gdx-ai's, where four files and 16 tests fell out of the candidate set:
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (a) runs against this port | 11 files / 160 tests | **11 files / 160 tests — 160 passing** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (b) blocked by the hand port | 1 file / 14 tests | **EMPTY** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (c) blocked by the environment or by a constructor java lacks | 20 files / 65 tests | **21 files / 79 tests** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	port's HAND-WRITTEN half (`CLAUDE.md` §5.5) and are never counted as ported tests.
+balticporter	PROGRESS.md	d9283703 2026-09-04	classified it (b) "blocked by the hand port", 4 of 14 tests on `Font.GlyphRegion(Float, Float, Float)`
+balticporter	PROGRESS.md	d9283703 2026-09-04	**WHAT CLASS (c) MEANT FOR COVERAGE — 21 files / 79 tests, read as 75 behind one fixture.**
+balticporter	PROGRESS.md	d9283703 2026-09-04	(b) as a wave-sized workload: it is 14 tests behind two independent refusals, and the four
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-textra/src/test/scala/sge/textra/HeadlessSge.scala`, and
+balticporter	PROGRESS.md	d9283703 2026-09-04	`TextraLzmaFontRedSuite` beside it. **`textra-diff-measure` 160 -> 165 tests, 165 passing, 0 failing,
+balticporter	PROGRESS.md	d9283703 2026-09-04	throws `UnsupportedOperationException` naming the member for everything else.
+balticporter	PROGRESS.md	d9283703 2026-09-04	throws for `lzma` behind a stale "not yet ported" comment while `LzmaUtils` sits unused in the same
+balticporter	PROGRESS.md	d9283703 2026-09-04	library's reference suite has reported the MECHANICAL port the faithful one (ISS-778 was the first,
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (a) runs against this port | 11 files / 160 tests | **12 files / 165 tests — 165 passing** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (b) blocked by the HAND PORT | EMPTY | **18 files / 69 tests** — every one constructs a nilary `Font()`/`TextraLabel()`/`TypingLabel()`, plus `FontSuite`'s 4 `GlyphRegion(Float, Float, Float)` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (c) blocked by the environment | 21 files / 79 tests | **EMPTY** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| not a candidate either way | — | 1 file / 5 tests (the byte-identical `scalanative` duplicate of the suite now adapted — one tree, one FQN) + 1 file / 0 tests (the reference fixture, rewritten) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	**637** import lines, of which **354 — 56 % — are `scenes.scene2d.*`**. It is a widget toolkit and
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/sge-visui-usl` (§10.9.13, which states why it is a port root and not a glob added here).** It is a skin-DSL
+balticporter	PROGRESS.md	d9283703 2026-09-04	compiler (lexer, parser, style merger, JSON writer) and it is the item §1.1 has carried as *"100 %
+balticporter	PROGRESS.md	d9283703 2026-09-04	ported by its sibling (§10.9.13). So a
+balticporter	PROGRESS.md	d9283703 2026-09-04	**AND THE `named` SPLIT IS 2 / 20, WHICH IS THE NUMBER THAT JUSTIFIES THE KEY.** The lane compares
+balticporter	PROGRESS.md	d9283703 2026-09-04	through a name the LIBRARY completes (the six bundles are named `…/i18n/ButtonBar`, with libGDX's
+balticporter	PROGRESS.md	d9283703 2026-09-04	2 of 22 and reported success.
+balticporter	PROGRESS.md	d9283703 2026-09-04	*(That last figure CORRECTS the 2,068 / 11 / 2-not-run above rather than moving it: every
+balticporter	PROGRESS.md	d9283703 2026-09-04	`members … : 0`, all **23** published port maps `header and rows unchanged`, all 23 findings
+balticporter	PROGRESS.md	d9283703 2026-09-04	### 10.9.12 The DIFFERENTIAL gate — 4 of 12 files, 50 of 72 tests, **50 passing at 0 errors**
+balticporter	PROGRESS.md	d9283703 2026-09-04	`just visui-diff-measure`, `port-report/VisUiDifferential`, `ported/sge-visui/src/test/scala`. This
+balticporter	PROGRESS.md	d9283703 2026-09-04	§4.56's fourth-occurrence paragraph is about — **4 files / 50 tests** run against the mechanically
+balticporter	PROGRESS.md	d9283703 2026-09-04	is the opposite of gdx-ai's result (four files and 16 tests fell out) and matches TextraTypist's,
+balticporter	PROGRESS.md	d9283703 2026-09-04	| (a) runs against this port | 4 files / 50 tests | **4 files / 50 tests — 50 passing** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| blocked | 8 files / 22 tests | **8 files / 22 tests**, re-classified below by closure |
+balticporter	PROGRESS.md	d9283703 2026-09-04	The paragraph after this one scoped 9 tests behind a FIXTURE with the resource gap behind it, and
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `ported/sge-visui/src_managed/main/resources` at the upstream paths, with their upstream lengths,
+balticporter	PROGRESS.md	d9283703 2026-09-04	(a census that scoped 75 tests behind a fixture and measured 5) is the same shape, and the rule it
+balticporter	PROGRESS.md	d9283703 2026-09-04	ported tests.
+balticporter	PROGRESS.md	d9283703 2026-09-04	**`ported/sge-visui-usl`** — its OWN root, and not a glob added to `sge-visui`.
+balticporter	PROGRESS.md	d9283703 2026-09-04	reference hand port never ported USL**, so no destination spelling exists to match. The name follows
+balticporter	PROGRESS.md	d9283703 2026-09-04	the ported compiler **reproducing a released artifact of the library it was made from, byte for
+balticporter	PROGRESS.md	d9283703 2026-09-04	reported 6 emitted against 7 java `@Test` and the lane would have opened with a declared loss that
+balticporter	PROGRESS.md	d9283703 2026-09-04	out the other way: **all 28 are in STATEMENT position** (`i++;`, `ctx.curliesLevel++;`) and not one
+balticporter	PROGRESS.md	d9283703 2026-09-04	SHIPPED COMPLETE and their rows are deleted** (§3.7 — a list shrinks by deletion): the single-entry
+balticporter	PROGRESS.md	d9283703 2026-09-04	| 2.4 | the unportable-marker design's Stage 1, plus a forced test-correlation amendment | **shipped** — source map, member digests, scalac correlation and the **test-failure** correlation lane. **Stage 2 (the marker) is shipped too**: `Tree.Unportable` + `U
+balticporter	PROGRESS.md	d9283703 2026-09-04	   dependent in the corpus is ONE hop from libGDX core — vis-ui included, ported in §10.9 and
+balticporter	PROGRESS.md	d9283703 2026-09-04	all nine ported libraries plus the two unported ssg ones. Method: type census through each port's
+balticporter	PROGRESS.md	d9283703 2026-09-04	STRICTLY more complete than the hand port in 8 of 9 libraries (libGDX: the ~15-file LZMA stack and
+balticporter	PROGRESS.md	d9283703 2026-09-04	the 9-file Json tree sge never ported; simple-graphs +4 types; noise4j +2; jbump +5 — and jbump's
+balticporter	PROGRESS.md	d9283703 2026-09-04	`MathUtils` unported; anim8 +`FastAPNG`; vfx +4; screens +3 plus the `NestableFrameBuffer`
+balticporter	PROGRESS.md	d9283703 2026-09-04	behaviour). gltf is at parity, 135/135 both sides.
+balticporter	PROGRESS.md	d9283703 2026-09-04	   threaded as `(using Sge)` (611 / 161 in sge). General mechanism (holder FQN + field→service map
+balticporter	PROGRESS.md	d9283703 2026-09-04	   call-site rewrite); the hand ports' own conversion rate is ~20% and inconsistent, so it ships
+balticporter	PROGRESS.md	d9283703 2026-09-04	collapse is inconsistent with itself and ssg keeps all 183 SAM traits; the typed-GL/`GLEnum` layer
+balticporter	PROGRESS.md	d9283703 2026-09-04	| D2.1 `Symbol.descriptor` | **0 members changed, `findings.tsv` byte-identical on all 13 ports** — the separate-field decision's whole justification, confirmed rather than argued |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| D2.3 binder BESIDE every matcher | **`policy-binding` 0 on all 13 lanes, and 0 CONTRADICTIONS anywhere** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	phase that takes a `RuleScope` already filtered through `Program.owned` and already reported an
+balticporter	PROGRESS.md	d9283703 2026-09-04	  blocks were not in the `MemberIndex`, so a hand-written Java `static { }` block was reported as
+balticporter	PROGRESS.md	d9283703 2026-09-04	corpus package is named that, which is exactly why nothing would ever have reported it.
+balticporter	PROGRESS.md	d9283703 2026-09-04	`bean-properties` phase, so **every lane is 0 members changed and all 202 check counts across 13
+balticporter	PROGRESS.md	d9283703 2026-09-04	| tests | unchanged: gdx-test 217/4, ashley 108/2 (+2 pre-existing skips), anim8 23/0, screens 16/0, vfx 64/0, sg 16/0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	is reported as removed-and-re-added on every run. Three rows in gdx-gltf, counts identical, and
+balticporter	PROGRESS.md	d9283703 2026-09-04	lanes is 0 members changed and all 13 ports' check counts are identical**, and `context-seam` records
+balticporter	PROGRESS.md	d9283703 2026-09-04	  at 177/97 = **1.8×**; method mode at 324/97 = **3.3×**. The over-approximation method mode pays is
+balticporter	PROGRESS.md	d9283703 2026-09-04	one release the TIR edit was complete and the emission was not: the constructor funnel undid the
+balticporter	PROGRESS.md	d9283703 2026-09-04	The dry-run table above reproduces byte for byte after the fix (275 / 177 / 17 against 2,497 / 324 /
+balticporter	PROGRESS.md	d9283703 2026-09-04	on all 13 ports with every check count identical** and no baseline moved — the re-baseline the
+balticporter	PROGRESS.md	d9283703 2026-09-04	**So the enablement is REVERTED again, byte-for-byte** — `just measure-all` exit 0, all 13 ports 0
+balticporter	PROGRESS.md	d9283703 2026-09-04	|  — `frozen-component` / `lost-clause` | 0 / 0 | **0 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `policy` / `omissions` | 2 / 65 | **2 / 65** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **libgdx-test** | 0 → **0** | — | 217/4 → **212 / 5, and 5 baseline tests DID NOT RUN** — `AnimationControllerTest` lost whole (CT7) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **ashley — the D2 gate** | 0 → 0 | — | 108 / 2 + 2 skips unchanged, **0 members changed on BOTH source sets, `context-seam` 0 on both** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	**So the enablement is REVERTED a third time, byte-for-byte** — `just measure-all` exit 0, all 13
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **libgdx-test** | **BLOCKED — CT9.** `manifest` 0 → **1 FATAL**, `policy` 0 → 1, 2 scalac errors, suite still 212 / 5 with **5 DID NOT RUN** | (a) engine |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **ashley — the D2 gate** | **0 members changed on BOTH source sets**, `context-seam` 0 on both, 0 errors, 108 / 2 + 2 skips, every check identical | HELD |
+balticporter	PROGRESS.md	d9283703 2026-09-04	**So the enablement is REVERTED a fourth time, byte-for-byte** — `just measure-all` exit 0, all 13
+balticporter	PROGRESS.md	d9283703 2026-09-04	`just measure-all` exit 0, all 13 ports
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `policy` / `omissions` (base) | 2 / 65 | **2 / 65** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  217/4 outcome line in that lane is the committed baseline echoed, not a result. The fifth replay
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `policy` / `omissions` (base) | 2 / 65 | 2 / 65 | **2 / 65** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| libgdx-test `manifest` / `policy` | **1 FATAL** / 1 | 0 / 0 | **0 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **libgdx-test SUITE** | **212 / 5, and 5 DID NOT RUN** | not run — it did not compile | **217 passing / 4 failing, 221 of 221 emitted tests with an outcome, DID-NOT-RUN 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **libgdx-test** | **0** | **1** × `self-supplied` | **217 / 4**, 221 of 221 RUN |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **ashley — the D2 gate** | 0 | **0 on BOTH source sets** | 108 / 2 + 2 skips, 112 of 112 accounted; **0 members changed on BOTH source sets** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| anim8 | 0 | 5, all `unconstructed-thread` | **23 / 23** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **vfx** | **0** (was 42) | 20 — 16 warning, 3 residual-global-read, 1 deferred-init | **64 / 64** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| **screens** | **0** (was 16) | 10, all `unconstructed-thread` | **16 / 16** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ashley (both sets) | 186 / 219 | **186 / 219** | nothing. This is the D2 gate stated in the provenance artifact rather than in members |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gltf (both sets) | 2,048 / 47 | **2,065 / 47** | `RetypedSignature` 1,750 → 1,767 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge/src/test/scala/sge/SgeTestFixture.scala` | the ABSENT-service fixture, plus that directory on the `gdx-test-measure`, `vfx-measure` and `screens-measure` compile lines | hand-written |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge-vfx/src/test/.../VfxFrameBufferSuite.scala` | one `private given sge.Sge` line — it is what turns "this suite stops at the first GL call" from a comment into an NPE | hand-written |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge-screens/src/main/.../NestableFrameBuffer.scala` | `(using sge.Sge)` on both constructors; three `Gdx.gl20` reads become `summon` | attach-clause |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge-screens/src/main/.../QuadMeshGenerator.scala` | `(using sge.Sge)` on all three overloads (it constructs a `Mesh`) | attach-clause |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge-screens/src/main/.../ShaderProgramFactory.scala` | `(using sge.Sge)` on the three `fromString`s, on `ShaderCompatibilityHelper.fromString`, `mustUse32CShader` and `getDefaultShaderVersionStatement`; `Gdx.gl30` becomes `summon` | attach-clause |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge-screens/src/main/.../GLUtils.scala` | `Gdx.gl` → `Gdx.graphics.gl20` — the RESIDUAL global, and NOT a clause | seam |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ported/sge-screens/src/test/.../ScreenmanagerSuite.scala` | one `private given sge.Sge` line | hand-written |
+balticporter	PROGRESS.md	d9283703 2026-09-04	every run directory. **0 members changed on all 13 ports**, every other check count identical: the
+balticporter	PROGRESS.md	d9283703 2026-09-04	map if it wanted to, reported as an OFFER and not as a wall (`ran` is a parameter of the check,
+balticporter	PROGRESS.md	d9283703 2026-09-04	**Two false-positive classes were removed before the baseline, not after.** The first run reported
+balticporter	PROGRESS.md	d9283703 2026-09-04	freed**, with 0 members changed and every check count identical on all 13 ports, because
+balticporter	PROGRESS.md	d9283703 2026-09-04	still anchors: its default methods grew across releases, and an incomplete entry is worse than none.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| simple-graphs / its suite | 1 / 1 | **0** | 0 | 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| position-based file-leading harvest | 233 → 198. libGDX 100 → 65 (the `JsonReader`/`JsonSkimmer`/`PatternParser`/`XmlReader` APACHE NOTICES, `GL30/31/32`, `Base64Coder`'s multi-licence header), vfx 11 → 9 (V3's two recorded sites) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  differently — the comment was reported lost while sitting in the file. Whatever the emitter WRAPS
+balticporter	PROGRESS.md	d9283703 2026-09-04	check count identical on all thirteen ports; every suite unchanged (gdx-test 217/4, ashley 108/2
+balticporter	PROGRESS.md	d9283703 2026-09-04	dependents configured the same one** (D9). `ashley` and `screens` each reported `1 fatal
+balticporter	PROGRESS.md	d9283703 2026-09-04	| all 19 libgdx-core check counts | — | **identical**, finding for finding, except the two `portability` rows whose SUBJECT is now `AsyncExecutor#close` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| libgdx-test | 217 pass / 4 fail | **217 / 4, 0 members moved** — 0 upstream `Disposable` references, as predicted |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ashley | 108 / 2 (+2 pre-existing skips) | **identical, 0 members moved** — the D2 gate: a dependent that references nothing renamed re-emits nothing |
+balticporter	PROGRESS.md	d9283703 2026-09-04	note — **65** of them emitted, `NoteCoverageCheck` **0/0**, in the §4.575 grammar with the manifest
+balticporter	PROGRESS.md	d9283703 2026-09-04	unchanged (gdx-test 217/4, ashley 108/2 + 2 pre-existing skips, anim8 23, vfx 64, sg 16, screens 16);
+balticporter	PROGRESS.md	d9283703 2026-09-04	anim8 +3/0, **ashley +0/+0**).
+balticporter	PROGRESS.md	d9283703 2026-09-04	| tests | gdx-test 217/4, ashley 108/2 (+2 pre-existing skips), anim8 23, vfx 64, sg 16, screens 16 | **identical**; jbump's differential probe still 44 lines, IDENTICAL |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `porter-notes` | 0/0 | **0/0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	The emitted code is correct; the PROVENANCE is incomplete, and it is the same class of hole as the
+balticporter	PROGRESS.md	d9283703 2026-09-04	`SortedIteratingSystem`, which now spells `scala.math.Ordering`. `NoteCoverageCheck` 0/0 on every
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `nullability-boundary` | 174 (155 / 17 / 2) | **109** — 90 `AbstractTypeParameter`, 17 `NotAValuePosition`, 2 `VarargParameter` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  byte-identical.** Nothing would have reported it — `PolicyBinder.bindScope` asks "did anything in
+balticporter	PROGRESS.md	d9283703 2026-09-04	| in `ported/sge/src_managed` | without | with |
+balticporter	PROGRESS.md	d9283703 2026-09-04	evidence at all. `NoteCoverageCheck` 0/0 on every port throughout.
+balticporter	PROGRESS.md	d9283703 2026-09-04	unmoved, suites unchanged (gdx-test 217/4, ashley 108/2 + 2 skipped, anim8 23, vfx 64, sg 16, jbump
+balticporter	PROGRESS.md	d9283703 2026-09-04	no suite, screens 16/16; gltf 7 and noise4j 2 pre-existing errors).
+balticporter	PROGRESS.md	d9283703 2026-09-04	**The harvest binds completely: 144 entries, 0 typos, 0 invented members.**
+balticporter	PROGRESS.md	d9283703 2026-09-04	**Suites, all unchanged**: gdx-test **221: 217 passing / 4 failing, all 4 `expected#derived`** from
+balticporter	PROGRESS.md	d9283703 2026-09-04	classification still doing the work §4.56 gave it; ashley 108/2 + 2 skipped (the same two); anim8 23,
+balticporter	PROGRESS.md	d9283703 2026-09-04	**Porter notes**: 295 `renamed-member` notes across 45 files, `NoteCoverageCheck` **0/0** on every
+balticporter	PROGRESS.md	d9283703 2026-09-04	its proof has to be synthetic (`NullabilityBaseSurfaceSpec`, 7 tests). Neutralised, the screen's two
+balticporter	PROGRESS.md	d9283703 2026-09-04	completed by hand at P3 and the inert `OrderedMap` entry was deleted then — so the reports confirm a
+balticporter	PROGRESS.md	d9283703 2026-09-04	in `NullabilitySpec` (a bound-but-inert entry; an entry naming nothing, reported ONCE by the binder
+balticporter	PROGRESS.md	d9283703 2026-09-04	and not twice; a scoped-out parent whose annotating child is reported, closed by naming the child,
+balticporter	PROGRESS.md	d9283703 2026-09-04	and the only complete evidence was `decisions.tsv` — an artifact with no baseline diff and no line in
+balticporter	PROGRESS.md	d9283703 2026-09-04	| | attempt 1 (pre-O1/O2) | O1+O2 proof | attempt 2 (all 13) | O5 proof (all 13) | **DELIVERED** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| libgdx-test | 0 → **0** | **217 passing / 4 failing, 221 of 221 emitted**; all 4 DERIVED from `Substitutions.dropTypes com.badlogic.gdx.utils.Json`, 0 declared |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ashley (+ test port) | 0 → **0** | **108 / 2, plus the 2 committed skips, 112 of 112** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| anim8 | 0 → **0** | **23 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gdx-vfx | 0 → **0** | **64 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| screens | 0 → **0** | **16 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| simple-graphs (+ test) | 0 → **0** | **16 / 0** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	(`ported/sge/src_managed/main/scala/sge/graphics/TextureHandle.scala`). That pair is the whole of
+balticporter	PROGRESS.md	d9283703 2026-09-04	| every check count, all 21 | **identical**, `nullability-boundary` 160 → 160 included; `findings.tsv` and `counts.tsv` diff to **zero lines** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	deliberately leaves noteless), and `porter-notes` reports 0/0 accordingly. The minted unit's own
+balticporter	PROGRESS.md	d9283703 2026-09-04	| sge declares | applied to a ported declaration? | evidence |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `UniformLocation` | **YES — this row was WRONG, corrected 2026-08-27** | `ShaderProgram.scala:230,233,262…` — sge types java's `private int fetchUniformLocation(String)` as `: UniformLocation` and every `setUniformi(int location, …)` as `(location: U
+balticporter	PROGRESS.md	d9283703 2026-09-04	`Mesh#bind`'s `int[] locations` to `Array[AttributeLocation]` — a ported declaration — but the
+balticporter	PROGRESS.md	d9283703 2026-09-04	appears at 171 annotation sites across sge, on ported declarations including `Input#getX`,
+balticporter	PROGRESS.md	d9283703 2026-09-04	and `Graphics#deltaTime`. (The 171 is a count of SITES, not of ported declarations — the per-family
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `BufferHandle` on libGDX.** The reference port applies none of THOSE FIVE to a ported declaration;
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge` (libGDX core) | **155 / 23** — 127 `NotSam`, 5 `NonCapturing` | **137 / 60 CONVERTED** — 30 `ComputedBody`, 30 `MutableStorage`, 14 `OverriddenBelow`, 2 `PairRefused`, 1 `ConcreteRelative` | **709 / 2** — 678 `SelfTyped`, 29 `NotAlwaysThis` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge` test set | 9 / 0 — 6 `NonCapturing`, 3 `NotSam` | — | 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ecs` | 0 | — | 5 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-ecs` test set | 13 / 0 — all `NotSam` | — | 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-gltf` | 48 / 0 — all `NotSam` | — | **29 / 2** |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-vfx` | 1 / 0 | — | 14 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-anim8` | 3 / 0 — all `NonCapturing` | — | 5 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-noise` | 3 / 1 | — | 14 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `sge-jbump` | 9 / 3 — 6 `NonCapturing` | — | 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-liquid` | 24 / 0 — 23 `NotSam`, 1 `NonCapturing` | — | 29 / 0 — 26 `SelfTyped`, 3 `NotAlwaysThis` |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ssg-liquid` test set | 50 / 0 — all `NotSam` | — | 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	lanes was not, and it showed exactly the shape D2 describes: five dependents each reported the libGDX
+balticporter	PROGRESS.md	d9283703 2026-09-04	  interfaces — and 5 declined on instance identity. A **15 %** conversion rate, which is the shape
+balticporter	PROGRESS.md	d9283703 2026-09-04	  relative). The port asks for all 90 and gets 60; the 30 it does not get are one shape under one
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `ported/sge/src_managed/main`, exactly one per collapsed pair, and 13 references in
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `ported/ssg-liquid` untouched because that port carries no `bean-properties` phase;
+balticporter	PROGRESS.md	d9283703 2026-09-04	the other thirteen ports; suite outcomes identical (gdx-test 217/4, liqp 636/1). What is still
+balticporter	PROGRESS.md	d9283703 2026-09-04	the baselines were last accepted at waves 0/1 (`git log -1 -- port-report/<dep>/baseline/findings.tsv`
+balticporter	PROGRESS.md	d9283703 2026-09-04	declares all three platforms, so accepting was a contradiction the run reported with both real knobs
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ported/ssg-liquid/src/main/resources/META-INF/services/ssg.liquid.spi.TypesSupport` — kept in step
+balticporter	PROGRESS.md	d9283703 2026-09-04	  that throws `UnsupportedOperationException` naming the seam (libGDX's injected `Json` is the
+balticporter	PROGRESS.md	d9283703 2026-09-04	  found no row of its own to drain (D2), and reported nothing, because `PolicyReport` holds a module
+balticporter	PROGRESS.md	d9283703 2026-09-04	  the narrowing declines 93% of the overloaded calls and says so on every run. Not a defect count and
+balticporter	PROGRESS.md	d9283703 2026-09-04	  from the annotation: a census keyed on `@SafeVarargs` would have reported 6 and called that the
+balticporter	PROGRESS.md	d9283703 2026-09-04	  | `catalog(consulted)` | **75–94 per port** (was 66–85, 46–63, 14–29, 5–8) | rows the run REACHED, at any of the FOUR surfaces. The type surface is what last moved it, by **+8 or +9 on every port** — the ninth is `JS-G06`, whose citation only fir
+balticporter	PROGRESS.md	d9283703 2026-09-04	  | `catalog(undischarged)` | **6** on the two libGDX lanes, **3–5** on the other thirteen (was 5 / 2–5, 3 / 2) | the WORK LIST, and every entry on it is DECLARED. The newest is **JS-G02** (capture conversion, owed at every `CtWildcardReference` and synthe
+balticporter	PROGRESS.md	d9283703 2026-09-04	  core migration with the dispatch wrapper live read **35.96 / 38.01 / 34.97 s**, and three with it
+balticporter	PROGRESS.md	d9283703 2026-09-04	  bypassed at the same commit read **35.55 / 38.98 / 34.43 s**. The difference is inside the
+balticporter	PROGRESS.md	d9283703 2026-09-04	  `Rendering.of` live read **36 / 34 / 33 s** and three with the same one-line bypass read
+balticporter	PROGRESS.md	d9283703 2026-09-04	  **38 / 33 / 33 s** — again inside the spread, and again the fallback is refused ON A NUMBER rather
+balticporter	PROGRESS.md	d9283703 2026-09-04	  core migration with both type dispatches live read **36 / 37 / 37 s** and three with the same
+balticporter	PROGRESS.md	d9283703 2026-09-04	  one-line bypass in `Typing.ofReference`/`ofRepr` read **38 / 37 / 40 s**: the live runs are if
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `dependency-coverage` | the twenty-second required check, and the OTHER half of the same enumeration. Half the matrix's answers are `Depend` — the API exists off the JVM, in an artifact the build does not name — and reported as an unportability the findi
+balticporter	PROGRESS.md	d9283703 2026-09-04	`java.util.regex` is RE2-backed and its unsupported-construct list is 40 items long and verbatim
+balticporter	PROGRESS.md	d9283703 2026-09-04	every error count and test-discovery figure is unchanged (libGDX 217/4, ashley 108/2 + 2 not run,
+balticporter	PROGRESS.md	d9283703 2026-09-04	gltf 64/0, liqp 636/1, sg 16/0, screens 16/0, anim8 23/0), and no port gained a `policy` row — which
+balticporter	PROGRESS.md	d9283703 2026-09-04	only direct `load(classOf[Concrete])` sites, which a ported library's generic lookup never is. Native
+balticporter	PROGRESS.md	d9283703 2026-09-04	| errors / suite | **0 / 636 passing, 1 expected failure** | both unchanged |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  checkout's parent — so the vendored-sources `assume` fires and the spec is reported `Skipped 1` by
+balticporter	PROGRESS.md	d9283703 2026-09-04	| done bar per module | DROP-IN: the emitted tree replaces the module's `Ported from` files inside sge/ssg's own `projectMatrix` build; JVM + JS + Native compile, and the full suite (upstream tests + the hand-added tests, copied verbatim) passes on every platf
+balticporter	PROGRESS.md	d9283703 2026-09-04	| modules whose hand port is not java | port the java sge KEPT (the `Ported from` / `Original source:` / `Covenant-source-reference:` headers are the census key); the non-java half (Rust freetype, GLFW controllers, Rapier, platform bindings) stays the module's
+balticporter	PROGRESS.md	d9283703 2026-09-04	pinned commit, the module's `Ported from` files replaced by `src_managed/` + the port's `src/`
+balticporter	PROGRESS.md	d9283703 2026-09-04	per TYPE, so the `UnsupportedOperationException` half would have to live in a platform source
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gdx-test | 0 | 0 | 0 | usl / usl-test | 0 / 0 | 0 / 0 | 0 / 0 |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  passed as `--jvm` by all 41 `scala-cli` invocations in the lanes plus `scripts/_lib.sh`'s own two
+balticporter	PROGRESS.md	d9283703 2026-09-04	  from a server whose JVM was chosen when the server started, so an exported `JAVA_HOME` never
+balticporter	PROGRESS.md	d9283703 2026-09-04	`jdk_guard` (`scripts/_lib.sh`, called by all 24 lanes that compile) reads the recorded
+balticporter	PROGRESS.md	d9283703 2026-09-04	hand-written port file (18 `ported/*/src` files) converted to brace syntax; the 8 runtime support
+balticporter	PROGRESS.md	d9283703 2026-09-04	files converted with `scalac -rewrite -no-indent`. `members-unchanged`: 0 digests on all 25 ports.
+balticporter	PROGRESS.md	d9283703 2026-09-04	(`colorful/` AND `colorful-pure/`, the latter ported unless the investigator finds a recorded
+balticporter	PROGRESS.md	d9283703 2026-09-04	Census: 24 `Ported from` main files removed, 0 ported test files, 18 hand-written test files kept
+balticporter	PROGRESS.md	d9283703 2026-09-04	(all have no port header). The drop-in replaces the 24 ported main files with the 21 emitted + 2
+balticporter	PROGRESS.md	d9283703 2026-09-04	injected files from `ported/sge-ecs/src_managed/main/scala`, and keeps all 18 hand-written test
+balticporter	PROGRESS.md	d9283703 2026-09-04	test files, joins with the committed verdict file (`ported/sge-ecs/divergence-verdicts.tsv`), and
+balticporter	PROGRESS.md	d9283703 2026-09-04	**55 census artefacts** is 34% of the total and signals a deficiency in the api-parity check: it
+balticporter	PROGRESS.md	d9283703 2026-09-04	The sge-ecs **work list** for Phase 1/3 (the 57 justified rows that need mechanical port spellings):
+balticporter	PROGRESS.md	d9283703 2026-09-04	wrapper's `empty` rather than `uninitialized` (JVM null ≠ the sentinel): gdx-test 217/13 → 217/4
+balticporter	PROGRESS.md	d9283703 2026-09-04	(committed), screens 15/1 → 16/0, textra-diff 161/4 → 165/0, ashley 108/2/2; base 0 errors, 1,429
+balticporter	PROGRESS.md	d9283703 2026-09-04	Suites before -> after: ashley `108 / 2 / 2` (unchanged, `OUTCOMES LOST 0`); gdx-test `208 / 13`
+balticporter	PROGRESS.md	d9283703 2026-09-04	`SetterOnlyInterface`, 21 `FluentSetter`, 5 `NonVoidSetter`. BeanCollapse 60 / 77.
+balticporter	PROGRESS.md	d9283703 2026-09-04	upstream. ashley: **0 errors, 108 / 2 / 2** (unchanged); `api-parity(accessor)` 2 -> 1.
+balticporter	PROGRESS.md	d9283703 2026-09-04	`just measure-all` and not on the port it was aimed at); gdx-test **217 / 4**; ashley **108 / 2 / 2**.
+balticporter	PROGRESS.md	d9283703 2026-09-04	(`PrimitiveToOpaqueTransformSpec` 26 → 27, the one "reported" test split into "an array element is
+balticporter	PROGRESS.md	d9283703 2026-09-04	expressible" + "a deeper container is still reported"; `OpaqueMintOwnershipSpec` 10 = 10, unchanged
+balticporter	PROGRESS.md	d9283703 2026-09-04	because the ownership fence is orthogonal). Lanes: gdx **0 = 0**, gdx-test **217 / 4** (unchanged,
+balticporter	PROGRESS.md	d9283703 2026-09-04	221 of 221 emitted), ashley **108 / 2 + 2 skips** (unchanged, 112 of 112), anim8 **23 / 0**, gltf
+balticporter	PROGRESS.md	d9283703 2026-09-04	`ShaderProgram` and `BaseShader`, both ported classes), and "sge's ~200 `GL_*` values are
+balticporter	PROGRESS.md	d9283703 2026-09-04	handle families sge PUBLISHES and does not apply to any ported declaration (a consumer-side typed
+balticporter	PROGRESS.md	d9283703 2026-09-04	**By default value** (all 143):
+balticporter	PROGRESS.md	d9283703 2026-09-04	liqp/flexmark.** Kill-switch probe over all 106: 104 never fire on the corpus; the one that does
+balticporter	PROGRESS.md	d9283703 2026-09-04	Integer`, null = unset). gdx-test 217/4 and ashley 108/2/2 unchanged. Remaining O6 families are
+balticporter	PROGRESS.md	d9283703 2026-09-04	flexmark (470 files) — all four byte-identical to the unmodified code. frontend-spoon 121/121,
+balticporter	PROGRESS.md	d9283703 2026-09-04	engine 984/984, corpus 1414/1414 green. Grep gate 0.
+balticporter	PROGRESS.md	d9283703 2026-09-04	**Result with switches ON:** base 0, gdx-test 217/4, ashley 108/2/2, screens 0/16-0, vfx 0/64-0,
+balticporter	PROGRESS.md	d9283703 2026-09-04	absence is normal), parents through declarations. Spec: `MethodResolutionSpec` (3 tests).
+balticporter	PROGRESS.md	d9283703 2026-09-04	   `ParameterFullNameSpec` (2 tests). Zero member digests by construction.
+balticporter	PROGRESS.md	d9283703 2026-09-04	**CORRECTION**: the JVM/JS/Native counts were reported as `0 = 0` but `run-latest/errors-count`
+balticporter	PROGRESS.md	d9283703 2026-09-04	| sg | 6 -> 0 | 2 = 2 | 0 = 0 | 20 -> 0 | F9 fix — all 6 arity errors closed, 16/16 tests passing |
+balticporter	PROGRESS.md	d9283703 2026-09-04	CharArrayTest excluded (`fdc30967`): 30 tests to `expected-lost` (sge `type-mappings.md`).
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gdx | 0/0/0/359 | 0/0/0/54 | -- | -- | master's COMMITTED `.ref` baseline reads 93 but is not reproducible at master `9a5ec4b3`: a fresh run measures **359** (278 `@nowarn annotation does not suppress any warnings` left by the unmeasured "(projected)" nowarn
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gdx-test | 0/0/0/106 | 0/0/0/106 | 156 pass / 35 fail | 180 pass / 11 fail | expected-lost 30 (CharArrayTest) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ashley | 22/--/--/-- | 0/0/0/-- | 107/3/2 | 108/2/2 | K34 CLOSED, `forbiddenRemoval` fixed |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ecs-dropin | 408/--/-- | 38/39/39 | -- | -- | retarget wave, not parity (wave 3.2e) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	  gdx-test 180/11 -> 184/7.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gdx | 0/0/0/.ref 56 | 0/0/0/.ref 51 | -- |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| gdx-test | 0/0/0 | 0/0/0 | 180/11 (baseline) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ashley | 0/0/0 | 0/0/0 | 108/2/2 (baseline) |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| ecs-dropin | 408/--/-- | 32/32/32 (7 distinct) | not yet run |
+balticporter	PROGRESS.md	d9283703 2026-09-04	Drop-in trajectory: 408 -> 43 (wave 3.2e ImmutableArray) -> 6/7/7 (Pool remains) -> 515
+balticporter	PROGRESS.md	d9283703 2026-09-04	`.ref 93 -> 54` (49 of 70 E198 closed, 21 remain). JVM/JS/Native 0/0/0 held.
+balticporter	PROGRESS.md	d9283703 2026-09-04	gdx-test JVM 0, JS 0, Native 0, ref 51, suite 184/7. gdx-core: 0 member deltas. Ashley: 0.
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `gdx-test-measure` (migrate, compile, run 191 tests) | ~20 min | 117 s |
+balticporter	PROGRESS.md	d9283703 2026-09-04	| `ashley-measure` (dependent: base map, compile WITH `port-sge`, run 112 tests) | ~20 min | 199 s |
+balticporter	PROGRESS.md	d9283703 2026-09-04	   the emitter's shapes. gdx 0/0/0, ashley 108/2/2 restored. See `ENGINE-LIMITS.md` D16 amendment.
+balticporter	PROGRESS.md	d9283703 2026-09-04	#### 3.1au Array#toString(separator) -- lls brackets, java does not (vfx 63/64 -> 64/64)
+balticporter	PROGRESS.md	d9283703 2026-09-04	`$recv.iterator.mkString($0)` on all 10 Array-family retarget sources (Array, SnapshotArray,
+balticporter	PROGRESS.md	d9283703 2026-09-04	(`returnsInForEach` stops at lambdas/defs/anon-classes). 42 gdx members moved; gdx-test 184/7 with
+balticporter	PROGRESS.md	73e5b6ce 2026-09-05	| `sge` / `sge-test` | 51 / 51 | `-Wunused:locals,privates,patvars`/`imports` — promoted-local/private-forwarder residue, (a) universal, not yet closed corpus-wide |
+balticporter	PROGRESS.md	73e5b6ce 2026-09-05	| `sge-ai` / `sge-ai-test` | 9 / 9 | `-Wunused` family |
+balticporter	PROGRESS.md	73e5b6ce 2026-09-05	| `ssg-liquid` / `-test` | 0 / 3 | K18/G24 residue (§10.5) |
+balticporter	PROGRESS.md	73e5b6ce 2026-09-05	| `ssg-md` / `-test` | 136 / 136 | `-Wunused` family, largest port |
+balticporter	PROGRESS.md	78586708 2026-09-05	| `sge` / `sge-test` | 5 / 5 | 2026-09-05 (was 51): 2 unset private fields under class-to-trait (a correctness defect, card 4g in flight), 1 provably-false type test at a final retarget target (K18, finality unreadable), 2 `@nowarn` inside hand bodies (8b) |
+balticporter	PROGRESS.md	7be0a533 2026-09-05	| `ssg-md` / `-test` | 127 / 136 | `-Wunused` family, largest port (main 136 -> 127 on 2026-09-05; test unmeasured since) |
+balticporter	PROGRESS.md	50fd5092 2026-09-05	| `sge` / `sge-test` | 1 / 1 | 2026-09-05 (was 51): one provably-false type test at a FINAL retarget target (`Label`: `CharSequence` vs `DynamicArray[?]`, K18) — finality of an external type is a class-file fact the frontend does not intern yet |
+balticporter	PROGRESS.md	c710472f 2026-09-05	| `sge` (`LibgdxCoreMigrate`) | libGDX `gdx/src` | Apache-2.0 | 0/0/0/51 | — |
+balticporter	PROGRESS.md	c710472f 2026-09-05	| `sge` / `sge-test` | 1 / 1 | 2026-09-05 (was 51): one provably-false type test at a FINAL retarget target (`Label`: `CharSequence` vs `DynamicArray[?]`, K18) — the frontend now interns `final` for the types it sees; the retarget target `DynamicArray` is mi
+balticporter	PROGRESS.md	654ce84b 2026-09-05	| `sge-test` (`LibgdxTestMigrate`) | libGDX `gdx/test` | Apache-2.0 | 0/0/0/51 | 191: 184 pass, 7 fail (expected-lost 30) |
+balticporter	PROGRESS.md	19fac479 2026-09-05	Compile 100 JVM / 100 js / 100 native / 100 `.ref`; `lls-suite-compile-errors` 149, all 149 in MAIN
+balticporter	PROGRESS.md	19fac479 2026-09-05	opaque 1, accessor/operator/rename/visibility/file-merge 0. (Was 868 — 444/263/20/3 — before
+balticporter	PROGRESS.md	19fac479 2026-09-05	`overload-risk` 12, `heap-pollution` 5, `idiom(refused)` 5, trivia 0/0/0, break residue 0,
+balticporter	PROGRESS.md	5609a3cc 2026-09-05	| `sge-ai-test` (`GdxAiTestMigrate`) | gdx-ai `gdx-ai/tests` | Apache-2.0 | 0/0/0/9 | 10: 10 pass, expected-lost 0 |
+balticporter	PROGRESS.md	a30f6bc5 2026-09-06	(`ObjectSet#isEmpty` among them) — an engine card; until it lands the differential holds at **189 / 2 / 235** (re-census
+balticporter	PROGRESS.md	d93e9dcf 2026-09-06	(2026-09-06).** The full port (`LibgdxPolicy.core`) cannot extend `ported/lls` (`ENGINE-LIMITS.md`
+balticporter	PROGRESS.md	ec62c3f1 2026-09-06	(2026-09-06).** The full port (`LibgdxPolicy.core`) cannot extend `ported/lls` AS SCOPED (`ENGINE-LIMITS.md`
+balticporter	PROGRESS.md	9a2fc34c 2026-09-06	Rungs (decision | footprint in gdx/src | platform | phase today): L1 bean properties + nullary arity (1,422/928;
+balticporter	PROGRESS.md	a5ba5f67 2026-09-06	| R8 — `Seconds` **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (sge's own file injected; seeded at the two `Graphics` producers, reaches `Screen.render`/`ScreenAdapter` through the new override edge; `opaque-boundary` 1 = `Math.min` unwrapped, K50). Still t
+balticporter	PROGRESS.md	e34ea861 2026-09-06	| R7 — injection-free half **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (`Disposable -> java.lang.AutoCloseable` with `dispose -> close`, `InputEvent.type -> eventType`, `List.toString(T) -> itemToString`); the `Pool.*`/`SgeError`/`Gdx -> Sge` renames ride
+balticporter	PROGRESS.md	268ea9f4 2026-09-06	outcomes baselined; without it a step's gate is a compile count (§3). BUILT 2026-09-06: `LibgdxL0TestMigrate`. **RUNS since the sixth step landed the same day: main 0 errors, 220 tests discoverable (221 java; `BezierTest` excluded — JUnit `Parameterized`'s 
+balticporter	PROGRESS.md	d4b4625a 2026-09-06	| R7 — injection-free half **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (`Disposable -> java.lang.AutoCloseable` with `dispose -> close`, `InputEvent.type -> eventType`, `List.toString(T) -> itemToString`); the `Pool.*`/`SgeError`/`Gdx -> Sge` renames ride
+balticporter	PROGRESS.md	1cdd68b0 2026-09-06	| R7 — injection-free half **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (`Disposable -> java.lang.AutoCloseable` with `dispose -> close`, `InputEvent.type -> eventType`, `List.toString(T) -> itemToString`); the `Pool.*`/`SgeError`/`Gdx -> Sge` renames ride
+balticporter	PROGRESS.md	d0d04983 2026-09-06	| R8 — `Seconds` **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (sge's own file injected; seeded at the two `Graphics` producers, reaches `Screen.render`/`ScreenAdapter` through the new override edge; `opaque-boundary` 1 = `Math.min` unwrapped, K50). `Pixels
+balticporter	PROGRESS.md	9bc4f3d0 2026-09-06	| R10 — **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (the full port's holder policy lifted; `sge.Sge` injected; the GL statics hop through GETTER CALLS and writes through the bean setter until the property step, K49 — 321 -> 10 -> 0; `context-seam` 20 co
+balticporter	PROGRESS.md	5acf397a 2026-09-06	| R8 — `Seconds` **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (sge's own file injected; seeded at the two `Graphics` producers, reaches `Screen.render`/`ScreenAdapter` through the new override edge; `opaque-boundary` 1 = `Math.min` unwrapped, K50). `Pixels
+balticporter	PROGRESS.md	03669bb7 2026-09-06	| R8 — `Seconds` **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (sge's own file injected; seeded at the two `Graphics` producers, reaches `Screen.render`/`ScreenAdapter` through the new override edge; `opaque-boundary` 1 = `Math.min` unwrapped, K50). `Pixels
+balticporter	PROGRESS.md	30d1e8ec 2026-09-06	| R7 — injection-free half **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (`Disposable -> java.lang.AutoCloseable` with `dispose -> close`, `InputEvent.type -> eventType`, `List.toString(T) -> itemToString`); the `Pool.*`/`SgeError`/`Gdx -> Sge` renames ride
+balticporter	PROGRESS.md	781836f6 2026-09-07	re-runs it; the number is the distance to the demos. **2026-09-06, after the Pixels, graphics, properties and WorldUnits steps: pong + shared compile — 30 -> 21 -> 9 -> 4 -> 1 -> 0.** Next: the other eleven demos through the same check. **All twelve demos (t
+balticporter	PROGRESS.md	9a594071 2026-09-07	| R14 — **census 2026-09-07 of what sge's backend is MADE OF** (`sge/src/main/{scala/sge/platform,scalajvm,scaladesktop,scalanative,scalajs}`): three layers. (1) A platform CONTRACT in core, hand-written: seven traits (`WindowingOps` 576 lines, `AudioOps`, `
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `lls` (`LlsMigrate`) | libGDX `gdx/src`, the 12 utils/math files lls carries headers for | Apache-2.0 | 100/100/100/100 (census, §13.28) | lls suite not reached (main at 100) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge` (`LibgdxCoreMigrate`) | libGDX `gdx/src` | Apache-2.0 | 0/0/0/0 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-test` (`LibgdxTestMigrate`) | libGDX `gdx/test` | Apache-2.0 | 0/0/0/1 (M5.13) | 191: 187 pass, 4 fail (expected-lost 30) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ecs` (`AshleyMigrate`) | Ashley `ashley/src` | Apache-2.0 | 0/0/0/0 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ecs-test` (`AshleyTestMigrate`) | Ashley `ashley/tests` | Apache-2.0 | 0/0/0/0 | 112: 108 pass, 2 fail, 2 skipped |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ecs` drop-in (`AshleyDropIn`) | — | — | 408/408/408 (JVM/JS/Native) | 0/0/0 pass — expected red until parity, not in `measure-all` |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-anim8` (`Anim8Migrate`) | anim8-gdx | Apache-2.0 | 0/0/0/6 | 23 hand-written, all passing |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-gltf` (`GltfMigrate`) | gdx-gltf `gltf/src` | Apache-2.0 | 0/0/0/0 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-gltf-test` (`GltfTestMigrate`) | gdx-gltf `gltf/test` | Apache-2.0 | 3/3/3/3 (§8.4, classified) | expected-lost 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-screens` (`ScreensMigrate`) | libgdx-screenmanager | Apache-2.0 | 0/0/0/29 | 16 hand-written, all passing |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-vfx` (`VfxMigrate`) | gdx-vfx | Apache-2.0 | 0/0/0/2 | 64 hand-written, all passing |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ai` (`GdxAiMigrate`) | gdx-ai `gdx-ai/src` | Apache-2.0 | 0/0/0/9 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ai-test` (`GdxAiTestMigrate`) | gdx-ai `gdx-ai/tests` | Apache-2.0 | 0/0/0/0 | 10 emitted, 105 outcomes: 104 pass, 1 declared (`cloneTask` fixture, B4), expected-lost 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-graphs` (`SimpleGraphsMigrate`) | simple-graphs `src/main` | MIT | 0/0/0/0 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-graphs-test` (`SimpleGraphsTestMigrate`) | simple-graphs `src/test` | MIT | 0/0/0/0 | 16 pass, expected-lost 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-noise` (`Noise4jMigrate`) | noise4j `src` | Apache-2.0 | 0/0/0/0 | none upstream |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-jbump` (`JbumpMigrate`) | jbump `jbump/src` | Apache-2.0 | 0/0/0/0 | none upstream — differential probe only |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ssg-liquid-test` (`LiqpTestMigrate`) | liqp `src/test/java` | MIT | 0/0/0/3 | 637: 636 pass, 1 fail (declared, K18/K5.7), expected-lost 2 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ssg-md` (`FlexmarkMigrate`) | flexmark-java core + 11 `flexmark-util-*` | BSD-2 | 0/0/0/136 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ssg-md-test` (`FlexmarkTestMigrate`) | flexmark's own suite (3 upstream modules) | BSD-2 | 0/0/0/136 | 727: 725 pass, 2 fail (attributed, K18.1/K5.7), expected-lost 1 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ssg-md` extensions (`FlexmarkExtMigrate`) | flexmark's 29 covered extension modules, one dependent port | BSD-2 | 0/0/0/187 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| USL (`UslMigrate`) | VisUI's skin-DSL, sibling port, no reference hand port | Apache-2.0 | 0/0/0/3 | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| USL test (`UslTestMigrate`) | 7 `@Test` over checked-in `.usl`/`.json` pairs | Apache-2.0 | 0/0/0/3 | 8: 6 pass, 1 ignored, expected-lost 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-visui` (`VisUiMigrate`) | VisUI `ui/` | Apache-2.0 | 7/7/7/7 (§10.9.10, attributed) | — |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	### 1.1 Available and unported (sge/ssg modules with no Baltic Porter port yet)
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	None ported by this engine; each needs its own scoping pass (`CLAUDE.md` §2, `add-corpus-library`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	are still hand-maintained and incomplete for the modules this engine has not touched (§1's own
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	per-file headers and `provenance.notices` close the gap for ported files only, `CLAUDE.md` §4.57).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/51 | 0/0/0/51 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted/injected) | 151/151/2 | 166/15/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| collection closure/boundary | 2/0 | 0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| trivia lost/recovered/deliberate | 0/4/12 | 0/0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| raw-fill knob settings (inherited fill × `?`/`Object` fallback) | 162/97/87/1 | G2, G4 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| ordinary name-directed fill restricted to nested types | 1 → 14/19 | G4 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| "mentions" guard on the inherited fill | 145 / 1, union re-admits the failing entry | G4 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| reasoning about the error count as complete before it reaches 0 | typer-only until 0 | M1 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	comparison harness, not library surface) and `tests/src` (13 demo apps needing an unported backend).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/0 | 0/0/0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted/injected) | 151/0/4 | 153/2/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| trivia lost/recovered/deliberate | 0/0/0 | 0/0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| drop-in (`AshleyDropIn`, not in `measure-all`) | 408 errors JVM/JS/Native, 0 tests run — expected red until parity | |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	  `mockito-all 1.10.19` uses `org.mockito.asm`/cglib `setAccessible(ClassLoader.defineClass)`, which
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted) | 6/6 | 6/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	  libGDX, so this is reported rather than avoided (`ENGINE-LIMITS.md` C7).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	### 6.2 The gate — a differential PROBE, not a ported suite
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	jbump ships zero `@Test`; its only upstream test module is a runnable libGDX demo needing an unported
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	backend, and the reference port's 32 tests were written in Scala against a redesigned API, so there
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| a spec for the captured-local rename over a method-LOCAL named class | frontend refuses: `unsupported construct: statement CtClassImpl` | `ENGINE-LIMITS.md` T9, zero sites in the corpus |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(java wins). The lanes reported it as a SUITE REGRESSION because no baseline records the vendored
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	every file is an `ApplicationAdapter` demo/bench needing an unported backend. No `Anim8TestMigrate`;
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	instead `ported/sge-anim8/src/test/scala` holds 23 hand-written MUnit tests adapted from the
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/6 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted/injected) | 263/112/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| trivia lost/recovered/deliberate | 0/0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`gltf/src` (135 files). Excluded: `demo/` (35, needs an unported backend) and `ibl-composer/` (25, a
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`ported/sge-gltf/src/test/scala` adds 22 hand-written MUnit tests over `GLTFTypes` (pure enum-mapping
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 3/3/3/3 (§8.4, all classified) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted/injected) | 151/0/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| trivia lost/recovered/deliberate | 0/4/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| tests | 8 ported + 22 hand-written = 30, **none run — the port does not compile** |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| 1 | `MeshLoader.java:252` — `vertexAttributes.toArray(VertexAttribute.class)`, a member the base drops | D7 — `CallSiteSubstitutionTransform` mechanism exists (dry-run: 3/3 bound, 0 findings) but is not enabled: the replacement needs a codec decision thi
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`../sge/sge-extension/gltf` is 100% coverage. Two GWT-reflection workarounds it solved are taken
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	of hand-written Jsoniter codecs (`GLTFCodecs`, `GLTFExporterJson`) rather than ported — this port
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`UnsupportedOperationException` at the three D7 call sites; loading a real `.gltf` is untestable
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`src/main/java`, 22 types. Excluded: `src/example/java` (5 files, needs an unported backend).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/29 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted/injected) | 151/0/0 — all 151 are libGDX core's own, seen through the resolution root |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| trivia lost/recovered/deliberate | 0/1/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	### 9.3 guacamole — resolved, not ported
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	in `ported/sge-screens/src/main/scala` — no §1(c) rule, no new phase. Guacamole becoming its own
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`HeadlessApplication` (no backend ported); `ScreenManagerUnitTest` uses `Mockito.mockStatic`/`spy`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	three ported mechanically here.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/2 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| portability (all/emitted/injected) | 151/0/0 — all in libGDX core's own files (D2 ownership filter) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| trivia lost/recovered/deliberate | 0/2/0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0 | 0/0/0/3 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| pin the vacuous `<T>` bound corpus-wide (to fix G24) | libGDX core 0 → 50 errors (all bounds), 0 → 6 (methods only) | scala 3 roots `java.io.Serializable` at `Any`; the fix's blast radius is every generic signature in the corpus. Port decision instead: d
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`flexmark-util-*`) is a base port; milestone 2 is all 29 covered extension modules as ONE dependent
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| milestone 2 (dependent, `ported/ssg-md-ext`) | all 29 covered `flexmark-ext-*`, one port root, tree disjoint by package from the base | 386 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/136 | 0/0/0/136 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	  (`ENGINE-LIMITS.md` K16, measured 27→47/27→51 on liqp), a `bean-properties` entry — all
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	### 10.6.7 CommonMark conformance census — 1,870 of 1,870 (100%)
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	disabled upstream (`ResourceLocation.NULL`) — driven anyway: 629/649 both-pass, 20/649 are spec rules
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`ported/ssg-md-ext`, tree disjoint by package from the base, compiled beside it on every run.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/187 | 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 0/0/0/9 | 0/0/0/9 | 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| files emitted | 166 (1 dropped, 3 injected) | 2 | — (hand-written, `ported/sge-ai/src/test/scala`) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	  (23 tests) is the package with real coverage still available, reachable only by writing NEW
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	  as the census — that is a typer-only pass and is wrong by 4 files / 16 tests in the dangerous
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/ref) | 0/3 | 0 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| files emitted | 92 (0 dropped, 0 injected) | — (hand-written, `ported/sge-textra/src/test/scala`) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	Cited by `ENGINE-LIMITS.md` (this port's differential residue). `ported/sge-textra/src/test/scala/
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	registration because `KnownFonts.java` itself refuses a null `Gdx.app`. Unlocked 5 tests
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(`TextraLzmaFontRedSuite`, reproducing the hand port's own stale "not yet ported" LZMA stub — the
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	162 files / 25,588 LOC, 22 packages, the most scene2d-saturated library in the corpus (56% of its
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| compile errors (JVM/JS/Native/ref) | 7/7/7/7 | 0 | 0/0/0/3 | 0/0/0/3 |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	rename must not touch a string literal, §4.56). `PortManifest.resources` ships all 22 files
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	parser, style merger, JSON writer), own port root (`ported/sge-visui-usl`), standalone (no base — the
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	direction, 0 non-JDK imports) plus 18/18 Apache headers (obligation met by construction, no
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	**The oracle**: 19 `.usl` fixtures diffed against upstream JAVA — all 19 IDENTICAL (3,654 transcript
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	same string). Not evidence for post-increment translation (all 28 sites in this library are
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	ported + two unported ssg libraries. The engine is strictly more complete than the hand port in 8 of
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   places the hand ports made properties (hand-port rate itself only ~20%, so any expansion is
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(accepted at waves 0/1, never re-accepted after the base's declaration count moved 280→220) —
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| done bar per module | DROP-IN: the emitted tree replaces the module's `Ported from` files inside sge/ssg's own `projectMatrix` build; JVM + JS + Native compile, and the full suite (upstream tests + hand-added tests, copied verbatim) passes on every platform 
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| lls (the base beneath sge) | decided 2026-09-05: `lowlevel-scala` joins the corpus as `ported/lls`, the BASE `sge` extends (§13.28). Its API is held to the same rule as every hand port: an UNJUSTIFIED divergence from java is fixed IN LLS, never carried as a
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge` / `sge-test` | 0 / 1 | 2026-09-05 (was 51 / 1): `FrontendConfig.internTypes` reads `isFinal`/parents of every retarget target off the classpath (lls jar via `LlsClasspath`, K18) and the `Label` type test renders as a literal `false`; the TEST port keep
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ecs` / `sge-ecs-test` | 0 / 0 | closed |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ecs` drop-in (JVM/JS/Native) | 408 / 408 / 408 | `-no-indent` cascade from the injected `ComponentFactories.scala`, not in `measure-all` |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-gltf` / `sge-gltf-test` | 3 / 3 | D4 (§8.3) — genuine, tracked at every flag level |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-ai` / `sge-ai-test` | 0 / 0 | closed 2026-09-05 (deprecated boxing ctors -> `valueOf`, JS-E19; class-file `@Deprecated` interned) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `sge-graphs` / `-test` | 0 / 0 | closed |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ssg-liquid` / `-test` | 3 / 3 | K18/G24 residue (§10.5) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ssg-md` / `-test` | 126 / 126 | `-Wunused` family, largest port (136 -> 126 on 2026-09-05) |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| USL / USL-test | 3 / 3 | `-Wunused` family |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `gdx-test-measure` (191 tests) | ~20 min | 117 s |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `ashley-measure` (dependent, 112 tests) | ~20 min | 199 s |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `JsonMatcherTests#toString(JsonMatcher,String[])`, `#toString(Array)` | gdx-test | i | uncited — no `ported/sge/divergence-verdicts.tsv` | comment 3.1ae: sge dropped CharArray builder API |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| `PixmapBinaryLoaderHack#load`, `GLTFBinaryExporter#savePNG` | gltf | i | uncited — no `ported/sge-gltf/divergence-verdicts.tsv`; cites CLAUDE.md §3.5 in-line | GWT reflection workaround; hand port makes the direct call instead |
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	JVM/JS/Native/ref, 108/2/2 held, `portability(injected)` 4 -> 0, `registry(jvm-only-miss)` 0 -> 2 (js, native),
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`Placement.Object`. gltf 0 errors held on JVM/JS/Native (`.ref` 2 held), suite 29/1 held, all seven
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	ai-test 103/2 -> 104/1 and ai-diff 93/2 -> 94/1: `cloneTask clones guard` now PASSES (its
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	ai-test 104/1 and ai-diff 94/1 held, the differential's declared row re-anchored at the minted
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`/Users/dev/Workspaces/kubuszok/lls` (module `lls/`, v0.3.0, 47 commits) carries `Ported from`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	Waves: (1) census port — `ported/lls`, `label = "lls"`, sourceSet = the 12 files,
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	**L0 — universal translation only** (`LibgdxL0Migrate` -> `ported/sge-l0`, `just gdx-l0-measure`, JVM): `surface`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	corpus 1542/1544 green (the two are `ForEachFBoundReceiverSpec`, failing identically at this section's base
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	**lls goes first (maintainer, 2026-09-05).** `ported/lls` is L0's first artifact: the twelve lls sources plus the
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	it does the differential holds at **189 / 2 / 235** (the three candidates under arity are unchanged: `DynamicArrayTest`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	run: **18 files / 423 `test(…)`**. Eight files / 188 tests are ADAPTED into `ported/lls/src_managed/diff/`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	by an **8-row NAME/SHIM table** (`ported/lls/diff-shims.tsv`, applied per RECEIVER to comment-masked
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	genuinely paren-less). Ten files / 235 tests are **incompatible with a reason each**
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(`ported/lls/diff-incompatible.tsv`), never edited into passing: eight for primitive/opaque type arguments
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	has made — while `lls-diff` stays 189/2/235: its ten incompatible files are declined by DECLARATION, and the
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`lowlevel.*` on its classpath, and all 420 new rows are `E008 Not Found` on `lowlevel.MkArray`.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	used to make conform; (iii) a RAW `new C(...)` is completed with the arguments its cast already states, or a
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	Steps (decision | footprint in gdx/src | platform | phase today): L1 bean properties + nullary arity (1,422/928;
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	189/2 unchanged, `policy` 1** (the `Collections` drop, which fires only in the dependent), witness
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	ladder port (`ported/sge-l0`, `SourceSet.Test`, base = `sge-l0` + `lls`), lane `gdx-l0-test-measure`,
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	outcomes baselined; without it a step's gate is a compile count (§3). BUILT 2026-09-06: `LibgdxL0TestMigrate`. **Lane fact (2026-09-06): the main lane zinc-cleans the port BEFORE its migrator; the test lane never cleans (it would delete the main tree). Before
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| R7 — injection-free half **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (`Disposable -> java.lang.AutoCloseable` with `dispose -> close`, `InputEvent.type -> eventType`, `List.toString(T) -> itemToString`); the `Pool.*`/`SgeError`/`Gdx -> Sge` renames ride
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| R8 — `Seconds` **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (sge's own file injected; seeded at the two `Graphics` producers, reaches `Screen.render`/`ScreenAdapter` through the new override edge; `opaque-boundary` 1 = `Math.min` unwrapped, K50). `Pixels
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| R9 | `GdxRuntimeException -> SgeError`, `SerializationException -> SgeError.SerializationError`, `SgeError.Unsupported` at every unsupported-capability site | rename + injected `SgeError` · (b)+(c); the convention itself is backend policy | 650 sites; `NetJ
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| R10 — **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (the full port's holder policy lifted; `sge.Sge` injected; the GL statics hop through GETTER CALLS and writes through the bean setter until the property step, K49 — 321 -> 10 -> 0; `context-seam` 20 co
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| R11 — **LANDED 2026-09-06, 0 = 0, suite 216/4 held** (sge's `Pool.scala`/`Poolable.scala`/`DynamicArrayOps.scala` injected with four adjustments recorded in the copy: java's constructor defaults on the trait's vals, `protected[utils]` as java's protected, 
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	| R14 — **census 2026-09-07 of what sge's backend is MADE OF** (`sge/src/main/{scala/sge/platform,scalajvm,scaladesktop,scalanative,scalajs}`): three layers. (1) A platform CONTRACT in core, hand-written: seven traits (`WindowingOps` 576 lines, `AudioOps`, `
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`ported/sge-l0`; the launchers are the backends' step. First honest count on pong + shared: **30
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	re-runs it; the number is the distance to the demos. **2026-09-06, after the Pixels, graphics, properties and WorldUnits steps: pong + shared compile — 30 -> 21 -> 9 -> 4 -> 1 -> 0.** Next: the other eleven demos through the same check. **All twelve demos (t
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(2) **lls decisions** — 4 (`foreachEntry` DONE 2026-09-06: the enrich templates hand the raw value through `.orNull` as the lls reference does; lls 0 = 0, 189/2 held; `ObjectMap[Int, Vector2]()` stays, G24): `ObjectMap[Int, Vector2]()` (the `K <: java.lang.O
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   reported as the goal). sge's libraries are REPLACED by the ported ones — the core and the
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   port's API differs, and the demo RUNS on the ported stack on the platforms it targets.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	4. *Hand-written injections* are a supported, intended mechanism: sge's own hand-written files
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	6. *Test scope off the JVM*: every ported test except suites the capability matrix marks
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   Unsupported, excluded by a named list.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(adjusted copies under `ported/demo-check/adjusted/`, enumerated in `ADJUSTMENTS.tsv`; sge never
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`demos.pong.DesktopMain` opens a window on the ported stack, renders a fixed number of frames
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   0, test lane 216/220 held.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   time with engine-ported ones from `gdx-backend-lwjgl3`/`gdx-backend-headless` through an
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	216/220, lls 0, demo-check 0; `members` 984 moved, all in the GL-typed graphics units; new counted
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	reached `ETC1`'s sizes (sge keeps `Int` there): fenced by type. Held: 0 errors, 216/220, demo-check
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	beside sge's `onComplete`; `AudioDevice.isMono` -> `mono`; `Clipboard.contents: String`;
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	extension hooks on `Application`. Held: 0 errors, 216/220, demo-check 0, `members` 0 moved.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	timers run through the ported core for 120 frames on macOS/aarch64; pong reads the keyboard only
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	**12 of 12 demos render 120 frames on the ported stack (2026-09-07 12:30)**: one engine repair
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	primitive types, plain keyframe values. Held: 0 errors, 216/220, demo-check 0; `members` 20 moved
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	bottom)`: fenced by type (sge sizes it in `Int`). Held: 0 errors, 216/220, demo-check 0.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	+ `scalajvm`, 221 files, ~2,170 tests; sge never edited, adjusted copies enumerated as for
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`demo-run` stays 12/12 throughout. `just measure-all` green at every step.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	137 of 221 files; 0 tests run. By family (a site can sit in two rows):
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   reconciled — its `Unsupported` refusal goes); `FileType` via `flattenNestedTypes`; `Degrees`/
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	   `ported/sge-l0/divergence-verdicts.tsv`; java wins unless a recorded decision says otherwise.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`scala` + `scalajvm` test dirs, munit 1.3.6), errors attributed by `ported/sge-suite-check/families.tsv`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	were closed), suite 216/220 held, `lls` 0 = 0 and 189/191, `demo-check` 0 = 0, **`demo-run` 12/12
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	also skips a clause another phase already put there. Numbers: `sge-l0` 0 = 0, suite 216/220, `lls`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	0 = 0 and 189/191, `demo-check` 0 = 0, `context-seam` 14 -> 12, **`sge-suite-check` 1,219 -> 1,194**:
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(`stepPlatformInjects`). Numbers held: `sge-l0` 0 = 0, suite 216/220, `sge-suite-check` 1,194 =
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	1,194, `demo-check` 0, `demo-run` 12/12, `lls` unchanged. The JS and Native rows now have a home;
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	step takes sge's `Music` (`Position` opaque, `duration`, `onComplete`); the keys step splices sge's
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	resources, one `DisplayMode` factory); suite 216/220; `demo-check` 0; `demo-run` 12/12; `lls`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	job and truncated its log, and two completed runs were lost to it.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	wrapped for-each iterable is dereferenced. `sge-l0` 0 = 0, Native 0, JS 14 = 14, suite 216/220,
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`demo-run` 12/12, **`sge-suite-check` 893 -> 875** (member-shape 217 -> 190; context 41 -> 50, a
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	suite 216/220, `demo-check` 0, `demo-run` 12/12, `lls` unchanged (the differential's two
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	as before; a dead entry is reported. Engine (universal mechanism, one manifest row). `sge-l0` 0 = 0,
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	JS 14 = 14, Native 0, suite 216/220, demos 12/12, 3 members moved (all `GLProfiler`).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	0 = 0, JS 14 -> 13, Native 0, suite 216/220, demos 12/12, `lls` unchanged.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	(`PlayMode.isLooping/isReversed`, `Polygon.vertex`, `Vector*.copy`, `Vector2.*`/`cross`, `Matrix4/3/Affine2
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	suite 216/220, demos 12/12, `lls` unchanged. **`sge-suite-check` 585 -> 540** (member-shape 180 -> 135).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`sge-l0` 0 = 0, JS 13 = 13, Native 0, suite 216/220, demos 12/12, `lls` unchanged. **`sge-suite-check`
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	sge's text for them. `sge-l0` 0 = 0, JS 13 = 13, Native 0, suite 216/220, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	suite 216/220, demos 12/12. **`sge-suite-check` 456 -> 412** (android 8 -> 2, member-shape 121 -> 108,
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	suite 216/220, demos 12/12. **`sge-suite-check` 412 -> 406.**
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	resources, `multiarch.resources` on the JS row, `DataBuffer`'s `out`), Native 0, suite 216/220, demos
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	12/12. **`sge-suite-check` 406 -> 392** (member-shape 106 -> 98, nullable 54 -> 48).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`Mesh`, `Texture`, `ParticleEmitter` readers). `sge-l0` 0 = 0, JS 3, Native 0, suite 216/220, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	type)` compiles in the suite. `sge-l0` 0 = 0, JS 3, Native 0, suite 216/220, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	the value they assign. `sge-l0` 0 = 0, JS 3, Native 0, suite 216/220, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	survives. `sge-l0` 0 = 0, JS 3, Native 0, suite 216/220, demos 12/12. **`sge-suite-check` 375 -> 368**
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	**Session floor at 74 (2026-09-08 17:30).** Session total: sge-suite-check 368 -> 74 (294 resolved, 80%).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	packages, 9 errors), `Table.isClip` + `tableAlign` readers (3 errors), `Vector2/3/4 +/-` operators and
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	70%). Added `AssetManager.apply` instance methods (throwing delegates to `get`), companion factories with
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	**`sge-suite-check` 170 -> 146** (particles 34 -> 10). JVM 0, JS 0, Native 0, suite 216/216, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	54%%). Port compiles clean on all platforms (JVM 0, JS 0, Native 0), port tests all pass (216/216), demos
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	12/12. The remaining 170 are structural gaps between sge's hand-rewritten API and the port's faithful
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	suite 216/216, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	55 -> 3). JVM 0, JS 0, Native 0, lls 0, suite 216/216, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	lls 0, suite 216/216, demos 12/12.** `sge-suite-check` 230 (unchanged — the suite errors are structural).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	216/216** (all pass), demos 12/12. **`sge-suite-check` 230** (unchanged).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	Native 0, lls 0, suite 216/220, demos 12/12. **`sge-suite-check` 245 -> 231** (member-shape 68 -> 56,
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	alone does not supply). `sge-l0` 0 = 0, JS 1, Native 0, lls 0, suite 216/220, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	suite 216/220, demos 12/12. **`sge-suite-check` 272 -> 263** (arity 6 -> 1).
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	referenceCount` renamed. `sge-l0` 0 = 0, JS 3, Native 0, lls 0, suite 216/220, demos 12/12.
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	`rotation_=`) joined the `extras` list. `sge-l0` 0 = 0, JS 3, Native 0, lls 0, suite 216/220, demos
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	12/12. **`sge-suite-check` 368 -> 314** (member-shape 145 -> 92); lls's api-parity(operator) rows for
+balticporter	PROGRESS.md	6b3a75eb 2026-09-18	generator compares the lls exclusion on slash paths (Windows rows had ported the twelve a second time), the
+re-scale	README.md	1677839 2026-04-08	cap. The headline test is `Ssg944FileMemoryBoundSpec`: scan all 944 Scala

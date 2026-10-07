@@ -1,0 +1,11 @@
+com/badlogic/gdx/controllers/BrowserControllerBackend.java
+com/badlogic/gdx/controllers/Controller.java
+com/badlogic/gdx/controllers/ControllerAdapter.java
+com/badlogic/gdx/controllers/ControllerListener.java
+com/badlogic/gdx/controllers/ControllerManager.java
+com/badlogic/gdx/controllers/ControllerMapping.java
+com/badlogic/gdx/controllers/ControllerOps.java
+com/badlogic/gdx/controllers/ControllerPowerLevel.java
+com/badlogic/gdx/controllers/Controllers.java
+com/badlogic/gdx/controllers/DefaultControllerManager.java
+com/badlogic/gdx/controllers/GlfwControllerBackend.java

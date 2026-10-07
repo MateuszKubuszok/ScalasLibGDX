@@ -1,0 +1,41 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "Scala's libGDX — Scala Days 2026 talk",
+  "homepage": "https://kubuszok.com",
+  "scripts": {
+    "start": "grunt serve",
+    "build": "grunt",
+    "prebuild": "./asciidoctor-revealjs.js"
+  },
+  "author": {
+    "name": "Mateusz Kubuszok",
+    "email": "mateusz.kubuszok@gmail.com",
+    "web": "https://kubuszok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MateuszKubuszok/ScalasLibGDX.git"
+  },
+  "devDependencies": {
+    "@asciidoctor/core": "3.0.4",
+    "@asciidoctor/reveal.js": "5.2.0",
+    "express": "5.1.0",
+    "grunt": "1.6.1",
+    "grunt-cli": "1.5.0",
+    "grunt-contrib-connect": "5.0.1",
+    "grunt-contrib-watch": "1.1.0",
+    "grunt-run": "0.8.1",
+    "grunt-sass": "4.0.0",
+    "mustache": "4.2.0",
+    "sass": "1.90.0",
+    "socket.io": "4.8.1"
+  },
+  "resolutions": {
+    "diff": "8.0.2",
+    "jszip": "3.10.1",
+    "postcss": "8.5.6",
+    "reveal.js": "5.2.1"
+  },
+  "license": "MIT"
+}

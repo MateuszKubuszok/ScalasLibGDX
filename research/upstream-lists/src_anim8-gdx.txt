@@ -1,0 +1,16 @@
+com/github/tommyettinger/anim8/AnimatedGif.java
+com/github/tommyettinger/anim8/AnimatedPNG.java
+com/github/tommyettinger/anim8/AnimationWriter.java
+com/github/tommyettinger/anim8/ChunkBuffer.java
+com/github/tommyettinger/anim8/ConstantData.java
+com/github/tommyettinger/anim8/DitherAlgorithm.java
+com/github/tommyettinger/anim8/Dithered.java
+com/github/tommyettinger/anim8/FastGif.java
+com/github/tommyettinger/anim8/FastPNG.java
+com/github/tommyettinger/anim8/FastPNG8.java
+com/github/tommyettinger/anim8/FastPalette.java
+com/github/tommyettinger/anim8/LZWEncoder.java
+com/github/tommyettinger/anim8/OtherMath.java
+com/github/tommyettinger/anim8/PNG8.java
+com/github/tommyettinger/anim8/PaletteReducer.java
+com/github/tommyettinger/anim8/QualityPalette.java
