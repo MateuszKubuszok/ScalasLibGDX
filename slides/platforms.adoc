@@ -8,7 +8,7 @@
 
 [NOTE.speaker]
 --
-One codebase, four backends. Desktop on a normal JVM (LWJGL3), Android, the browser through GWT, iOS through RoboVM/MobiVM, an ahead-of-time compiler for JVM bytecode.
+libGDX gives you one codebase and four targets. (pause) Desktop runs on a normal JVM. Android runs your bytecode after converting it. The browser goes through GWT, which compiles Java source to JavaScript. And iOS goes through RoboVM, a compiler that turns JVM bytecode into native code ahead of time.
 --
 
 [.compact%auto-animate]
@@ -20,7 +20,7 @@ One codebase, four backends. Desktop on a normal JVM (LWJGL3), Android, the brow
 
 [NOTE.speaker]
 --
-Click through the backends. GWT compiles Java source, so Scala is useless there. RoboVM compiles bytecode, but nobody supports the Scala path. Android works with caveats. And Scala Native, the most interesting target for native libraries, isn't a libGDX target at all.
+Now write the same game in Scala. (click) Desktop: fine. (click) Android: it works, but Scala and Android versions don't always agree, and native libraries make it harder. (click) The browser: GWT reads Java source, not bytecode, so Scala can't use it. (click) iOS: RoboVM could take Scala bytecode in theory, but nobody supports that path. (click) And Scala Native is not a libGDX target at all. libGDX is Java, calling C through JNI. (pause) So to have Scala everywhere, I had to own the engine. I had to port libGDX itself.
 --
 
 [.compact]
@@ -32,5 +32,5 @@ Click through the backends. GWT compiles Java source, so Scala is useless there.
 
 [NOTE.speaker]
 --
-It's not only the runtime. libGDX's Gradle setup packages desktop apps for every OS from one machine, builds and shrinks Android apps, and AOT-compiles for iOS. Moving to sbt and Scala-first backends means porting those plugins too: none of it existed for Scala, so it all had to be built (Part II).
+It's not only the runtime. (pause) With Gradle, libGDX can package a desktop app for every system from one laptop. It can build and shrink Android apps. It can compile for iOS. (pause) For Scala and sbt, none of that existed. So I had to build it. That's the second part of this talk.
 --
