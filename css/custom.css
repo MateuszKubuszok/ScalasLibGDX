@@ -68,3 +68,8 @@
 .reveal section.compact li {
   margin: .35em 0;
 }
+
+/* Three-column tooling table */
+.reveal table.versus.three td:first-child { width: 28%; }
+.reveal table.versus.three td:nth-child(2) { width: 30%; color: inherit; font-weight: normal; }
+.reveal table.versus.three td:last-child { color: inherit; }
