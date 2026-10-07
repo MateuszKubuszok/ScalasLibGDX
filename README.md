@@ -1,4 +1,4 @@
-# Scala's libGDX
+# Scala’s LibGDX: A Report from the Trenches
 
 ## Running
 
