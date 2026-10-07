@@ -10,9 +10,9 @@ INK, MUTED, RED, AMBER, GREEN, BOX, CORE = "#262a2a", "#6b6f6b", "#c8322b", "#b7
 # (id, name, line 2, line 3, verdict with Scala, verdict note)
 BACKENDS = [
     ("desktop", "Desktop", "LWJGL3", "on a normal JVM", "ok", "works as is"),
-    ("android", "Android", "Android SDK", "bytecode → dex", "warn", "works, but Scala/Android\nversion mismatches; natives"),
+    ("android", "Android", "Android SDK", "bytecode converted", "warn", "works, but Scala/Android\nversion clashes; native libs"),
     ("browser", "Browser", "GWT", "Java source → JS", "no", "GWT compiles Java source,\nnot bytecode"),
-    ("ios", "iOS", "RoboVM / MobiVM", "AOT bytecode → ARM", "no", "Scala on RoboVM:\nunsupported, unmaintained"),
+    ("ios", "iOS", "RoboVM / MobiVM", "bytecode → native code", "no", "Scala on RoboVM:\nunsupported, unmaintained"),
 ]
 W, H, GAP, TOP = 205, 92, 26, 230
 X0 = (1000 - 4 * W - 3 * GAP) / 2
@@ -65,19 +65,19 @@ def diagram(language: str, with_scala: bool) -> str:
 def tooling_table() -> str:
     rows = [
         ("Desktop apps for Windows / macOS / Linux, built on one host",
-         "Construo (jlink + native launcher)",
+         "Construo: bundles a trimmed JVM and a launcher",
          "sbt-native-packager: packages only for the platform you build on"),
-        ("Android: dex, shrink, sign, package",
-         "Android Gradle Plugin (D8, R8 / ProGuard, signing)",
+        ("Android: convert bytecode, shrink, sign, package",
+         "Android Gradle Plugin",
          "sbt-android: unmaintained for years"),
-        ("iOS: AOT-compile to ARM, package the app",
+        ("iOS: compile to native code, package the app",
          "RoboVM / MobiVM Gradle plugin",
          "Nothing: RoboVM doesn't support Scala, Scala Native has no iOS"),
         ("Browser build, and knowing which assets exist at runtime",
          "GWT Gradle plugin; the build generates <code>assets.txt</code>, which GWT's preloader reads to fetch and list assets",
-         "Scala.js has no classpath, so <code>getResourceAsStream</code> finds nothing; no build step to embed assets or generate a manifest"),
+         "Scala.js has no classpath, so <code>getResourceAsStream</code> finds nothing; and no build step embeds the assets or lists them"),
         ("Native libraries for every platform",
-         "gdx-jnigen + per-platform natives JARs",
+         "gdx-jnigen builds them; one JAR of native libraries per platform",
          "JVM: extract from the JAR by hand; Scala Native: install the library on the system and pass linker flags yourself"),
     ]
     trs = "".join(f'<tr class="fragment"><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a, b, c in rows)
@@ -101,9 +101,13 @@ def main():
            "(click) And Scala Native is not a libGDX target at all. libGDX is Java, calling C through JNI. "
            "(pause) So to have Scala everywhere, I had to own the engine. I had to port libGDX itself.\n--\n",
            "\n[.compact]\n=== The build tooling goes too\n\n++++\n" + tooling_table() + "\n++++\n",
-           "\n[NOTE.speaker]\n--\nIt's not only the runtime. (pause) With Gradle, libGDX can package a desktop app for every system from one laptop. "
-           "It can build and shrink Android apps. It can compile for iOS. "
-           "(pause) For Scala and sbt, none of that existed. So I had to build it. That's the second part of this talk.\n--\n"]
+           "\n[NOTE.speaker]\n--\nIt's not only the runtime. The build tooling goes too. "
+           "(click) With Gradle, libGDX packages a desktop app for every system from one laptop. sbt packages only for the system you're on. "
+           "(click) Android: Gradle has the official plugin. The sbt one hasn't been maintained for years. "
+           "(click) iOS: there's simply nothing for Scala. "
+           "(click) The browser: libGDX's build writes down which assets exist, so the game can find them. Scala.js has no such step. "
+           "(click) And native libraries: libGDX builds and ships them for every platform. In Scala, you're on your own. "
+           "(pause) None of that existed, so I had to build it. That's the second part of this talk.\n--\n"]
     Path("slides").mkdir(exist_ok=True)
     Path("slides/platforms.adoc").write_text("".join(out))
 

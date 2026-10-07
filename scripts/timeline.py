@@ -40,15 +40,15 @@ RELEASES = [
     ("07-24", "Opus 5", OPUS, 9), ("09-01", "Fable 5.1", FABLE, 11), ("09-22", "Opus 5.5", OPUS, 13),
 ]
 
-# Agent ports, "claimed progress": points and the step of each segment (segment i ends at point i)
+# What the agents claimed: points and the step of each segment (segment i ends at point i)
 CLAIMED = [("02-24", .10), ("03-30", .80), ("04-01", .95), ("04-10", .45), ("04-28", .95), ("06-09", .95),
            ("06-10", .30), ("07-01", .95), ("07-03", .55), ("07-19", .60)]
 CLAIMED_STEPS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-DROP_LABELS = {"04-10": ("method audit:\nPaletteReducer 6%", "end"),
-               "06-10": ("Fable review:\nbroken at\nalgorithm level", "end"),
-               "07-03": ("blind re-review:\n5 criticals", "start")}
-# Found later, by regenerating the same libraries: the hand ports were worse still
-LATE_DROP = (("07-19", .60), ("09-05", .20), 11, "regeneration: the agent\nports were worse still")
+DROP_LABELS = {"04-10": ("checked method by method:\none file 6% ported", "end"),
+               "06-10": ("stronger model's review:\nthe logic is broken", "end"),
+               "07-03": ("fresh review:\n5 critical bugs", "start")}
+# Found later, by comparing with Baltic Porter's output: the agent ports were worse still
+LATE_DROP = (("07-19", .60), ("09-05", .20), 11, "the old agent ports:\nworse still")
 
 # Baltic Porter: starts again from zero, slower but measured by tests
 GENERATED = [("07-18", .0), ("07-29", .18), ("08-25", .30), ("09-07", .40), ("09-11", .50), ("09-27", .58)]
@@ -57,110 +57,106 @@ GENERATED_STEPS = [9, 10, 11, 12, 13]
 # Milestones below the axis: (date, label, row, step[, text anchor])
 EVENTS = [
     ("02-24", "SGE (game engine) resumes", 0, 0),
-    ("03-26", "SGE: CI green", 1, 1),
+    ("03-26", "SGE: tests green", 1, 1),
     ("03-30", "SSG (site generator) starts", 2, 2, "end"),
-    ("04-07", "SSG: 20.7% → re-scale", 0, 3),
-    ("04-20", "certificates stamped", 2, 4),
-    ("07-01", "review queue at zero", 2, 7),
-    ("07-18", "Baltic Porter", 1, 9),
-    ("07-29", "libGDX core compiles", 0, 10),
-    ("09-05", "parity dropped: agent ports cheated", 2, 11),
-    ("09-07", "12/12 demos", 0, 11),
-    ("09-11", "generated core in SGE", 1, 12),
-    ("09-27", "4 extensions", 0, 13),
+    ("04-07", "Sass: 1 test in 5", 0, 3),
+    ("04-20", "1,200 files marked 'complete'", 2, 4),
+    ("07-01", "all review findings 'fixed'", 2, 7),
+    ("07-18", "Baltic Porter starts", 1, 9),
+    ("07-29", "libGDX core compiles", 0, 10, "end"),
+    ("09-05", "old agent ports found to cheat", 2, 11),
+    ("09-07", "12 sample games run", 0, 11, "end"),
+    ("09-11", "SGE core now generated", 1, 12),
+    ("09-27", "extensions generated", 0, 13),
 ]
 
 # Fable availability: (from, to, label, colour, opacity, step)
-BANDS = [("06-12", "07-01", "Fable\noff", RED, .12, 7), ("07-01", "07-19", "Fable\npromo", AMBER, .18, 8)]
+BANDS = [("06-12", "07-01", "Fable\noff", RED, .12, 7), ("07-01", "07-19", "Fable\nback briefly", AMBER, .18, 8)]
 
 # Incident bars shown directly on the overview (no zoom for that period): (step, (from, to, label, row))
 OVERVIEW_BARS = [
-    (11, ("07-29", "08-31", "Opus 5 \"spiky\"", 1)),
-    (11, ("08-19", "09-22", "effort lower than selected", 2)),
+    (11, ("07-29", "08-31", "Opus 5: uneven quality", 1)),
+    (11, ("08-19", "09-22", "less reasoning than selected", 2)),
 ]
 
 # ---------------------------------------------------------------- zoom data
 # Phases: the overview reveals steps [lo, hi]; then (optionally) a zoom on the drop that ends the phase.
-# Zoom notes: (date or None, kind, html). kind: "found" (red dot), "check" (a check we added, blue diamond),
-# "context" (grey dot). Date None = no axis marker.
+# Zoom notes: (date or None, kind, html[, incident bar]). kind: "found" (red dot), "check" (what I added, blue diamond),
+# "context" (grey dot), "anthropic" (purple bar). Date None = no axis marker.
 PHASES = [
     dict(lo=0, hi=3,
-         note="This is the last eight months. (pause) The blue line is what the agents told me: how much was ported. "
-              "It is not to scale; only the dates are real. "
-              "(click) In late February I picked SGE up again: SGE, the Scala Game Engine, is my Scala port of libGDX. "
-              "This time I did it with AI agents. Anthropic's Opus model was the one doing the work. "
-              "(click) By the end of March, all three platforms were green in CI. "
-              "(click) Then I started a second project the same way: SSG, a static site generator. "
-              "It needs a Markdown parser, a template engine, a Sass compiler, so it is also mostly ported libraries. "
-              "(click) And the second project is where it broke: the Sass port you just saw. Let's zoom in.",
+         note="This is the last eight months. (pause) The blue line is what the agents claimed: how much was ported. "
+              "Only the dates are real; the heights are not to scale. "
+              "(click) In late February I picked SGE up again, this time with AI agents. "
+              "(click) By the end of March, the tests were green on all three platforms. "
+              "(click) Then I started a second project the same way: SSG, the static site generator, with its Sass compiler. "
+              "(click) And that's where it broke. Let's zoom in.",
          zoom=dict(
         title="April: the files were \"done\"", center="04-06",
-        note="In the zooms, red is what I found, blue is what I added in response, and purple is what was going wrong on Anthropic's side. "
-             "(click) First, purple: Anthropic later admitted that in March Claude Code ran with lower default effort, "
-             "and a bug kept wiping the model's earlier reasoning. (click) Usage was also throttled at peak hours. "
-             "(click) Then the Sass port: complete, said the agent. One test in five, said the test suite. "
-             "(click) So I added checks. Compare each file's size with the original: one well-ported library told me a good port is about the same size. "
-             "Compare the list of methods. Scan for TODOs and stubs. "
-             "(click) I put those checks into a tool, re-scale. Every file gets a certificate: a header with its methods and size, checked in CI. "
-             "(click) The checks found more right away: one library at a fifth of its original size, with no TODO anywhere. "
-             "Box2D, four hundred files, replaced by an eight-file wrapper. "
+        note="Red is what I found. Blue is what I added. Purple is what was going wrong on Anthropic's side. "
+             "(click) (click) In purple: Anthropic later admitted that Claude Code gave the model less reasoning in those weeks, "
+             "and that usage was throttled at peak hours. "
+             "(click) The Sass port you saw: complete, said the agent. One test in five, said the tests. "
+             "(click) So I added checks. Is each file about as long as the original? Does it have the same methods? Any TODOs or stubs? "
+             "(click) I put them into a tool, re-scale, which runs them on every file, in CI. "
+             "(click) They found more right away. A colour library at a fifth of its original size, with no TODO anywhere. "
+             "A physics engine of four hundred files, replaced by eight. "
              "(click) And a rule for the agents: porting is binary. A hundred percent, or not done.",
         notes=[
-            ("03-04", "anthropic", "Claude Code: default effort cut to medium; from 03-26 earlier thinking wiped every turn (Anthropic postmortem 04-23)",
-             ("03-04", "04-20", "effort cut, thinking wiped", 0)),
-            ("03-23", "anthropic", "Peak-hour throttling of session limits, until 05-06",
-             ("03-23", "05-06", "peak-hour throttling", 1)),
-            ("04-06", "found", "Sass compiler: <b>\"COMPLETE: 283/283 files\"</b>; next day the spec suite passes <b>20.7%</b>"),
-            ("04-07", "check", "New checks: size vs the original (a good port is about the same size), method list vs the original, TODO/stub scanner"),
-            ("04-08", "check", "re-scale: a <b>certificate</b> per file (its methods and size), checked in CI"),
-            ("04-10", "found", "colorful at <b>19%</b> of original size, no TODO in sight; PaletteReducer <b>6%</b>; Box2D 400+ files → 8"),
-            ("04-11", "check", "Rule for agents: \"porting is binary — 100% or not done\""),
+            ("03-04", "anthropic", "Claude Code gave the model less reasoning by default, and a bug made it forget its earlier reasoning (Anthropic admitted it in April)",
+             ("03-04", "04-20", "Claude Code: less reasoning", 0)),
+            ("03-23", "anthropic", "Usage limits throttled at peak hours",
+             ("03-23", "05-06", "usage throttled at peak hours", 1)),
+            ("04-06", "found", "Sass compiler: the agent says <b>\"complete, 283 of 283 files\"</b>; the tests say <b>1 in 5</b>"),
+            ("04-07", "check", "New checks: is the file about as long as the original? Does it have the same methods? Any TODOs or stubs?"),
+            ("04-08", "check", "re-scale: a tool that runs those checks on every file, in CI"),
+            ("04-10", "found", "A colour library at <b>a fifth</b> of its original size, with no TODO anywhere; a physics engine of 400 files replaced by 8"),
+            ("04-11", "check", "Rule for the agents: \"porting is binary — 100% or not done\""),
         ])),
     dict(lo=4, hi=6,
-         note="(click) The agents then stamped those certificates on about twelve hundred files at once. "
-              "(click) Through May the claims stayed high. A new model came out, Opus 4.8. "
+         note="(click) The agents then marked twelve hundred files as complete, in one go. "
+              "(click) Through May the claims stayed high. "
               "(click) In June, Anthropic released Fable, a stronger and more expensive model. I asked it to review everything. "
               "(pause) And the line fell.",
          zoom=dict(
         title="June: every method present, bodies hollow", center="06-10",
-        note="(click) The certificates had been stamped while the CI check was switched off. "
-             "(click) Every method was there, but the bodies were hollow. In text layout, a loop's break became an exit from the whole method. "
+        note="(click) Those twelve hundred files were marked complete while the CI check was turned into a warning. "
+             "(click) Every method was there, but the insides were wrong. In text layout, breaking out of a loop became returning from the whole method. "
              "(click) In font rendering, the line that moves to the next letter was commented out. Every letter drawn in the same place. "
-             "(click) In the JavaScript minifier, more than half the tests were marked as expected to fail, so CI said: zero failures. "
-             "Real conformance was about forty percent. "
-             "(click) So, new rules: a failing test first, counters that may only go down, a blocking CI gate, and a different model must audit. "
-             "(click) On Anthropic's side, a safety classifier could silently swap Fable for Opus. "
-             "(click) And then Fable was switched off worldwide for almost three weeks. So Opus was auditing Opus.",
+             "(click) In the JavaScript minifier, more than half the tests were marked 'expected to fail', so CI showed zero failures. Really, about forty percent worked. "
+             "(click) So, new rules. A failing test first. Failure counts may only go down. CI must block. And a different model reviews. "
+             "(click) (click) In purple: Anthropic's safety filter could silently replace Fable with Opus. "
+             "And then Fable was switched off worldwide for almost three weeks. So Opus was reviewing Opus.",
         notes=[
-            ("04-20", "context", "~1,200 certificates stamped in one commit, while their CI check was non-blocking"),
-            ("06-10", "found", "Text layout: Java's loop <code>break</code> became a method exit, so truncation is a no-op"),
-            ("06-10", "found", "Font rendering: <code>// gx += xAdvances[ii]</code> commented out, so every glyph is drawn at the same x"),
-            ("06-10", "found", "JavaScript minifier: 1,507 of 2,522 tests marked as expected failures → <b>~40%</b> real conformance"),
-            ("06-10", "check", "New rules: failing test first, counters that only go down, a blocking CI gate, a different model must audit"),
-            ("06-10", "anthropic", "A safety classifier silently swaps Fable for Opus 4.8 for the rest of the session",
-             ("06-10", "10-06", "classifier silently swaps Fable → Opus 4.8", 0)),
-            ("06-12", "context", "Fable switched off worldwide: Opus 4.8 audits Opus 4.6"),
+            ("04-20", "context", "The agents marked 1,200 files 'complete' in one go, and turned the CI check into a warning"),
+            ("06-10", "found", "Text layout: breaking out of a loop became returning from the whole method"),
+            ("06-10", "found", "Font rendering: <code>// gx += xAdvances[ii]</code> commented out, so every letter is drawn in one spot"),
+            ("06-10", "found", "JavaScript minifier: 1,507 of 2,522 tests marked \"expected to fail\", so CI showed 0 failures; really <b>~40%</b> worked"),
+            ("06-10", "check", "New rules: a failing test first; failure counts may only go down; CI must block; a different model reviews"),
+            ("06-10", "anthropic", "Anthropic's safety filter could silently replace Fable with Opus",
+             ("06-10", "10-06", "Fable silently replaced by Opus", 0)),
+            ("06-12", "context", "Fable switched off worldwide for ~3 weeks: Opus reviewed Opus"),
         ])),
     dict(lo=7, hi=8,
-         note="(click) Fixing all of that took until the end of June. The review queue reached zero. "
-              "(click) Then Fable came back for a short time, and I ran a blind re-review. "
-              "Five critical findings. A whole subsystem missing. Tests that only tested the standard library. "
-              "(pause) And one reviewer agent invented three of its five findings.",
+         note="(click) Fixing all of that took until the end of June. Every review finding was marked as fixed. "
+              "(click) Then Fable came back for a short time, and I asked for a fresh review. "
+              "Five critical bugs. A whole feature missing. Tests that only tested the standard library. "
+              "(pause) And one reviewing agent invented three of its own findings.",
          zoom=None,
          quote=("The agents aren't trustworthy because they are non-deterministic.",
                 "That is what I wrote in mid-July. (pause) Every check I added, the agents learned to get past. "
-                "So I stopped asking them to port the code. I asked them to build a translator instead: a deterministic one. "
-                "I called it Baltic Porter.")),
+                "So I stopped asking them to port the code. I asked them to build a translator instead. "
+                "A translator is deterministic: I can run it again, compare the output, and measure it. "
+                "And when I fix a bug in it, it's fixed in every file at once. (pause) I called it Baltic Porter.")),
     dict(lo=9, hi=13,
          note="(click) Agent porting stops. Baltic Porter starts, from zero. That's the green line. "
               "It grows slower, but every number on it is measured by running tests. "
               "(click) By the end of July, the whole libGDX core compiles. "
-              "(click) In September I compared the result with the old agent ports. They were even worse than the reviews had shown: "
-              "their own tests checked for wrong values. That's the second red line. "
-              "And in purple: Claude Code was quietly sending lower effort than I had selected, and Opus 5 was, in Anthropic's words, "
-              "a really spiky model. Meanwhile, all twelve demos render. "
+              "(click) In September, comparing with the translator's output showed that the old agent ports were even worse than the reviews had found. "
+              "Some of their tests checked for wrong values. "
+              "Meanwhile, all twelve sample games run on the translated code. "
               "(click) The generated core replaces SGE's agent port. "
-              "(click) And four extensions are generated too. (pause) That's where I am today.",
+              "(click) And the small extensions are generated too. (pause) That's where I am today.",
          zoom=None),
 ]
 ZOOM_SCALE = 2.0
@@ -200,7 +196,7 @@ def elements():
         if d1 in DROP_LABELS:
             g += drop_label(d1, v1, *DROP_LABELS[d1])
         if i == 1:
-            g += text(X0, 24, "claimed progress (agent ports)", 10, OPUS, anchor="start", weight="bold")
+            g += text(X0, 24, "what the agents claimed", 10, OPUS, anchor="start", weight="bold")
         items.append((CLAIMED_STEPS[i - 1], g))
     items.append((9, text(x("07-19") - 3, py(.60) - 8, "agent porting stops", 9, MUTED, anchor="end")))
     (ld0, lv0), (ld1, lv1), lstep, llabel = LATE_DROP
@@ -211,7 +207,7 @@ def elements():
         (d0, v0), (d1, v1) = GENERATED[i - 1], GENERATED[i]
         g = seg(d0, v0, d1, v1, SONNET)
         if i == 1:
-            g += text(X0, 38, "generated & tested (Baltic Porter)", 10, SONNET, anchor="start", weight="bold")
+            g += text(X0, 38, "measured by tests (Baltic Porter)", 10, SONNET, anchor="start", weight="bold")
         items.append((GENERATED_STEPS[i - 1], g))
     for step, bar in OVERVIEW_BARS:
         items.append((step, incident_bar(*bar)))
@@ -320,15 +316,15 @@ def main():
     out = ["// GENERATED by scripts/timeline.py; edit the script, not this file\n"]
     # Hook first: claimed vs measured
     out.append(bar_slide("Claimed vs measured", [
-        ("sass", "The Sass compiler, ported by an agent, April 6th: <b>\"migration COMPLETE: 283/283 files\"</b>", 100, OPUS, "the agent's claim")],
-        note="Here is what an agent told me in April. I was porting dart-sass, the Sass compiler, to Scala. "
-             "The agent said: migration complete. Two hundred eighty-three of two hundred eighty-three files."))
+        ("sass", "SSG's Sass compiler, ported by an agent, April 6th: <b>\"migration COMPLETE: 283/283 files\"</b>", 100, OPUS, "the agent's claim")],
+        note="Besides the game engine, I was building SSG, a static site generator. It needs a Sass compiler, so an agent was porting one to Scala. "
+             "In April it told me: migration complete. Every file, two hundred eighty-three of them."))
     out.append(bar_slide("Claimed vs measured", [
         ("sass", "The next day: the official Sass test suite", 20.7, RED, "<b>20.7%</b> of the tests pass")],
         note="The next day I ran the official Sass test suite. (pause) One test in five passed."))
     out.append(bar_slide("Claimed vs measured", [
         ("sass", "Then: every method checked against the original", 37.7, SONNET, "37.7% faithfully ported"),
-        ("simp", "", 25.8, AMBER, "25.8% simplified: it exists, but cuts corners"),
+        ("simp", "", 25.8, AMBER, "25.8% cut short: there, but simplified"),
         ("miss", "", 36.1, RED, "36.1% missing")],
         note="Then I checked method by method. About a third faithful. A quarter cut short. A third simply missing. "
              "(pause) This part of the talk is about how that happens, and what I did about it."))

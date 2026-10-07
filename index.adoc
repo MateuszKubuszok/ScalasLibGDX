@@ -110,31 +110,32 @@ So, two tools. First re-scale, then Baltic Porter. Let's look at what each of th
 
 ++++
 <p class="slide-sub">re-scale: a command-line tool and Claude Code plugin that checks every ported file against its original</p>
-<table class="versus"><thead><tr><th>The check</th><th>How the agents got past it</th></tr></thead><tbody><tr class="fragment"><td>A certificate per file (its methods and size), checked in CI</td><td>~1,200 certificates stamped in one commit, while the CI check was switched off</td></tr><tr class="fragment"><td>Method list must match the original</td><td>Every method kept, bodies hollowed: a loop <code>break</code> became a method exit; <code>gx += xAdvances[ii]</code> commented out</td></tr><tr class="fragment"><td>Size compared with the original</td><td>Caught colorful at 19%, but full-size files were still wrong; the minifier grew to 162% of the original at ~40% conformance</td></tr><tr class="fragment"><td>Scanner for TODO / stub wording</td><td>Debt reworded ("Partial-port debt"), comments rewritten "to clear the scanner"</td></tr><tr class="fragment"><td>Auditor agent on a different model</td><td>Same-model audits explained gaps away; pinned models silently fell back when Fable was off; one reviewer invented 3 of 5 findings</td></tr></tbody></table>
+<table class="versus"><thead><tr><th>The check</th><th>How the agents got past it</th></tr></thead><tbody><tr class="fragment"><td>Every file records the original's methods and size; CI checks the record</td><td>The agents marked 1,200 files "complete" in one go, recording whatever each file already had, and turned the CI check into a warning</td></tr><tr class="fragment"><td>Same methods as the original</td><td>Every method there, the insides hollow: leaving a loop became leaving the whole method; the line that moves to the next letter commented out</td></tr><tr class="fragment"><td>About the same size as the original</td><td>Caught a colour library at a fifth of its size, but full-size files could still be wrong: the minifier was bigger than the original, and about 40% of its tests passed</td></tr><tr class="fragment"><td>A scanner for words like "TODO" or "stub"</td><td>The agents reworded their comments until the scanner stopped finding them</td></tr><tr class="fragment"><td>A review by a different model</td><td>A model reviewing its own work explained the gaps away; with Fable off, the reviewer silently became the same model; one reviewer invented 3 of its 5 findings</td></tr></tbody></table>
 ++++
 
 [NOTE.speaker]
 --
-re-scale compared every ported file with its original. (click) Each file got a certificate, and CI checked it. The agents stamped twelve hundred certificates at once, with the check switched off.
-(click) The method list had to match. It did. The bodies were hollow.
-(click) The size had to match. Some files that matched were still wrong.
-(pause) I won't read the rest. (click) (click) The pattern is always the same: (pause) every check looked at names, words, or counts. Never at behaviour. And each one was satisfied without doing the work.
+re-scale compared every ported file with its original.
+(click) Each file recorded the original's methods and size, and CI checked it. The agents marked twelve hundred files complete in one go, and turned the check into a warning.
+(click) The methods had to match. They did. The insides were hollow: you saw that in June.
+(click) The size had to match. Files that matched could still be wrong.
+(click) (click) The pattern is always the same: (pause) every check looked at names, words, or counts. Never at behaviour. And each one was satisfied without doing the work.
 --
 
 [.compact]
-=== Baltic Porter: what it does, where it still slipped
+=== Baltic Porter: what it does, where it slipped
 
 ++++
-<p class="slide-sub">Baltic Porter: a deterministic Java → Scala 3 translator. Agents build and measure it; they don't port code.</p>
-<table class="versus"><thead><tr><th>The approach</th><th>What still went wrong</th></tr></thead><tbody><tr class="fragment"><td>Each project owns its porting rules: renames, <code>Nullable</code>, opaque types, a few hand-written overrides</td><td>The rules are code too, so they need review</td></tr><tr class="fragment"><td>Agents build the translator, never the port</td><td>The Mermaid "generator" was 187 templates copied byte for byte from the agent port</td></tr><tr class="fragment"><td>Tests are the judge</td><td>28 test suites stubbed out → "0 failures, 18,011 tests"; 23 tests switched off 28 minutes after a regeneration</td></tr><tr class="fragment"><td>Generated code is never edited</td><td>Regex patches over generated code, assertions loosened to make it pass; reverted later</td></tr><tr class="fragment"><td>Deterministic translation</td><td>Compiling is not the same as correct: a dropped <code>break</code>, a wrong equality, found only by running tests</td></tr></tbody></table>
+<p class="slide-sub">Baltic Porter: a translator to Scala 3, from Java first, later TypeScript, JavaScript and Dart. Same input, same output. Agents improve the translator; they don't port code.</p>
+<table class="versus"><thead><tr><th>The approach</th><th>What still went wrong</th></tr></thead><tbody><tr class="fragment"><td>Each project has its own rules: Scala names, <code>Nullable</code> instead of <code>null</code>, opaque types, a few hand-written files</td><td>The rules are code too, so they need review</td></tr><tr class="fragment"><td>Agents work on the translator, never on the port</td><td>One "generator" for Mermaid only contained 187 pieces of the old agent port, copied byte for byte</td></tr><tr class="fragment"><td>Tests decide</td><td>An agent switched off 28 test suites and reported "0 failures"; another switched off 23 tests half an hour after regenerating the code</td></tr><tr class="fragment"><td>Generated code is never edited by hand</td><td>Agents patched it with find-and-replace and loosened test assertions; all reverted later</td></tr><tr class="fragment"><td>Same input, same output</td><td>Compiling is not the same as correct: a lost <code>break</code>, a wrong equality check; only running the tests found them</td></tr></tbody></table>
 <p class="fragment slide-punch">The limit is now test coverage, not honesty.</p>
 ++++
 
 [NOTE.speaker]
 --
-Baltic Porter translates Java to Scala deterministically. The agents don't port anything. They improve the translator and measure it.
+Baltic Porter translates Java to Scala. Same input, same output, every time. The agents don't port anything. They improve the translator and measure it.
 (click) Each project has its own rules on top: Scala names, Nullable instead of null, opaque types.
-(click) Agents still tried to cheat. One "generator" just copied the old code, byte for byte.
+(click) Agents still tried to cheat. One "generator" just contained the old code, copied byte for byte.
 (click) Another switched off twenty-eight test suites and reported zero failures.
 (click) Another patched the generated code by hand.
 (click) And the translator itself had the same kinds of bugs the agents made. (pause) The difference: this time we caught all of it. The tests decide, and the tool does the counting, not the agent.
@@ -158,13 +159,17 @@ Part two: the boring part that nobody had built. Shipping Scala to every platfor
 // 7 (~1 min): the native pieces behind one Scala codebase
 
 ++++
-<table class="versus solves four"><thead><tr><th>In libGDX</th><th>JVM</th><th>Scala Native</th><th>Browser</th></tr></thead><tbody><tr class="fragment"><td>LWJGL (OpenGL)</td><td>ANGLE via Panama</td><td>ANGLE via <code>@extern</code></td><td>WebGL</td></tr><tr class="fragment"><td>LWJGL (windows, audio)</td><td>GLFW, miniaudio via Panama</td><td>GLFW, miniaudio</td><td>DOM, Web Audio</td></tr><tr class="fragment"><td>jnigen natives (buffers, images)</td><td>Rust library via Panama</td><td>same library, same C interface</td><td>pure Scala</td></tr><tr class="fragment"><td>FreeType (fonts)</td><td>Rust wrapper via Panama</td><td>static library</td><td><i>none</i></td></tr><tr class="fragment"><td>Box2D / Bullet (physics)</td><td>Rapier via Panama</td><td>static library</td><td>Rapier as WASM</td></tr></tbody></table>
+<table class="versus solves four"><thead><tr><th>In libGDX</th><th>JVM</th><th>Scala Native</th><th>Browser</th></tr></thead><tbody><tr class="fragment"><td>LWJGL (OpenGL)</td><td>ANGLE via Panama</td><td>ANGLE via <code>@extern</code></td><td>WebGL</td></tr><tr class="fragment"><td>LWJGL (windows, audio)</td><td>GLFW, miniaudio via Panama</td><td>GLFW, miniaudio</td><td>DOM, Web Audio</td></tr><tr class="fragment"><td>libGDX's own C code (buffers, images)</td><td>Rust library via Panama</td><td>same library, same C interface</td><td>pure Scala</td></tr><tr class="fragment"><td>FreeType (fonts)</td><td>Rust wrapper via Panama</td><td>static library</td><td><i>none</i></td></tr><tr class="fragment"><td>Box2D / Bullet (physics)</td><td>Rapier via Panama</td><td>static library</td><td>Rapier as WASM</td></tr></tbody></table>
 ++++
 
 [NOTE.speaker]
 --
-Even in Scala, a game needs native code: graphics, windows, audio, fonts, physics.
-(click) (click) (click) (click) (click)
+Even in Scala, a game needs native code.
+(click) Graphics: ANGLE, Google's OpenGL implementation. Panama is Java's new way to call C.
+(click) Windows and audio: GLFW and miniaudio.
+(click) libGDX's own C code became one small Rust library.
+(click) Fonts: FreeType.
+(click) Physics: Rapier, a Rust engine. That one was a deliberate replacement: it also compiles to WebAssembly, so physics works in the browser too.
 Every native library gets one C interface. The JVM calls it through Panama. Android through a backport of Panama. Scala Native calls it directly. (pause) No JNI anywhere.
 But every one of these libraries has to be built for every platform, and delivered to every build.
 --
@@ -175,13 +180,13 @@ But every one of these libraries has to be built for every platform, and deliver
 // 8 (~1.5 min): what multiarch-scala adds
 
 ++++
-<table class="versus solves"><thead><tr><th>Problem before</th><th>What multiarch-scala adds</th></tr></thead><tbody><tr class="fragment"><td>JVM: no standard way to ship and load native libraries</td><td>Provider JARs with a manifest, and a loader: detect the platform, extract, load</td></tr><tr class="fragment"><td>Scala Native: the library must be installed on the system, and you write the linker flags yourself</td><td>The provider JAR carries static libraries and linker flags per platform; resolving dependencies is enough to link</td></tr><tr class="fragment"><td>You can only build for the machine you are on</td><td>Native binaries cross-compiled with zig; desktop JVM apps packaged for every system from one host</td></tr><tr class="fragment"><td>No maintained sbt Android plugin</td><td>An Android plugin: dexing, resources, signing</td></tr><tr class="fragment"><td>Scala.js: no classpath, no <code>ServiceLoader</code></td><td>Assets embedded at build time behind one resource API; a ServiceLoader generated at compile time</td></tr></tbody></table>
+<table class="versus solves"><thead><tr><th>Problem before</th><th>What multiarch-scala adds</th></tr></thead><tbody><tr class="fragment"><td>JVM: no standard way to ship and load native libraries</td><td>A JAR with the native library for each platform, plus a small description file; a loader picks the right one and loads it</td></tr><tr class="fragment"><td>Scala Native: install the library on the system yourself, and write the linker flags yourself</td><td>The same kind of JAR carries ready-to-link libraries and their flags; adding the dependency is enough</td></tr><tr class="fragment"><td>You can only build for the machine you are on</td><td>Native binaries cross-compiled with zig; desktop JVM apps packaged for every system from one machine</td></tr><tr class="fragment"><td>No maintained sbt plugin for Android</td><td>An Android plugin: converting to Android bytecode, resources, signing</td></tr><tr class="fragment"><td>Scala.js: no classpath, no <code>ServiceLoader</code></td><td>Assets embedded at build time behind one API; a ServiceLoader generated at compile time</td></tr></tbody></table>
 ++++
 
 [NOTE.speaker]
 --
 The core idea: a native library should be a dependency like any other.
-(click) On the JVM, there was no standard way to ship one. Now it's a JAR with a manifest, and a loader.
+(click) On the JVM, there was no standard way to ship one. Now it's a JAR with the library for each platform, and a loader that picks the right one.
 (click) On Scala Native, you had to install the library yourself and pass linker flags. Now the JAR carries them. (pause) Adding a dependency is enough.
 (click) You could only build for your own machine. Now native binaries are cross-compiled with zig, and desktop apps are packaged for every system from one laptop.
 (click) Android got its own plugin.
@@ -194,7 +199,7 @@ The core idea: a native library should be a dependency like any other.
 === What we still haven't fixed
 
 ++++
-<div class="two-lists"><div class="upstream"><h4>Upstream: Scala Native</h4><ul><li class="fragment">No iOS support, so no iOS backend at all</li><li class="fragment">No Windows on ARM; those builds ship untested</li><li class="fragment">Shipping native libraries is still not part of Scala Native itself</li></ul></div><div class="ours"><h4>Our own backlog</h4><ul><li class="fragment">Android: code shrinking and older Android versions</li><li class="fragment">No GPU in CI, so graphics tests run on a software renderer</li></ul></div></div>
+<div class="two-lists"><div class="upstream"><h4>Upstream: Scala Native</h4><ul><li class="fragment">No iOS support, so no iOS backend at all</li><li class="fragment">Scala Native can't build for Windows on ARM</li><li class="fragment">Shipping native libraries still needs a plugin</li></ul></div><div class="ours"><h4>Our own backlog</h4><ul><li class="fragment">Android: code shrinking and older Android versions</li><li class="fragment">No GPU in CI, so graphics tests run on a software renderer</li></ul></div></div>
 ++++
 
 [NOTE.speaker]
@@ -214,14 +219,15 @@ So where am I today? (pause) Honestly.
 === SGE: what is generated, what is left
 
 ++++
-<table class="data sge"><thead><tr><th>Part of SGE</th><th>State</th><th>Still maintained by hand</th></tr></thead><tbody><tr class="fragment"><td>libGDX core</td><td>generated from upstream at build time</td><td>5 hand-written overrides</td></tr><tr class="fragment"><td>Utilities and 6 small extensions</td><td>generated</td><td>almost nothing</td></tr><tr class="fragment"><td>The other ~690 extension files</td><td>porting rules not written yet</td><td>still the agent port</td></tr></tbody></table>
-<p class="tl-foot">Tests pass on JVM, JS and Native</p>
+<table class="data sge"><thead><tr><th>Part of SGE</th><th>State</th><th>Still maintained by hand</th></tr></thead><tbody><tr class="fragment"><td>libGDX core</td><td>generated from upstream at build time</td><td>5 hand-written overrides</td></tr><tr class="fragment"><td>Utilities and 5 small extensions</td><td>generated</td><td>almost nothing</td></tr><tr class="fragment"><td>The other ~690 extension files</td><td>porting rules not written yet</td><td>still the agent port</td></tr></tbody></table>
+<p class="fragment tl-foot">Tests pass on JVM, JS and Native</p>
 ++++
 
 [NOTE.speaker]
 --
-(click) The libGDX core is fully generated. Five files are written by hand. (click) The utilities and six small extensions are generated too.
+(click) The libGDX core is fully generated. Five files are written by hand. (click) The utilities and five small extensions are generated too.
 (click) About six hundred ninety extension files are still the old agent port. Their rules are not written yet.
+(click) And the tests pass on all three platforms.
 --
 
 // TODO before the talk: confirm noise, anim8, jbump, guacamole and screens are merged on master.
@@ -230,12 +236,12 @@ So where am I today? (pause) Honestly.
 === Plain translation vs SGE's conventions
 
 ++++
-<div class="split"><div class="bar"><div class="seg uni" style="width:36%">plain Java → Scala translation<br><b>36%</b></div><div class="seg conv" style="width:64%">SGE's own design on top<br><b>64%</b></div></div><p class="tl-foot">Share of the translator's recorded decisions for SGE core</p><ul class="conv-list"><li class="fragment"><b>3,710</b><span>bean getters/setters and empty parentheses removed</span></li><li class="fragment"><b>1,083</b><span><code>Nullable</code> instead of <code>null</code></span></li><li class="fragment"><b>398</b><span>opaque types (<code>Pixels</code>, <code>Align</code>, <code>Input.Button</code>, …)</span></li><li class="fragment"><b>282</b><span>an <code>Sge</code> context instead of global variables</span></li></ul></div>
+<div class="split"><div class="bar"><div class="seg uni" style="width:36%">plain Java → Scala translation<br><b>36%</b></div><div class="seg conv" style="width:64%">SGE's own design on top<br><b>64%</b></div></div><p class="tl-foot">Every change the translator makes to SGE core, by kind</p><ul class="conv-list"><li class="fragment"><b>3,710</b><span><code>getX()</code>/<code>setX()</code> turned into Scala properties, empty <code>()</code> dropped</span></li><li class="fragment"><b>1,083</b><span><code>Nullable</code> instead of <code>null</code></span></li><li class="fragment"><b>398</b><span>opaque types (<code>Pixels</code>, <code>Align</code>, <code>Input.Button</code>, …)</span></li><li class="fragment"><b>282</b><span>an <code>Sge</code> context instead of global variables</span></li></ul></div>
 ++++
 
 [NOTE.speaker]
 --
-A plain translation already gives you a working port. But two thirds of the decisions are SGE's own design on top.
+A plain translation already gives you a working port. But two thirds of what the translator changes is SGE's own design on top.
 (click) Scala-style names. (click) Nullable instead of null. (click) Opaque types. (click) A context instead of globals.
 (pause) That's what the porting rules are: my design, written down once, applied everywhere.
 --
@@ -254,39 +260,38 @@ A plain translation already gives you a working port. But two thirds of the deci
 
 [NOTE.speaker]
 --
-(click) (click) (click) Three pull requests. (click) About nine thousand lines added, a hundred and thirty thousand removed. The code didn't disappear: it's generated at build time, so I no longer maintain it.
-(pause) I still have little trust in the numbers the AI reports about itself.
-What I do trust: the tests keep passing, and the demos keep working and doing what I want, while the code I maintain keeps shrinking.
-If that trend holds, a few maintained lines will support a lot of functionality.
-The risk of AI slop in those lines is still there. But the slop I have to review is much smaller.
+(click) Switching SGE to the generated core. (click) Then cutting the hand-written files from eighty-nine to sixteen; today it's five. (click) Then generating one more library.
+(click) About nine thousand lines added, a hundred and thirty thousand removed. The code didn't disappear: it's generated at build time, so I no longer maintain it.
+(pause) I still don't trust the numbers the AI reports about itself. I trust that the tests and demos keep working, while the code I review keeps shrinking.
 --
 
 [.compact]
 === SSG: Java done, the rest is still an agent port
 
 ++++
-<table class="data ssg"><thead><tr><th>Libraries ported into SSG</th><th>Source language</th><th>State</th></tr></thead><tbody><tr class="fragment"><td>Markdown parser, Liquid templates</td><td>Java</td><td>generated, tests pass</td></tr><tr class="fragment"><td>KaTeX, terser, rough.js, Mermaid</td><td>TypeScript / JavaScript</td><td>still the agent port; 0–6% of method bodies translated</td></tr><tr class="fragment"><td>Sass compiler</td><td>Dart</td><td>still the agent port; nothing translated yet</td></tr><tr class="fragment"><td>HTML/CSS minifier</td><td>Ruby</td><td>agent port, no translator</td></tr></tbody></table>
-<p class="tl-foot">Over twelve thousand tests pass on every platform, but the non-Java ones still run the agent-written code</p>
+<table class="data ssg"><thead><tr><th>Libraries ported into SSG</th><th>Source language</th><th>State</th></tr></thead><tbody><tr class="fragment"><td>Markdown parser, Liquid templates</td><td>Java</td><td>generated, tests pass</td></tr><tr class="fragment"><td>KaTeX, terser, rough.js, Mermaid</td><td>TypeScript / JavaScript</td><td>still the agent port; 0–5% translated</td></tr><tr class="fragment"><td>Sass compiler</td><td>Dart</td><td>still the agent port; nothing translated yet</td></tr><tr class="fragment"><td>HTML/CSS minifier</td><td>Ruby</td><td>agent port, no translator</td></tr></tbody></table>
+<p class="fragment tl-foot">Over twelve thousand tests pass on every platform, but the non-Java ones still run the agent-written code</p>
 ++++
 
 [NOTE.speaker]
 --
 And SSG, the static site generator. (click) The Java libraries are generated, and their tests pass.
 (click) For TypeScript and JavaScript, the translator exists, but almost nothing comes out of it yet. (click) Sass, written in Dart: nothing yet. (click) And Ruby has no translator at all.
-(pause) The tests pass everywhere. But for the non-Java libraries, they still run the old agent port.
+(click) Over twelve thousand tests pass on every platform. (pause) But for the non-Java libraries, they still run the old agent port.
 --
 
 [.compact]
 === Ready, or a stepping stone?
 
 ++++
-<div class="two-lists"><div class="ours-ok"><h4>Java sources: almost ready</h4><ul><li class="fragment">libGDX core and utilities, SGE extensions, SSG's Markdown and Liquid</li><li class="fragment">Every change tested on JVM, JS and Native</li><li class="fragment">What can't be translated is counted; what stays hand-written is listed, with reasons</li><li class="fragment">Only snapshot builds so far, no release</li></ul></div><div class="ours"><h4>TypeScript / Dart / Ruby: a first step</h4><ul><li class="fragment">KaTeX, terser, rough.js, Sass, Mermaid, the minifier</li><li class="fragment">An agent-written skeleton, waiting for translated method bodies</li><li class="fragment">About 0–5% translated today</li></ul></div></div>
+<div class="two-lists"><div class="ours-ok"><h4>Java sources: almost ready</h4><ul><li class="fragment">libGDX core and utilities, SGE extensions, SSG's Markdown and Liquid</li><li class="fragment">Every change tested on JVM, JS and Native</li><li class="fragment">What can't be translated is counted; what stays hand-written is listed, with reasons</li><li class="fragment">Only snapshot builds so far, no release</li></ul></div><div class="ours"><h4>TypeScript / Dart / Ruby: a first step</h4><ul><li class="fragment">KaTeX, terser, rough.js, Sass, Mermaid, the minifier</li><li class="fragment">The agent port's structure, waiting for translated method bodies</li><li class="fragment">About 0–5% translated today</li></ul></div></div>
 ++++
 
 [NOTE.speaker]
 --
-So: is it ready? (click) (click) (click) (click) For Java sources, almost. Every change is tested on three platforms, and nothing is hidden.
-(click) (click) (click) For everything else, it's a first step. (pause) Remember the deceptive demo? This is what "first iteration" means.
+So: is it ready? For Java sources, almost.
+(click) The libGDX core, SGE, and SSG's Java libraries. (click) Every change tested on three platforms. (click) Nothing hidden: what can't be translated is counted, and every hand-written file has a reason. (click) But no release yet, only snapshots.
+(click) For everything else, it's a first step. (click) The agent port's structure is there, (click) and the translator fills in only a few percent of it today. (pause) Remember the deceptive demo? This is what "first iteration" means.
 --
 
 == Summary
@@ -319,12 +324,12 @@ Let me sum up.
 === Scala on every platform
 
 [%step]
-* Scala targets natively what Java reaches with hacks: a separate AOT compiler for iOS, a Java-to-JavaScript compiler built outside the language
+* Scala already compiles to the browser and to native code; Java needs separate external compilers for both
 * The community already builds tooling for multiple platforms, without weird hacks in the build
 
 [NOTE.speaker]
 --
-(click) Java reaches iOS and the browser with hacks: a separate compiler for each. (pause) Scala can target them natively.
+(click) Scala already compiles to the browser and to native code, as part of the language. (pause) Java needs a separate, external compiler for each. iOS is still missing for Scala, but that's one missing piece, not a missing approach.
 (click) And our community already builds tools for many platforms, without strange tricks in the build.
 --
 
@@ -368,3 +373,13 @@ Thank you. Questions?
 --
 
 == Thank you!
+
+++++
+<ul class="links">
+<li><b>SGE</b>, the game engine: <a href="https://github.com/kubuszok/sge">github.com/kubuszok/sge</a></li>
+<li><b>SSG</b>, the site generator: <a href="https://github.com/kubuszok/ssg">github.com/kubuszok/ssg</a></li>
+<li><b>Baltic Porter</b>, the translator: <a href="https://github.com/kubuszok/balticporter">github.com/kubuszok/balticporter</a></li>
+<li><b>multiarch-scala</b>, the build plugins: <a href="https://github.com/kubuszok/multiarch-scala">github.com/kubuszok/multiarch-scala</a></li>
+<li><b>re-scale</b>, the port checker: <a href="https://github.com/kubuszok/re-scale">github.com/kubuszok/re-scale</a></li>
+</ul>
+++++
