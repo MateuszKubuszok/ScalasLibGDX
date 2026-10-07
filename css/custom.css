@@ -73,3 +73,20 @@
 .reveal table.versus.three td:first-child { width: 28%; }
 .reveal table.versus.three td:nth-child(2) { width: 30%; color: inherit; font-weight: normal; }
 .reveal table.versus.three td:last-child { color: inherit; }
+
+/* Problem / solution tables (Part II) */
+.reveal table.versus.solves td:first-child { width: 38%; }
+.reveal table.versus.solves td:last-child { color: inherit; }
+.reveal table.versus.four td { width: 25%; font-weight: normal; color: inherit; }
+.reveal table.versus.four td:first-child { font-weight: bold; }
+.reveal table.versus.missing td { width: 50%; font-weight: normal; }
+.reveal table.versus.missing td:first-child { color: #8a2a24; }
+.reveal table.versus.missing td:last-child { color: #8a5a10; }
+
+/* Two independent lists side by side */
+.reveal .two-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; text-align: left; font-size: .62em; }
+.reveal .two-lists h4 { font-size: 1.1em; margin: 0 0 .5em; border-bottom: 2px solid #383D3D; padding-bottom: .2em; }
+.reveal .two-lists ul { margin: 0; padding-left: 1.1em; }
+.reveal .two-lists li { margin: .45em 0; }
+.reveal .two-lists .upstream li { color: #8a2a24; }
+.reveal .two-lists .ours li { color: #8a5a10; }
