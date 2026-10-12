@@ -120,3 +120,6 @@
 /* links on the closing slide */
 .reveal ul.links { list-style: none; margin: 0.6em auto 0; font-size: 0.62em; text-align: left; display: inline-block; }
 .reveal ul.links li { margin: 0.35em 0; }
+
+/* looping video clip, scaled up from 500×372 */
+.reveal video.loop-clip { width: 750px; max-height: 600px; height: auto; display: block; margin: 0 auto; }
